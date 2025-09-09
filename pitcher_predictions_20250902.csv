@@ -1,0 +1,12 @@
+date,away_team,home_team,predicted_winner,home_win_probability,confidence,home_pitcher,away_pitcher,home_pitcher_era,away_pitcher_era,pitcher_advantage
+2025-09-02,Toronto Blue Jays,Cincinnati Reds,HOME,0.7136624423735877,HIGH,Scott Barlow,José Berríos,3.26,3.95,-0.6900000000000004
+2025-09-02,Miami Marlins,Washington Nationals,HOME,0.5642043029939259,LOW,Cade Cavalli,Adam Mazur,5.11,5.59,-0.47999999999999954
+2025-09-02,Seattle Mariners,Tampa Bay Rays,HOME,0.5471164460188496,LOW,Drew Rasmussen,Bryan Woo,2.64,2.95,-0.31000000000000005
+2025-09-02,Los Angeles Angels,Kansas City Royals,HOME,0.620124997549518,MEDIUM,Michael Lorenzen,Mitch Farris,4.62,4.5,0.1200000000000001
+2025-09-02,Atlanta Braves,Chicago Cubs,HOME,0.5719684092440722,LOW,Shota Imanaga,Joey Wentz,3.08,4.92,-1.8399999999999999
+2025-09-02,Chicago White Sox,Minnesota Twins,AWAY,0.42265581884002934,LOW,Simeon Woods Richardson,Davis Martin,4.59,4.03,0.5599999999999996
+2025-09-02,Athletics,St. Louis Cardinals,AWAY,0.48123544482116243,LOW,Miles Mikolas,Luis Severino,5.04,4.82,0.21999999999999975
+2025-09-02,New York Yankees,Houston Astros,AWAY,0.47243082843082856,LOW,Framber Valdez,Max Fried,3.18,3.06,0.1200000000000001
+2025-09-02,San Francisco Giants,Colorado Rockies,AWAY,0.3524066775635403,MEDIUM,Kyle Freeland,Logan Webb,5.28,3.16,2.12
+2025-09-02,Baltimore Orioles,San Diego Padres,HOME,0.5044005834160125,LOW,Yu Darvish,Tyler Wells,5.66,4.5,1.1600000000000001
+2025-09-02,Texas Rangers,Arizona Diamondbacks,AWAY,0.28281626673979626,HIGH,Nabil Crismatt,Unknown,1.84,0.0,-2.66

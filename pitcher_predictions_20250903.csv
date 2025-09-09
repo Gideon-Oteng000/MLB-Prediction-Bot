@@ -1,0 +1,16 @@
+date,away_team,home_team,predicted_winner,home_win_probability,confidence,home_pitcher,away_pitcher,home_pitcher_era,away_pitcher_era,pitcher_advantage
+2025-09-03,Miami Marlins,Washington Nationals,HOME,0.5166842808634154,LOW,Mitchell Parker,Eury Pérez,5.94,4.04,1.9000000000000004
+2025-09-03,New York Mets,Detroit Tigers,AWAY,0.35941929539022577,MEDIUM,Casey Mize,Clay Holmes,3.95,3.6,0.3500000000000001
+2025-09-03,Texas Rangers,Arizona Diamondbacks,HOME,0.5735250261720847,LOW,Zac Gallen,Jack Leiter,4.94,3.77,1.1700000000000004
+2025-09-03,Baltimore Orioles,San Diego Padres,AWAY,0.45346384593455535,LOW,Nestor Cortes,Cade Povich,5.06,5.04,0.019999999999999574
+2025-09-03,Los Angeles Dodgers,Pittsburgh Pirates,HOME,0.7473714966003216,HIGH,Braxton Ashcraft,Shohei Ohtani,2.58,4.18,-1.5999999999999996
+2025-09-03,Toronto Blue Jays,Cincinnati Reds,HOME,0.6225810488414527,MEDIUM,Zack Littell,Shane Bieber,3.63,2.38,1.25
+2025-09-03,Cleveland Guardians,Boston Red Sox,HOME,0.6118035738771035,MEDIUM,Brennan Bernardino,Joey Cantillo,3.08,3.93,-0.8500000000000001
+2025-09-03,Seattle Mariners,Tampa Bay Rays,HOME,0.6807037407037406,HIGH,Adrian Houser,George Kirby,2.85,3.94,-1.0899999999999999
+2025-09-03,Los Angeles Angels,Kansas City Royals,AWAY,0.421550349049205,LOW,Ryan Bergert,Caden Dana,2.67,7.5,-4.83
+2025-09-03,Atlanta Braves,Chicago Cubs,HOME,0.5736299111939843,LOW,Cade Horton,Bryce Elder,2.92,5.85,-2.9299999999999997
+2025-09-03,Chicago White Sox,Minnesota Twins,AWAY,0.4248102934102934,LOW,Zebby Matthews,Yoendrys Gómez,5.06,5.2,-0.14000000000000057
+2025-09-03,Philadelphia Phillies,Milwaukee Brewers,AWAY,0.4426399123752064,LOW,Jose Quintana,Aaron Nola,3.69,6.47,-2.78
+2025-09-03,Athletics,St. Louis Cardinals,AWAY,0.3165193151961278,HIGH,Matthew Liberatore,Jeffrey Springs,4.32,4.17,0.15000000000000036
+2025-09-03,New York Yankees,Houston Astros,AWAY,0.320937506937507,HIGH,Jason Alexander,Will Warren,4.61,4.3,0.3100000000000005
+2025-09-03,San Francisco Giants,Colorado Rockies,AWAY,0.3841304991304991,MEDIUM,Germán Márquez,Robbie Ray,6.14,3.18,2.9599999999999995

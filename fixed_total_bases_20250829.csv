@@ -1,0 +1,49 @@
+player,team,opponent,predicted_tb,recommendation,confidence,power_tier
+Gunnar Henderson,Baltimore Orioles,San Francisco Giants,2.0930859323561526,OVER 1.5 TB,HIGH,high
+Gunnar Henderson,Baltimore Orioles,San Francisco Giants,2.0930859323561526,UNDER 2.5 TB,MEDIUM,high
+Adley Rutschman,Baltimore Orioles,San Francisco Giants,1.8310973881182748,OVER 1.5 TB,MEDIUM,medium
+Adley Rutschman,Baltimore Orioles,San Francisco Giants,1.8310973881182748,UNDER 2.5 TB,MEDIUM,medium
+Vladimir Guerrero Jr.,Toronto Blue Jays,Milwaukee Brewers,1.9374883443691313,OVER 1.5 TB,MEDIUM,high
+Vladimir Guerrero Jr.,Toronto Blue Jays,Milwaukee Brewers,1.9374883443691313,UNDER 2.5 TB,MEDIUM,high
+Rafael Devers,Boston Red Sox,Pittsburgh Pirates,2.1736140256820664,OVER 1.5 TB,HIGH,high
+Rafael Devers,Boston Red Sox,Pittsburgh Pirates,2.1736140256820664,UNDER 2.5 TB,MEDIUM,high
+Pete Alonso,New York Mets,Miami Marlins,1.8483175599573678,OVER 1.5 TB,MEDIUM,high
+Pete Alonso,New York Mets,Miami Marlins,1.8483175599573678,UNDER 2.5 TB,MEDIUM,high
+Francisco Lindor,New York Mets,Miami Marlins,1.8784580887498705,OVER 1.5 TB,MEDIUM,high
+Francisco Lindor,New York Mets,Miami Marlins,1.8784580887498705,UNDER 2.5 TB,MEDIUM,high
+Ronald Acuña Jr.,Atlanta Braves,Philadelphia Phillies,2.279587043497517,OVER 1.5 TB,HIGH,elite
+Matt Olson,Atlanta Braves,Philadelphia Phillies,1.992479855511408,OVER 1.5 TB,MEDIUM,high
+Matt Olson,Atlanta Braves,Philadelphia Phillies,1.992479855511408,UNDER 2.5 TB,MEDIUM,high
+Austin Riley,Atlanta Braves,Philadelphia Phillies,1.943748670144359,OVER 1.5 TB,MEDIUM,high
+Austin Riley,Atlanta Braves,Philadelphia Phillies,1.943748670144359,UNDER 2.5 TB,MEDIUM,high
+Bryce Harper,Philadelphia Phillies,Atlanta Braves,2.335432080701868,OVER 1.5 TB,HIGH,elite
+Trea Turner,Philadelphia Phillies,Atlanta Braves,2.078454676889266,OVER 1.5 TB,HIGH,high
+Trea Turner,Philadelphia Phillies,Atlanta Braves,2.078454676889266,UNDER 2.5 TB,MEDIUM,high
+Kyle Schwarber,Philadelphia Phillies,Atlanta Braves,1.78844067308563,OVER 1.5 TB,MEDIUM,high
+Aaron Judge,New York Yankees,Chicago White Sox,2.568623562013689,OVER 1.5 TB,HIGH,elite
+Juan Soto,New York Yankees,Chicago White Sox,2.279309371020613,OVER 1.5 TB,HIGH,elite
+Giancarlo Stanton,New York Yankees,Chicago White Sox,1.8652395576308174,OVER 1.5 TB,MEDIUM,high
+Giancarlo Stanton,New York Yankees,Chicago White Sox,1.8652395576308174,UNDER 2.5 TB,MEDIUM,high
+Andrew Vaughn,Chicago White Sox,New York Yankees,1.1751305293616012,UNDER 1.5 TB,MEDIUM,low
+Yordan Alvarez,Houston Astros,Los Angeles Angels,2.254765322955604,OVER 1.5 TB,HIGH,elite
+Alex Bregman,Houston Astros,Los Angeles Angels,2.226061879454199,OVER 1.5 TB,HIGH,high
+Kyle Tucker,Houston Astros,Los Angeles Angels,2.064656028325849,OVER 1.5 TB,HIGH,high
+Kyle Tucker,Houston Astros,Los Angeles Angels,2.064656028325849,UNDER 2.5 TB,MEDIUM,high
+Jose Altuve,Houston Astros,Los Angeles Angels,1.9518401322224472,OVER 1.5 TB,MEDIUM,medium
+Jose Altuve,Houston Astros,Los Angeles Angels,1.9518401322224472,UNDER 2.5 TB,MEDIUM,medium
+Carlos Correa,Minnesota Twins,San Diego Padres,1.1345630445601484,UNDER 1.5 TB,MEDIUM,medium
+Gunnar Henderson,Baltimore Orioles,San Francisco Giants,1.982433005155295,OVER 1.5 TB,MEDIUM,high
+Gunnar Henderson,Baltimore Orioles,San Francisco Giants,1.982433005155295,UNDER 2.5 TB,MEDIUM,high
+José Ramírez,Cleveland Guardians,Seattle Mariners,1.7593818359692983,OVER 1.5 TB,MEDIUM,high
+Salvador Perez,Kansas City Royals,Detroit Tigers,1.1964065593142041,UNDER 1.5 TB,MEDIUM,medium
+Ryan McMahon,Colorado Rockies,Chicago Cubs,1.9724431437583816,OVER 1.5 TB,MEDIUM,low
+Ryan McMahon,Colorado Rockies,Chicago Cubs,1.9724431437583816,UNDER 2.5 TB,MEDIUM,low
+Mookie Betts,Los Angeles Dodgers,Arizona Diamondbacks,2.092687211638247,OVER 1.5 TB,HIGH,elite
+Mookie Betts,Los Angeles Dodgers,Arizona Diamondbacks,2.092687211638247,UNDER 2.5 TB,MEDIUM,elite
+Freddie Freeman,Los Angeles Dodgers,Arizona Diamondbacks,1.9128232844241673,OVER 1.5 TB,MEDIUM,high
+Freddie Freeman,Los Angeles Dodgers,Arizona Diamondbacks,1.9128232844241673,UNDER 2.5 TB,MEDIUM,high
+Corey Seager,Texas Rangers,Oakland Athletics,1.9548820885492593,OVER 1.5 TB,MEDIUM,high
+Corey Seager,Texas Rangers,Oakland Athletics,1.9548820885492593,UNDER 2.5 TB,MEDIUM,high
+Brent Rooker,Oakland Athletics,Texas Rangers,0.9728239779589206,UNDER 1.5 TB,HIGH,medium
+Seth Brown,Oakland Athletics,Texas Rangers,0.8351252213644083,UNDER 1.5 TB,HIGH,low
+Abraham Toro,Oakland Athletics,Texas Rangers,0.8,UNDER 1.5 TB,HIGH,low

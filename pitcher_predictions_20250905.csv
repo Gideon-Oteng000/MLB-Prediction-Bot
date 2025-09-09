@@ -1,0 +1,15 @@
+date,away_team,home_team,predicted_winner,home_win_probability,confidence,home_pitcher,away_pitcher,home_pitcher_era,away_pitcher_era,pitcher_advantage
+2025-09-05,New York Mets,Cincinnati Reds,AWAY,0.35748098455653626,MEDIUM,Andrew Abbott,David Peterson,2.65,3.61,-0.96
+2025-09-05,Chicago White Sox,Detroit Tigers,HOME,0.54381821364812,LOW,Jack Flaherty,Shane Smith,4.74,3.81,0.9300000000000002
+2025-09-05,Milwaukee Brewers,Pittsburgh Pirates,HOME,0.5898461604829175,MEDIUM,Johan Oviedo,Quinn Priester,3.6,3.28,0.3200000000000003
+2025-09-05,Los Angeles Dodgers,Baltimore Orioles,AWAY,0.42947560541868246,LOW,Dean Kremer,Shohei Ohtani,4.52,4.18,0.33999999999999986
+2025-09-05,Toronto Blue Jays,New York Yankees,HOME,0.5356361880104168,LOW,Cam Schlittler,Kevin Gausman,2.61,3.75,-1.1400000000000001
+2025-09-05,Philadelphia Phillies,Miami Marlins,HOME,0.5384129605537419,LOW,Valente Bellozo,Cristopher Sánchez,3.91,2.66,1.25
+2025-09-05,Seattle Mariners,Atlanta Braves,HOME,0.5331913546777731,LOW,Chris Sale,Logan Gilbert,2.45,3.73,-1.2799999999999998
+2025-09-05,Cleveland Guardians,Tampa Bay Rays,HOME,0.6582994597994595,HIGH,Griffin Jax,Gavin Williams,4.98,3.26,1.7200000000000006
+2025-09-05,Minnesota Twins,Kansas City Royals,AWAY,0.4515204085560123,LOW,Michael Wacha,Pablo López,3.52,2.82,0.7000000000000002
+2025-09-05,Houston Astros,Texas Rangers,HOME,0.7533728824781455,HIGH,Merrill Kelly,Colton Gordon,3.24,5.64,-2.3999999999999995
+2025-09-05,San Francisco Giants,St. Louis Cardinals,AWAY,0.42333116014253364,LOW,Michael McGreevy,Carson Seymour,4.17,4.74,-0.5700000000000003
+2025-09-05,San Diego Padres,Colorado Rockies,AWAY,0.3016703754256122,HIGH,Kyle Freeland,Nick Pivetta,5.41,2.84,2.5700000000000003
+2025-09-05,Athletics,Los Angeles Angels,HOME,0.5322892015392016,LOW,José Soriano,Mason Barnett,3.68,11.25,-7.57
+2025-09-05,Boston Red Sox,Arizona Diamondbacks,HOME,0.5237814418696771,LOW,Eduardo Rodriguez,Payton Tolle,5.4,3.38,2.0200000000000005

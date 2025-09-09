@@ -1,0 +1,76 @@
+type,game,prediction,confidence
+Moneyline,St. Louis Cardinals @ Cincinnati Reds,St. Louis Cardinals,HIGH
+Run Line,St. Louis Cardinals @ Cincinnati Reds,St. Louis Cardinals -1.5,HIGH
+Total,St. Louis Cardinals @ Cincinnati Reds,UNDER 9.5,HIGH
+Run Line,Atlanta Braves @ Philadelphia Phillies,Philadelphia Phillies -1.5,HIGH
+Total,Atlanta Braves @ Philadelphia Phillies,OVER 5.5,HIGH
+Moneyline,Tampa Bay Rays @ Washington Nationals,Tampa Bay Rays,MEDIUM
+Run Line,Tampa Bay Rays @ Washington Nationals,Tampa Bay Rays -1.5,HIGH
+Moneyline,Milwaukee Brewers @ Toronto Blue Jays,Milwaukee Brewers,HIGH
+Total,Milwaukee Brewers @ Toronto Blue Jays,OVER 3.5,HIGH
+Moneyline,Pittsburgh Pirates @ Boston Red Sox,Boston Red Sox,MEDIUM
+Run Line,Pittsburgh Pirates @ Boston Red Sox,Pittsburgh Pirates +1.5,MEDIUM
+Total,Pittsburgh Pirates @ Boston Red Sox,OVER 5.5,HIGH
+Moneyline,Seattle Mariners @ Cleveland Guardians,Seattle Mariners,HIGH
+Run Line,Seattle Mariners @ Cleveland Guardians,Seattle Mariners -1.5,MEDIUM
+Total,Seattle Mariners @ Cleveland Guardians,UNDER 7.5,MEDIUM
+Moneyline,Miami Marlins @ New York Mets,New York Mets,HIGH
+Run Line,Miami Marlins @ New York Mets,New York Mets -1.5,HIGH
+Total,Miami Marlins @ New York Mets,UNDER 18.5,HIGH
+Moneyline,New York Yankees @ Chicago White Sox,New York Yankees,HIGH
+Run Line,New York Yankees @ Chicago White Sox,New York Yankees -1.5,HIGH
+Total,New York Yankees @ Chicago White Sox,OVER 8.5,HIGH
+Moneyline,Los Angeles Angels @ Houston Astros,Houston Astros,HIGH
+Run Line,Los Angeles Angels @ Houston Astros,Houston Astros -1.5,MEDIUM
+Total,Los Angeles Angels @ Houston Astros,UNDER 8.5,HIGH
+Run Line,Detroit Tigers @ Kansas City Royals,Kansas City Royals -1.5,HIGH
+Moneyline,San Diego Padres @ Minnesota Twins,San Diego Padres,HIGH
+Run Line,San Diego Padres @ Minnesota Twins,San Diego Padres -1.5,HIGH
+Moneyline,Chicago Cubs @ Colorado Rockies,Chicago Cubs,HIGH
+Run Line,Chicago Cubs @ Colorado Rockies,Chicago Cubs -1.5,HIGH
+Total,Chicago Cubs @ Colorado Rockies,UNDER 11.0,HIGH
+Moneyline,Texas Rangers @ Oakland Athletics,Texas Rangers,HIGH
+Run Line,Texas Rangers @ Oakland Athletics,Texas Rangers +1.5,HIGH
+Total,Texas Rangers @ Oakland Athletics,UNDER 10.5,HIGH
+Moneyline,Arizona Diamondbacks @ Los Angeles Dodgers,Los Angeles Dodgers,HIGH
+Run Line,Arizona Diamondbacks @ Los Angeles Dodgers,Los Angeles Dodgers -1.5,HIGH
+Total,Arizona Diamondbacks @ Los Angeles Dodgers,OVER 8.5,HIGH
+Moneyline,Baltimore Orioles @ San Francisco Giants,San Francisco Giants,HIGH
+Run Line,Baltimore Orioles @ San Francisco Giants,Baltimore Orioles +1.5,MEDIUM
+Total,Baltimore Orioles @ San Francisco Giants,OVER 7.5,MEDIUM
+Moneyline,Milwaukee Brewers @ Toronto Blue Jays,Milwaukee Brewers,HIGH
+Moneyline,Tampa Bay Rays @ Washington Nationals,Tampa Bay Rays,MEDIUM
+Run Line,Tampa Bay Rays @ Washington Nationals,Tampa Bay Rays -1.5,HIGH
+Total,Tampa Bay Rays @ Washington Nationals,UNDER 9.0,HIGH
+Moneyline,Pittsburgh Pirates @ Boston Red Sox,Boston Red Sox,MEDIUM
+Run Line,Pittsburgh Pirates @ Boston Red Sox,Pittsburgh Pirates +1.5,MEDIUM
+Total,Pittsburgh Pirates @ Boston Red Sox,UNDER 9.5,HIGH
+Moneyline,Miami Marlins @ New York Mets,New York Mets,HIGH
+Run Line,Miami Marlins @ New York Mets,New York Mets -1.5,HIGH
+Total,Miami Marlins @ New York Mets,OVER 7.5,HIGH
+Run Line,Atlanta Braves @ Philadelphia Phillies,Philadelphia Phillies -1.5,HIGH
+Total,Atlanta Braves @ Philadelphia Phillies,OVER 7.5,HIGH
+Moneyline,St. Louis Cardinals @ Cincinnati Reds,St. Louis Cardinals,HIGH
+Total,St. Louis Cardinals @ Cincinnati Reds,UNDER 8.5,HIGH
+Moneyline,New York Yankees @ Chicago White Sox,New York Yankees,HIGH
+Run Line,New York Yankees @ Chicago White Sox,New York Yankees -1.5,HIGH
+Total,New York Yankees @ Chicago White Sox,OVER 8.5,HIGH
+Moneyline,Los Angeles Angels @ Houston Astros,Houston Astros,HIGH
+Run Line,Los Angeles Angels @ Houston Astros,Houston Astros -1.5,MEDIUM
+Total,Los Angeles Angels @ Houston Astros,UNDER 8.5,HIGH
+Moneyline,San Diego Padres @ Minnesota Twins,San Diego Padres,HIGH
+Run Line,San Diego Padres @ Minnesota Twins,San Diego Padres -1.5,HIGH
+Total,San Diego Padres @ Minnesota Twins,UNDER 8.5,MEDIUM
+Moneyline,Baltimore Orioles @ San Francisco Giants,San Francisco Giants,HIGH
+Run Line,Baltimore Orioles @ San Francisco Giants,Baltimore Orioles -1.5,MEDIUM
+Total,Baltimore Orioles @ San Francisco Giants,OVER 7.5,MEDIUM
+Moneyline,Seattle Mariners @ Cleveland Guardians,Seattle Mariners,HIGH
+Run Line,Seattle Mariners @ Cleveland Guardians,Seattle Mariners -1.5,MEDIUM
+Total,Seattle Mariners @ Cleveland Guardians,UNDER 7.5,MEDIUM
+Total,Detroit Tigers @ Kansas City Royals,UNDER 9.0,MEDIUM
+Moneyline,Chicago Cubs @ Colorado Rockies,Chicago Cubs,HIGH
+Run Line,Chicago Cubs @ Colorado Rockies,Chicago Cubs -1.5,HIGH
+Total,Chicago Cubs @ Colorado Rockies,UNDER 11.0,HIGH
+Moneyline,Arizona Diamondbacks @ Los Angeles Dodgers,Los Angeles Dodgers,HIGH
+Run Line,Arizona Diamondbacks @ Los Angeles Dodgers,Los Angeles Dodgers -1.5,HIGH
+Total,Arizona Diamondbacks @ Los Angeles Dodgers,OVER 9.0,HIGH

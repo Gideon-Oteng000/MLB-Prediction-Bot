@@ -1,0 +1,49 @@
+player,team,predicted_tb,actual_tb,recommendation,confidence,hit,at_bats,hits,singles,doubles,triples,home_runs
+Gunnar Henderson,Baltimore Orioles,2.0930859323561526,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Gunnar Henderson,Baltimore Orioles,2.0930859323561526,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Adley Rutschman,Baltimore Orioles,1.8310973881182748,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Adley Rutschman,Baltimore Orioles,1.8310973881182748,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Vladimir Guerrero Jr.,Toronto Blue Jays,1.9374883443691315,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Vladimir Guerrero Jr.,Toronto Blue Jays,1.9374883443691315,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Rafael Devers,Boston Red Sox,2.1736140256820664,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Rafael Devers,Boston Red Sox,2.1736140256820664,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Pete Alonso,New York Mets,1.848317559957368,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Pete Alonso,New York Mets,1.848317559957368,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Francisco Lindor,New York Mets,1.8784580887498703,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Francisco Lindor,New York Mets,1.8784580887498703,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Ronald Acuña Jr.,Atlanta Braves,2.279587043497517,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Matt Olson,Atlanta Braves,1.992479855511408,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Matt Olson,Atlanta Braves,1.992479855511408,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Austin Riley,Atlanta Braves,1.943748670144359,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Austin Riley,Atlanta Braves,1.943748670144359,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Bryce Harper,Philadelphia Phillies,2.335432080701868,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Trea Turner,Philadelphia Phillies,2.078454676889266,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Trea Turner,Philadelphia Phillies,2.078454676889266,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Kyle Schwarber,Philadelphia Phillies,1.78844067308563,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Aaron Judge,New York Yankees,2.568623562013689,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Juan Soto,New York Yankees,2.279309371020613,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Giancarlo Stanton,New York Yankees,1.8652395576308172,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Giancarlo Stanton,New York Yankees,1.8652395576308172,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Andrew Vaughn,Chicago White Sox,1.1751305293616012,,UNDER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Yordan Alvarez,Houston Astros,2.254765322955604,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Alex Bregman,Houston Astros,2.226061879454199,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Kyle Tucker,Houston Astros,2.064656028325849,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Kyle Tucker,Houston Astros,2.064656028325849,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Jose Altuve,Houston Astros,1.9518401322224472,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Jose Altuve,Houston Astros,1.9518401322224472,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Carlos Correa,Minnesota Twins,1.1345630445601484,,UNDER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Gunnar Henderson,Baltimore Orioles,1.982433005155295,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Gunnar Henderson,Baltimore Orioles,1.982433005155295,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+José Ramírez,Cleveland Guardians,1.7593818359692983,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Salvador Perez,Kansas City Royals,1.196406559314204,,UNDER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Ryan McMahon,Colorado Rockies,1.9724431437583816,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Ryan McMahon,Colorado Rockies,1.9724431437583816,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Mookie Betts,Los Angeles Dodgers,2.092687211638247,,OVER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Mookie Betts,Los Angeles Dodgers,2.092687211638247,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Freddie Freeman,Los Angeles Dodgers,1.9128232844241675,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Freddie Freeman,Los Angeles Dodgers,1.9128232844241675,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Corey Seager,Texas Rangers,1.9548820885492595,,OVER 1.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Corey Seager,Texas Rangers,1.9548820885492595,,UNDER 2.5 TB,MEDIUM,DNP,0,0,0,0,0,0
+Brent Rooker,Oakland Athletics,0.9728239779589206,,UNDER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Seth Brown,Oakland Athletics,0.8351252213644083,,UNDER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
+Abraham Toro,Oakland Athletics,0.8,,UNDER 1.5 TB,HIGH,DNP,0,0,0,0,0,0
