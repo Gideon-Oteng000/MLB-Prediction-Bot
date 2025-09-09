@@ -218,6 +218,7 @@ if __name__ == "__main__":
     if proceed != 'y':
         print("Cancelled.")
         exit()
+        
     
     # Enhance data with pitcher stats
     df = enhance_games_with_pitchers()
