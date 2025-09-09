@@ -1,6 +1,0 @@
-date,away_team,home_team,predicted_winner,home_win_probability,confidence,home_pitcher,away_pitcher,home_pitcher_era,away_pitcher_era,pitcher_advantage
-2025-09-04,Los Angeles Dodgers,Pittsburgh Pirates,HOME,0.7848855035739585,HIGH,Paul Skenes,Blake Snell,2.05,2.41,-0.3600000000000003
-2025-09-04,Cleveland Guardians,Tampa Bay Rays,HOME,0.5888400359263104,MEDIUM,Ryan Pepiot,Logan Allen,3.7,4.42,-0.7199999999999998
-2025-09-04,Los Angeles Angels,Kansas City Royals,AWAY,0.3996727594573645,MEDIUM,Noah Cameron,Kyle Hendricks,2.92,4.89,-1.9699999999999998
-2025-09-04,Chicago White Sox,Minnesota Twins,AWAY,0.3497507336214234,HIGH,Taj Bradley,Fraser Ellard,4.82,4.82,0.0
-2025-09-04,New York Yankees,Houston Astros,HOME,0.5887706737706738,MEDIUM,Cristian Javier,Carlos Rodón,3.38,3.18,0.19999999999999973

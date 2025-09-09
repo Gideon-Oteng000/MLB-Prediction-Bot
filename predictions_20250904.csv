@@ -1,7 +1,0 @@
-date,away_team,home_team,predicted_winner,home_win_probability,confidence,game_time
-2025-09-04,Philadelphia Phillies,Milwaukee Brewers,HOME,0.5086574391992997,LOW,2025-09-04T20:10:00Z
-2025-09-04,Los Angeles Dodgers,Pittsburgh Pirates,HOME,0.5393923513325835,LOW,2025-09-04T22:40:00Z
-2025-09-04,Cleveland Guardians,Tampa Bay Rays,HOME,0.5370101767727249,LOW,2025-09-04T23:35:00Z
-2025-09-04,Los Angeles Angels,Kansas City Royals,HOME,0.5048708473908654,LOW,2025-09-04T23:40:00Z
-2025-09-04,Chicago White Sox,Minnesota Twins,AWAY,0.371906556147046,HIGH,2025-09-04T23:40:00Z
-2025-09-04,New York Yankees,Houston Astros,AWAY,0.49047655093416054,LOW,2025-09-04T23:40:00Z
