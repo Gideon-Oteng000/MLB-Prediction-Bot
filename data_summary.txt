@@ -1,6 +1,0 @@
-MLB Historical Data Summary
-==========================
-Total games: 7282
-Date range: 2022-04-07 to 2024-09-29
-Home win rate: 52.5%
-Data collected: 2025-08-26 15:20:46
