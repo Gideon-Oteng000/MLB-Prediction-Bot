@@ -9,4 +9,3 @@ date,away_team,home_team,predicted_winner,home_win_probability,confidence,game_t
 2025-09-08,St. Louis Cardinals,Seattle Mariners,AWAY,0.45465825462939075,LOW,2025-09-09T01:40:00Z
 2025-09-08,Arizona Diamondbacks,San Francisco Giants,HOME,0.5426387423521413,LOW,2025-09-09T01:45:00Z
 2025-09-08,Boston Red Sox,Athletics,HOME,0.5988738603003586,MEDIUM,2025-09-09T02:05:00Z
-2025-09-08,Colorado Rockies,Los Angeles Dodgers,HOME,0.5705171608883982,MEDIUM,2025-09-09T02:10:00Z
