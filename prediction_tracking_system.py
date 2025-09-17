@@ -52,7 +52,7 @@ class MLBPredictionTracker:
             if '-' in date:
                 date = datetime.strptime(date, '%Y-%m-%d').strftime('%Y%m%d')
         
-        filename = f"daily_predictions_{date}.csv"
+        filename = f"fixed_daily_predictions_{date}.csv"
         
         if os.path.exists(filename):
             df = pd.read_csv(filename)
@@ -61,17 +61,17 @@ class MLBPredictionTracker:
         else:
             print(f"❌ Prediction file {filename} not found")
             print("Available prediction files:")
-            prediction_files = glob.glob("daily_predictions_*.csv")
+            prediction_files = glob.glob("fixed_daily_predictions_*.csv")
             for file in sorted(prediction_files)[-5:]:  # Show last 5 files
                 print(f"  • {file}")
             return None
     
     def get_available_prediction_dates(self):
         """Get list of available prediction dates"""
-        prediction_files = glob.glob("daily_predictions_*.csv")
+        prediction_files = glob.glob("fixed_daily_predictions_*.csv")
         dates = []
         for file in prediction_files:
-            date_str = file.replace('daily_predictions_', '').replace('.csv', '')
+            date_str = file.replace('fixed_daily_predictions_', '').replace('.csv', '')
             try:
                 date_obj = datetime.strptime(date_str, '%Y%m%d')
                 dates.append(date_obj.strftime('%Y-%m-%d'))

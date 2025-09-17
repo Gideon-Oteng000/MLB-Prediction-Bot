@@ -76,79 +76,44 @@ class HybridDataCollector:
                 return []
             
             data = response.json()
-            all_games = []
-            scheduled_games = []
-            in_progress_games = []
-            completed_games = []
+            games = []
             
             if 'games' in data:
                 for game in data['games']:
-                    status = game.get('status', '')
-                    game_desc = f"{game['away']['name']} @ {game['home']['name']}"
-                    
-                    # Categorize games by status
-                    if status in ['closed', 'complete', 'final']:
-                        completed_games.append(game_desc)
-                    elif status in ['inprogress', 'in progress', 'live']:
-                        in_progress_games.append(game_desc)
-                    elif status in ['scheduled', 'created', 'pre-game']:
-                        # Only process scheduled games (not started yet)
+                    if game.get('status') not in ['closed', 'complete']:
                         game_info = {
                             'game_id': game['id'],
                             'home_team': game['home']['name'],
                             'away_team': game['away']['name'],
                             'venue': game.get('venue', {}).get('name', ''),
-                            'status': status,
-                            'scheduled_time': game.get('scheduled', ''),
+                            'status': game.get('status', ''),
                             'home_lineup': [],
                             'away_lineup': [],
                             'home_pitcher': None,
                             'away_pitcher': None
                         }
                         
-                        # Get detailed lineups for scheduled games only
+                        # Get detailed lineups
                         self._get_lineups_from_sportradar(game_info)
-                        scheduled_games.append(game_info)
+                        games.append(game_info)
             
-            # Print summary
-            print(f"\n📊 Game Status Summary:")
-            print(f"   ✅ Scheduled (predicting): {len(scheduled_games)} games")
-            if scheduled_games:
-                for game in scheduled_games:
-                    print(f"      • {game['away_team']} @ {game['home_team']} - {game.get('scheduled_time', 'TBD')}")
-            
-            print(f"   ⏩ In Progress (skipping): {len(in_progress_games)} games")
-            if in_progress_games:
-                for game in in_progress_games[:3]:  # Show first 3
-                    print(f"      • {game}")
-                if len(in_progress_games) > 3:
-                    print(f"      • ... and {len(in_progress_games) - 3} more")
-            
-            print(f"   ✓ Completed (skipping): {len(completed_games)} games")
-            
-            if not scheduled_games:
-                print("\n⚠️  No upcoming games to predict!")
-                print("   All games are either in-progress or completed.")
-                print("   For best results, run this 2-3 hours before first pitch.")
-            
-            return scheduled_games
+            print(f"   Found {len(games)} games with lineups")
+            return games
             
         except Exception as e:
             print(f"Error: {e}")
             return []
     
     def _get_lineups_from_sportradar(self, game_info):
-        """Get lineups from SportsRadar game summary with better error handling"""
+        """Get lineups from SportsRadar game summary"""
         endpoint = f"/games/{game_info['game_id']}/summary.json"
         url = f"{self.config.SPORTRADAR_BASE}{endpoint}?api_key={self.config.SPORTRADAR_KEY}"
         
         try:
-            # Add timeout to prevent hanging connections
-            response = requests.get(url, timeout=10)
-            time.sleep(1.5)  # Increased rate limiting to be safer
+            response = requests.get(url)
+            time.sleep(1.1)
             
             if response.status_code != 200:
-                print(f"   ⚠️ Could not get lineup for {game_info['away_team']} @ {game_info['home_team']}")
                 return
             
             data = response.json()
@@ -156,13 +121,6 @@ class HybridDataCollector:
                 return
             
             game_data = data['game']
-            
-            # Check if game status changed (might have started since schedule check)
-            current_status = game_data.get('status', '')
-            if current_status in ['inprogress', 'in progress', 'live', 'closed', 'complete']:
-                print(f"   ⏩ Skipping {game_info['away_team']} @ {game_info['home_team']} - game already {current_status}")
-                game_info['status'] = 'skip'
-                return
             
             # Process home team
             if 'home' in game_data:
@@ -216,13 +174,8 @@ class HybridDataCollector:
                                 'order': entry.get('order', 0)
                             })
                             
-        except (ConnectionAbortedError, ConnectionError, requests.exceptions.RequestException) as e:
-            print(f"   ⚠️ Connection error for {game_info['away_team']} @ {game_info['home_team']}")
-            print(f"      Error: {type(e).__name__}")
-            game_info['status'] = 'skip'
         except Exception as e:
-            print(f"   ⚠️ Error getting lineup for {game_info['away_team']} @ {game_info['home_team']}: {e}")
-            game_info['status'] = 'skip'
+            print(f"Error getting lineups: {e}")
     
     def _get_player_name_from_roster(self, team_data, player_id):
         """Extract player name from team roster"""
@@ -497,41 +450,20 @@ class HybridHRPredictor:
         print(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
         print("=" * 80)
         
-        # Step 1: Get games and lineups from SportsRadar (scheduled games only)
+        # Step 1: Get games and lineups from SportsRadar
         games = self.data_collector.get_games_and_lineups_sportradar()
         
         if not games:
-            current_hour = datetime.now().hour
-            print("\n" + "=" * 80)
-            print("❌ NO PREDICTIONS AVAILABLE")
-            print("=" * 80)
-            
-            if current_hour >= 19:  # After 7 PM
-                print("Most games have already started or finished today.")
-                print("Try running tomorrow morning for next day's games.")
-            elif current_hour < 10:  # Before 10 AM
-                print("It's early - lineups may not be posted yet.")
-                print("Try running after 10 AM for day games or 3 PM for night games.")
-            else:
-                print("No scheduled games found. Games may be in progress.")
-                print("\nBest times to run predictions:")
-                print("  • 10-11 AM for afternoon games")
-                print("  • 3-5 PM for evening games")
-                print("  • Avoid running during game times (games already started)")
-            
+            print("No games found for today")
             return pd.DataFrame()
         
-        print(f"\n📊 Processing {len(games)} upcoming games...")
+        print(f"\n📊 Processing {len(games)} games...")
         print("⚾ Fetching REAL stats from MLB Stats API...")
         print("📈 Getting Statcast data from Baseball Savant...\n")
         
         all_predictions = []
         
         for game_num, game in enumerate(games, 1):
-            # Skip if game status changed to in-progress
-            if game.get('status') == 'skip':
-                continue
-                
             venue = game['venue']
             park_factor = self.config.PARK_FACTORS.get(venue, 1.0)
             
@@ -693,17 +625,5 @@ if __name__ == "__main__":
     if not predictions.empty:
         predictor.display_top_15(predictions)
         predictor.save_top_15(predictions)
-        
-        print("\n" + "=" * 80)
-        print("✅ PREDICTIONS COMPLETE")
-        print("=" * 80)
-        print("All statistics are from REAL MLB data sources.")
     else:
-        print("\n" + "=" * 80)
-        print("📅 OPTIMAL PREDICTION TIMES")
-        print("=" * 80)
-        print("Run this model:")
-        print("  • 10-11 AM ET for day games (1 PM starts)")
-        print("  • 3-5 PM ET for night games (7 PM starts)")
-        print("  • NOT during games (they'll be in-progress)")
-        print("\nThe model only predicts games that haven't started yet.")
+        print("\nNo predictions available. Check if games are scheduled.")
