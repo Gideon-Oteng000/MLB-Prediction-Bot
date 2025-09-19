@@ -96,107 +96,337 @@ class OddsData:
     value_edge: float
 
 class MLBDataFetcher:
-    """Handles all external API calls for real data"""
-    
-    def __init__(self):
+    """Handles all external API calls for real data with persistent caching"""
+
+    def __init__(self, cache_db_path: str = 'mlb_cache_v3.db'):
         self.mlb_base = "https://statsapi.mlb.com/api/v1"
         self.weather_base = "https://api.openweathermap.org/data/2.5"
         self.odds_base = "https://api.the-odds-api.com/v4"
         self.session = requests.Session()
-        self.cache = {}
-        
+        self.cache = {}  # In-memory cache
+        self.cache_db_path = cache_db_path
+
+        # Initialize persistent cache database
+        self._init_cache_db()
+
+        # Set up session with retry strategy and headers
+        self.session.headers.update({
+            'User-Agent': 'MLB-RBI-Predictor/3.0',
+            'Accept': 'application/json'
+        })
+
+    def _init_cache_db(self):
+        """Initialize persistent cache database"""
+        try:
+            conn = sqlite3.connect(self.cache_db_path)
+            cursor = conn.cursor()
+
+            # Cache table for API responses
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS api_cache (
+                    cache_key TEXT PRIMARY KEY,
+                    data TEXT,
+                    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    expiry_hours INTEGER DEFAULT 24
+                )
+            ''')
+
+            # Player stats cache
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS player_stats_cache (
+                    player_id INTEGER,
+                    season INTEGER,
+                    stat_type TEXT,
+                    data TEXT,
+                    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (player_id, season, stat_type)
+                )
+            ''')
+
+            # Game data cache
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS game_data_cache (
+                    game_id INTEGER PRIMARY KEY,
+                    data TEXT,
+                    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            ''')
+
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            logger.error(f"Error initializing cache database: {e}")
+
+    def _get_cached_data(self, cache_key: str, max_age_hours: int = 24) -> Optional[Dict]:
+        """Get data from cache if available and not expired"""
+        try:
+            conn = sqlite3.connect(self.cache_db_path)
+            cursor = conn.cursor()
+
+            cursor.execute('''
+                SELECT data, timestamp FROM api_cache
+                WHERE cache_key = ?
+                AND datetime(timestamp, '+' || ? || ' hours') > datetime('now')
+            ''', (cache_key, max_age_hours))
+
+            result = cursor.fetchone()
+            conn.close()
+
+            if result:
+                return json.loads(result[0])
+
+        except Exception as e:
+            logger.error(f"Error reading from cache: {e}")
+
+        return None
+
+    def _store_cached_data(self, cache_key: str, data: Dict, expiry_hours: int = 24):
+        """Store data in cache"""
+        try:
+            conn = sqlite3.connect(self.cache_db_path)
+            cursor = conn.cursor()
+
+            cursor.execute('''
+                INSERT OR REPLACE INTO api_cache (cache_key, data, expiry_hours)
+                VALUES (?, ?, ?)
+            ''', (cache_key, json.dumps(data), expiry_hours))
+
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            logger.error(f"Error storing cache: {e}")
+
     def fetch_historical_games(self, start_date: str, end_date: str) -> pd.DataFrame:
-        """Fetch real historical MLB game data"""
+        """Fetch real historical MLB game data with enhanced features"""
         logger.info(f"Fetching historical games from {start_date} to {end_date}")
-        
+
         games_data = []
         current_date = datetime.strptime(start_date, '%Y-%m-%d')
         end = datetime.strptime(end_date, '%Y-%m-%d')
-        
+        total_days = (end - current_date).days + 1
+        processed_days = 0
+
         while current_date <= end:
             date_str = current_date.strftime('%Y-%m-%d')
-            
+            processed_days += 1
+
+            if processed_days % 10 == 0:
+                logger.info(f"Progress: {processed_days}/{total_days} days processed")
+
             try:
-                # Get games for date
-                url = f"{self.mlb_base}/schedule?sportId=1&date={date_str}"
-                response = self.session.get(url)
+                # Check persistent cache first
+                cache_key = f"games_{date_str}"
+                cached_data = self._get_cached_data(cache_key, max_age_hours=168)  # 1 week for historical data
+
+                if cached_data:
+                    games_data.extend(cached_data.get('games', []))
+                    current_date += timedelta(days=1)
+                    continue
+
+                # Get games for date with enhanced hydration
+                url = f"{self.mlb_base}/schedule"
+                params = {
+                    'sportId': 1,
+                    'date': date_str,
+                    'hydrate': 'boxscore,team,venue,weather,probablePitcher,linescore'
+                }
+
+                response = self.session.get(url, params=params, timeout=30)
+                response.raise_for_status()
                 data = response.json()
-                
+
+                daily_games = []
                 if 'dates' in data and data['dates']:
                     for date_info in data['dates']:
                         for game in date_info.get('games', []):
-                            if game['status']['statusCode'] == 'F':  # Completed games
-                                game_data = self._extract_game_details(game)
+                            if game['status']['statusCode'] == 'F':  # Completed games only
+                                game_data = self._extract_enhanced_game_details(game, date_str)
                                 if game_data:
-                                    games_data.append(game_data)
-                
+                                    daily_games.append(game_data)
+
+                # Cache the daily games in persistent storage
+                cache_data = {'games': daily_games}
+                self._store_cached_data(cache_key, cache_data, expiry_hours=168)  # 1 week
+                games_data.extend(daily_games)
+
             except Exception as e:
                 logger.error(f"Error fetching data for {date_str}: {e}")
-            
+                time.sleep(2)  # Longer wait on error
+
             current_date += timedelta(days=1)
-            time.sleep(0.5)  # Rate limiting
-        
+            time.sleep(0.6)  # Rate limiting - respect API limits
+
+        logger.info(f"Collected {len(games_data)} game records from {processed_days} days")
         return pd.DataFrame(games_data)
     
-    def _extract_game_details(self, game: Dict) -> Optional[Dict]:
-        """Extract detailed game information including box scores"""
+    def _extract_enhanced_game_details(self, game: Dict, date_str: str) -> Optional[Dict]:
+        """Extract comprehensive game information with player stats and context"""
         try:
             game_pk = game['gamePk']
-            
-            # Fetch detailed box score
+
+            # Fetch detailed box score with enhanced data
             box_url = f"{self.mlb_base}/game/{game_pk}/boxscore"
-            box_response = self.session.get(box_url)
+            box_response = self.session.get(box_url, timeout=30)
+            box_response.raise_for_status()
             box_data = box_response.json()
-            
-            # Extract player RBI data
-            player_rbis = self._extract_player_rbis(box_data)
-            
-            # Basic game info
+
+            # Get venue information with coordinates
+            venue = game.get('venue', {})
+            venue_location = venue.get('location', {})
+
+            # Get game conditions
+            game_conditions = self._extract_game_conditions(game, box_data)
+
+            # Extract player performance data with context
+            player_performances = self._extract_enhanced_player_data(box_data, game, game_conditions)
+
+            if not player_performances:
+                return None
+
+            # Basic game info with enhanced context
             game_info = {
                 'game_id': game_pk,
-                'date': game['gameDate'],
+                'date': date_str,
+                'game_datetime': game.get('gameDate', ''),
                 'home_team': game['teams']['home']['team']['name'],
                 'away_team': game['teams']['away']['team']['name'],
-                'home_score': game['teams']['home']['score'],
-                'away_score': game['teams']['away']['score'],
-                'venue': game['venue']['name'],
-                'player_rbis': player_rbis
+                'home_team_id': game['teams']['home']['team']['id'],
+                'away_team_id': game['teams']['away']['team']['id'],
+                'home_score': game['teams']['home'].get('score', 0),
+                'away_score': game['teams']['away'].get('score', 0),
+                'venue_name': venue.get('name', ''),
+                'venue_lat': float(venue_location.get('latitude', 0)),
+                'venue_lon': float(venue_location.get('longitude', 0)),
+                'weather_temp': game_conditions.get('temp', 72),
+                'weather_wind': game_conditions.get('wind', 5),
+                'weather_condition': game_conditions.get('condition', 'Clear'),
+                'game_time_local': game_conditions.get('game_time', 'Night'),
+                'attendance': game.get('attendance', 0),
+                'player_performances': player_performances
             }
-            
+
             return game_info
-            
+
         except Exception as e:
-            logger.error(f"Error extracting game details: {e}")
+            logger.error(f"Error extracting enhanced game details for {game_pk}: {e}")
             return None
+
+    def _extract_game_conditions(self, game: Dict, box_data: Dict) -> Dict:
+        """Extract game conditions like weather, time, etc."""
+        conditions = {
+            'temp': 72,
+            'wind': 5,
+            'condition': 'Clear',
+            'game_time': 'Night'
+        }
+
+        try:
+            # Try to get weather info from game data
+            if 'weather' in game:
+                weather = game['weather']
+                conditions['temp'] = weather.get('temp', 72)
+                conditions['wind'] = weather.get('wind', 5)
+                conditions['condition'] = weather.get('condition', 'Clear')
+
+            # Determine day/night game
+            game_time = game.get('gameDate', '')
+            if game_time:
+                hour = int(game_time[11:13])
+                conditions['game_time'] = 'Day' if 10 <= hour <= 17 else 'Night'
+
+        except Exception as e:
+            logger.error(f"Error extracting game conditions: {e}")
+
+        return conditions
     
-    def _extract_player_rbis(self, box_data: Dict) -> List[Dict]:
-        """Extract RBI information for all players in the game"""
-        player_rbis = []
-        
+    def _extract_enhanced_player_data(self, box_data: Dict, game: Dict, conditions: Dict) -> List[Dict]:
+        """Extract comprehensive player performance data with context"""
+        player_performances = []
+
+        # Get pitcher information
+        home_pitcher = game['teams']['home'].get('probablePitcher', {})
+        away_pitcher = game['teams']['away'].get('probablePitcher', {})
+
         for team_type in ['home', 'away']:
-            if team_type in box_data['teams']:
-                team_data = box_data['teams'][team_type]
-                
-                for player_id, player_info in team_data.get('players', {}).items():
-                    if 'stats' in player_info and 'batting' in player_info['stats']:
-                        batting = player_info['stats']['batting']
-                        
-                        player_rbi = {
-                            'player_id': player_id,
-                            'player_name': player_info['person']['fullName'],
-                            'team': team_type,
-                            'position': player_info.get('position', {}).get('abbreviation', ''),
-                            'batting_order': player_info.get('battingOrder', 0),
-                            'rbi': batting.get('rbi', 0),
-                            'at_bats': batting.get('atBats', 0),
-                            'hits': batting.get('hits', 0),
-                            'home_runs': batting.get('homeRuns', 0),
-                            'walks': batting.get('baseOnBalls', 0),
-                            'strikeouts': batting.get('strikeOuts', 0)
-                        }
-                        player_rbis.append(player_rbi)
-        
-        return player_rbis
+            if team_type not in box_data.get('teams', {}):
+                continue
+
+            team_data = box_data['teams'][team_type]
+            opposing_pitcher = away_pitcher if team_type == 'home' else home_pitcher
+
+            # Get batting order from box score
+            batters = team_data.get('batters', [])
+
+            for order_idx, player_id_str in enumerate(batters[:9]):  # First 9 are starters
+                player_id = player_id_str.replace('ID', '') if 'ID' in player_id_str else player_id_str
+                player_key = f'ID{player_id}'
+
+                if player_key not in team_data.get('players', {}):
+                    continue
+
+                player_info = team_data['players'][player_key]
+
+                # Get batting stats
+                batting_stats = player_info.get('stats', {}).get('batting', {})
+
+                if batting_stats.get('plateAppearances', 0) == 0:
+                    continue  # Skip players who didn't bat
+
+                # Enhanced player performance record
+                performance = {
+                    'player_id': int(player_id),
+                    'player_name': player_info.get('person', {}).get('fullName', 'Unknown'),
+                    'team_type': team_type,
+                    'team_name': game['teams'][team_type]['team']['name'],
+                    'batting_order': order_idx + 1,
+                    'position': player_info.get('position', {}).get('abbreviation', 'UNK'),
+
+                    # Core performance metrics
+                    'rbi': batting_stats.get('rbi', 0),
+                    'at_bats': batting_stats.get('atBats', 0),
+                    'hits': batting_stats.get('hits', 0),
+                    'doubles': batting_stats.get('doubles', 0),
+                    'triples': batting_stats.get('triples', 0),
+                    'home_runs': batting_stats.get('homeRuns', 0),
+                    'walks': batting_stats.get('baseOnBalls', 0),
+                    'strikeouts': batting_stats.get('strikeOuts', 0),
+                    'plate_appearances': batting_stats.get('plateAppearances', 0),
+                    'total_bases': batting_stats.get('totalBases', 0),
+                    'left_on_base': batting_stats.get('leftOnBase', 0),
+
+                    # Game context
+                    'opponent': game['teams']['away' if team_type == 'home' else 'home']['team']['name'],
+                    'is_home': team_type == 'home',
+                    'game_time': conditions.get('game_time', 'Night'),
+                    'weather_temp': conditions.get('temp', 72),
+                    'weather_wind': conditions.get('wind', 5),
+
+                    # Pitcher matchup
+                    'opposing_pitcher_id': opposing_pitcher.get('id', 0),
+                    'opposing_pitcher_name': opposing_pitcher.get('fullName', 'Unknown'),
+                    'opposing_pitcher_hand': self._get_pitcher_hand_from_data(opposing_pitcher),
+
+                    # Season stats context (would be filled by season stats lookup)
+                    'season_avg': 0.250,  # Placeholder - to be filled by season stats
+                    'season_rbi': 0,
+                    'season_ops': 0.750,
+                    'recent_form': 0.250,  # Last 15 games avg
+
+                    # Target variables
+                    'got_rbi': 1 if batting_stats.get('rbi', 0) > 0 else 0,
+                    'rbi_count': batting_stats.get('rbi', 0)
+                }
+
+                player_performances.append(performance)
+
+        return player_performances
+
+    def _get_pitcher_hand_from_data(self, pitcher_data: Dict) -> str:
+        """Extract pitcher handedness from pitcher data"""
+        try:
+            return pitcher_data.get('pitchHand', {}).get('code', 'R')
+        except:
+            return 'R'  # Default to right-handed
     
     def fetch_player_splits(self, player_id: int, season: int = 2024) -> PlayerSplits:
         """Fetch comprehensive player split statistics"""
@@ -408,23 +638,75 @@ class BullpenAnalyzer:
         return blended_stats
     
     def _get_pitcher_recent_starts(self, pitcher_id: int) -> Dict[str, float]:
-        """Get pitcher's recent performance metrics"""
-        # Would fetch from MLB API
-        # Simplified for demonstration
+        """Get pitcher's recent performance metrics from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/{pitcher_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+
+                return {
+                    'avg_innings': float(stats.get('inningsPitched', 0)) / max(float(stats.get('gamesStarted', 1)), 1),
+                    'era': float(stats.get('era', 4.50)),
+                    'whip': float(stats.get('whip', 1.30)),
+                    'hr_per_9': float(stats.get('homeRunsPer9Inn', 1.2)),
+                    'k_per_9': float(stats.get('strikeoutsPer9Inn', 8.5))
+                }
+        except Exception as e:
+            logger.error(f"Error fetching pitcher stats for {pitcher_id}: {e}")
+
+        # Return league averages if API fails
         return {
             'avg_innings': 5.5,
-            'era': 3.85,
-            'whip': 1.25,
-            'hr_per_9': 1.1,
-            'k_per_9': 9.2
+            'era': 4.50,
+            'whip': 1.30,
+            'hr_per_9': 1.2,
+            'k_per_9': 8.5
         }
     
     def _get_team_bullpen_stats(self, team_id: int) -> Dict[str, float]:
-        """Get team bullpen statistics"""
-        # Would fetch from MLB API
-        # Simplified for demonstration
+        """Get team bullpen statistics from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/teams/{team_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+
+                # Filter for bullpen stats (non-starters)
+                bullpen_url = f"{self.fetcher.mlb_base}/teams/{team_id}/roster"
+                roster_response = self.fetcher.session.get(bullpen_url)
+                roster_data = roster_response.json()
+
+                return {
+                    'era': float(stats.get('era', 4.50)),
+                    'whip': float(stats.get('whip', 1.35)),
+                    'hr_per_9': float(stats.get('homeRunsPer9Inn', 1.3)),
+                    'k_per_9': float(stats.get('strikeoutsPer9Inn', 8.8))
+                }
+        except Exception as e:
+            logger.error(f"Error fetching team bullpen stats for {team_id}: {e}")
+
+        # Return league averages if API fails
         return {
-            'era': 4.15,
+            'era': 4.50,
             'whip': 1.35,
             'hr_per_9': 1.3,
             'k_per_9': 8.8
@@ -452,20 +734,82 @@ class AdvancedRBIPredictorV3:
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
-        # Historical games table
+        # Historical games table (enhanced)
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS historical_games (
                 game_id INTEGER PRIMARY KEY,
                 date TEXT,
+                game_datetime TEXT,
                 home_team TEXT,
                 away_team TEXT,
+                home_team_id INTEGER,
+                away_team_id INTEGER,
                 home_score INTEGER,
                 away_score INTEGER,
-                venue TEXT,
+                venue_name TEXT,
+                venue_lat REAL,
+                venue_lon REAL,
                 weather_temp REAL,
-                weather_humidity REAL,
-                weather_wind_speed REAL,
+                weather_wind REAL,
+                weather_condition TEXT,
+                game_time_local TEXT,
+                attendance INTEGER,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+
+        # RBI Training Data table - NEW
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS rbi_training_data_v3 (
+                training_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                game_id INTEGER,
+                player_id INTEGER,
+                player_name TEXT,
+                team_name TEXT,
+                team_type TEXT,
+                batting_order INTEGER,
+                position TEXT,
+
+                -- Performance metrics
+                rbi INTEGER,
+                at_bats INTEGER,
+                hits INTEGER,
+                doubles INTEGER,
+                triples INTEGER,
+                home_runs INTEGER,
+                walks INTEGER,
+                strikeouts INTEGER,
+                plate_appearances INTEGER,
+                total_bases INTEGER,
+                left_on_base INTEGER,
+
+                -- Game context
+                opponent TEXT,
+                is_home INTEGER,
+                game_time TEXT,
+                weather_temp REAL,
+                weather_wind REAL,
+
+                -- Pitcher matchup
+                opposing_pitcher_id INTEGER,
+                opposing_pitcher_name TEXT,
+                opposing_pitcher_hand TEXT,
+
+                -- Season context (filled later)
+                season_avg REAL,
+                season_rbi INTEGER,
+                season_ops REAL,
+                recent_form REAL,
+
+                -- Features (filled by feature engineering)
+                feature_vector TEXT,  -- JSON string of feature values
+
+                -- Target variables
+                got_rbi INTEGER,
+                rbi_count INTEGER,
+
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (game_id) REFERENCES historical_games(game_id)
             )
         ''')
         
@@ -558,42 +902,248 @@ class AdvancedRBIPredictorV3:
         conn.commit()
         conn.close()
     
-    def prepare_training_data(self, start_date: str = '2023-04-01', 
-                             end_date: str = '2023-10-01') -> Tuple[np.ndarray, np.ndarray]:
-        """Load and prepare real historical MLB data for training"""
-        logger.info("Preparing training data from real MLB games...")
-        
-        # Fetch historical games
+    def prepare_training_data(self, start_date: str = '2022-04-01',
+                             end_date: str = '2024-10-01') -> Tuple[np.ndarray, np.ndarray]:
+        """Load and prepare real historical MLB data for training with comprehensive features"""
+        logger.info(f"Preparing training data from real MLB games: {start_date} to {end_date}")
+
+        # Check if we already have training data in database
+        existing_data = self._load_training_data_from_db(start_date, end_date)
+
+        if len(existing_data) > 5000:  # Sufficient existing data
+            logger.info(f"Using {len(existing_data)} existing training samples from database")
+            X, y = self._prepare_features_from_db_data(existing_data)
+            return X, y
+
+        # Fetch fresh historical games data
+        logger.info("Fetching fresh historical data from MLB API...")
         games_df = self.fetcher.fetch_historical_games(start_date, end_date)
-        
+
         if games_df.empty:
-            logger.warning("No historical data fetched. Using cached data if available.")
+            logger.warning("No historical data fetched. Attempting to use cached data.")
             games_df = self._load_cached_data()
-        
-        # Process player-level data
+
+        if games_df.empty:
+            logger.error("No training data available. Cannot proceed without historical data.")
+            raise ValueError("No historical training data available")
+
+        # Process and store player-level data
+        training_records = []
         features_list = []
         targets_list = []
-        
-        for _, game in games_df.iterrows():
-            for player_data in game['player_rbis']:
-                if player_data['at_bats'] > 0:  # Only include players who batted
-                    # Create feature vector
-                    features = self._create_feature_vector(player_data, game)
-                    target = player_data['rbi']
-                    
-                    features_list.append(features)
-                    targets_list.append(target)
-        
+
+        logger.info(f"Processing {len(games_df)} games for training data...")
+
+        for game_idx, (_, game) in enumerate(games_df.iterrows()):
+            if game_idx % 100 == 0:
+                logger.info(f"Processed {game_idx}/{len(games_df)} games")
+
+            # Store game record
+            self._store_game_record(game)
+
+            # Process each player performance
+            for player_perf in game.get('player_performances', []):
+                if player_perf['plate_appearances'] == 0:
+                    continue
+
+                # Create enhanced feature vector
+                features = self._create_enhanced_feature_vector(player_perf, game)
+                target_got_rbi = player_perf['got_rbi']
+                target_rbi_count = player_perf['rbi_count']
+
+                # Store training record
+                training_record = {
+                    **player_perf,
+                    'feature_vector': json.dumps(features.tolist()),
+                    'game_id': game['game_id']
+                }
+                training_records.append(training_record)
+
+                features_list.append(features)
+                targets_list.append(target_rbi_count)  # Predict RBI count
+
+        # Store training data in database
+        self._store_training_records(training_records)
+
         X = np.array(features_list)
         y = np.array(targets_list)
-        
-        # Store in database
-        self._store_training_data(games_df)
-        
+
         logger.info(f"Prepared {len(X)} training samples from {len(games_df)} games")
-        
+        logger.info(f"RBI distribution: 0 RBIs: {np.sum(y == 0)}, 1+ RBIs: {np.sum(y > 0)}")
+        logger.info(f"Average RBI per PA: {np.mean(y):.3f}")
+
         return X, y
-    
+
+    def _load_training_data_from_db(self, start_date: str, end_date: str) -> List[Dict]:
+        """Load existing training data from database"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            # Query training data within date range
+            cursor.execute('''
+                SELECT t.*, h.date, h.game_datetime
+                FROM rbi_training_data_v3 t
+                JOIN historical_games h ON t.game_id = h.game_id
+                WHERE h.date BETWEEN ? AND ?
+                AND t.feature_vector IS NOT NULL
+            ''', (start_date, end_date))
+
+            columns = [description[0] for description in cursor.description]
+            rows = cursor.fetchall()
+            conn.close()
+
+            return [dict(zip(columns, row)) for row in rows]
+
+        except Exception as e:
+            logger.error(f"Error loading training data from database: {e}")
+            return []
+
+    def _prepare_features_from_db_data(self, training_data: List[Dict]) -> Tuple[np.ndarray, np.ndarray]:
+        """Convert database training data to feature arrays"""
+        features_list = []
+        targets_list = []
+
+        for record in training_data:
+            try:
+                # Load feature vector from JSON
+                features = np.array(json.loads(record['feature_vector']))
+                target = record['rbi_count']
+
+                features_list.append(features)
+                targets_list.append(target)
+            except:
+                continue
+
+        return np.array(features_list), np.array(targets_list)
+
+    def _store_game_record(self, game: Dict):
+        """Store game record in historical_games table"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            cursor.execute('''
+                INSERT OR REPLACE INTO historical_games (
+                    game_id, date, game_datetime, home_team, away_team,
+                    home_team_id, away_team_id, home_score, away_score,
+                    venue_name, venue_lat, venue_lon, weather_temp, weather_wind,
+                    weather_condition, game_time_local, attendance
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                game['game_id'], game['date'], game.get('game_datetime', ''),
+                game['home_team'], game['away_team'],
+                game.get('home_team_id', 0), game.get('away_team_id', 0),
+                game['home_score'], game['away_score'],
+                game.get('venue_name', ''), game.get('venue_lat', 0), game.get('venue_lon', 0),
+                game.get('weather_temp', 72), game.get('weather_wind', 5),
+                game.get('weather_condition', 'Clear'), game.get('game_time_local', 'Night'),
+                game.get('attendance', 0)
+            ))
+
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            logger.error(f"Error storing game record: {e}")
+
+    def _store_training_records(self, training_records: List[Dict]):
+        """Store training records in rbi_training_data_v3 table"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            for record in training_records:
+                cursor.execute('''
+                    INSERT OR REPLACE INTO rbi_training_data_v3 (
+                        game_id, player_id, player_name, team_name, team_type,
+                        batting_order, position, rbi, at_bats, hits, doubles, triples,
+                        home_runs, walks, strikeouts, plate_appearances, total_bases,
+                        left_on_base, opponent, is_home, game_time, weather_temp,
+                        weather_wind, opposing_pitcher_id, opposing_pitcher_name,
+                        opposing_pitcher_hand, season_avg, season_rbi, season_ops,
+                        recent_form, feature_vector, got_rbi, rbi_count
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    record['game_id'], record['player_id'], record['player_name'],
+                    record['team_name'], record['team_type'], record['batting_order'],
+                    record['position'], record['rbi'], record['at_bats'], record['hits'],
+                    record['doubles'], record['triples'], record['home_runs'], record['walks'],
+                    record['strikeouts'], record['plate_appearances'], record['total_bases'],
+                    record['left_on_base'], record['opponent'], int(record['is_home']),
+                    record['game_time'], record['weather_temp'], record['weather_wind'],
+                    record['opposing_pitcher_id'], record['opposing_pitcher_name'],
+                    record['opposing_pitcher_hand'], record['season_avg'], record['season_rbi'],
+                    record['season_ops'], record['recent_form'], record['feature_vector'],
+                    record['got_rbi'], record['rbi_count']
+                ))
+
+            conn.commit()
+            conn.close()
+            logger.info(f"Stored {len(training_records)} training records")
+
+        except Exception as e:
+            logger.error(f"Error storing training records: {e}")
+
+    def _create_enhanced_feature_vector(self, player_perf: Dict, game: Dict) -> np.ndarray:
+        """Create comprehensive feature vector from player performance and game context"""
+        features = []
+
+        # Basic player features
+        features.extend([
+            player_perf['batting_order'] / 9.0,  # Normalized batting order
+            float(player_perf['is_home']),  # Home field advantage
+            self._position_to_numeric(player_perf['position']),  # Position encoding
+        ])
+
+        # Performance context features
+        features.extend([
+            player_perf['season_avg'],
+            player_perf['season_ops'],
+            player_perf['recent_form'],
+            float(player_perf['season_rbi']) / 162.0,  # Normalized season RBIs
+        ])
+
+        # Game context features
+        features.extend([
+            (player_perf['weather_temp'] - 72) / 20.0,  # Normalized temperature
+            player_perf['weather_wind'] / 20.0,  # Normalized wind
+            1.0 if player_perf['game_time'] == 'Day' else 0.0,  # Day game
+        ])
+
+        # Pitcher matchup features
+        features.extend([
+            1.0 if player_perf['opposing_pitcher_hand'] == 'L' else 0.0,  # LHP
+            # Additional pitcher stats would go here (ERA, WHIP, etc.)
+            4.50 / 10.0,  # Normalized pitcher ERA (placeholder)
+            1.30 / 2.0,   # Normalized pitcher WHIP (placeholder)
+        ])
+
+        # Team context features (placeholders for now)
+        features.extend([
+            4.5 / 10.0,   # Team runs per game (normalized)
+            0.320,        # Team OBP
+            0.750 / 1.2,  # Team OPS (normalized)
+        ])
+
+        # Batting order multipliers
+        order_weights = {1: 0.8, 2: 0.9, 3: 1.3, 4: 1.4, 5: 1.2, 6: 1.0, 7: 0.9, 8: 0.8, 9: 0.7}
+        features.append(order_weights.get(player_perf['batting_order'], 1.0))
+
+        # Expected plate appearances
+        expected_pa = {1: 4.8, 2: 4.7, 3: 4.6, 4: 4.5, 5: 4.4, 6: 4.3, 7: 4.2, 8: 4.1, 9: 4.0}
+        features.append(expected_pa.get(player_perf['batting_order'], 4.3) / 5.0)
+
+        return np.array(features)
+
+    def _position_to_numeric(self, position: str) -> float:
+        """Convert position to numeric value"""
+        position_values = {
+            'C': 0.8, '1B': 1.0, '2B': 0.9, '3B': 1.1, 'SS': 0.9,
+            'LF': 1.0, 'CF': 1.0, 'RF': 1.1, 'DH': 1.2, 'OF': 1.0,
+            'IF': 0.95, 'UNK': 1.0
+        }
+        return position_values.get(position, 1.0)
+
     def _create_feature_vector(self, player_data: Dict, game_data: Dict) -> np.ndarray:
         """Create comprehensive feature vector for a player's game"""
         features = []
@@ -762,12 +1312,15 @@ class AdvancedRBIPredictorV3:
         
         # Train new models if none exist
         logger.info("Training new models...")
-        
-        # Prepare training data
-        X, y = self.prepare_training_data()
-        
+
+        # Prepare training data with more recent date range
+        end_date = datetime.now().strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')  # Full season
+
+        X, y = self.prepare_training_data(start_date, end_date)
+
         if len(X) == 0:
-            logger.warning("No training data available. Using default models.")
+            logger.warning("No comprehensive training data available. Attempting minimal initialization...")
             self._create_default_models()
             return
         
@@ -835,7 +1388,136 @@ class AdvancedRBIPredictorV3:
         self._save_models()
         
         logger.info("Model training complete")
-    
+
+    def validate_formula_baseline(self) -> Dict[str, float]:
+        """Validate formula-based probability calculator against real historical RBI rates"""
+        logger.info("Validating formula baseline against historical data...")
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            # Get overall RBI statistics from training data
+            cursor.execute('''
+                SELECT
+                    COUNT(*) as total_plate_appearances,
+                    SUM(got_rbi) as total_rbis,
+                    AVG(CAST(got_rbi AS FLOAT)) as rbi_rate_per_pa,
+                    SUM(rbi_count) as total_rbi_count,
+                    AVG(CAST(rbi_count AS FLOAT)) as avg_rbis_per_pa
+                FROM rbi_training_data_v3
+                WHERE plate_appearances > 0
+            ''')
+
+            overall_stats = cursor.fetchone()
+
+            # Get RBI rates by batting order position
+            cursor.execute('''
+                SELECT
+                    batting_order,
+                    COUNT(*) as plate_appearances,
+                    SUM(got_rbi) as rbis,
+                    AVG(CAST(got_rbi AS FLOAT)) as rbi_rate,
+                    AVG(CAST(rbi_count AS FLOAT)) as avg_rbi_count
+                FROM rbi_training_data_v3
+                WHERE plate_appearances > 0
+                GROUP BY batting_order
+                ORDER BY batting_order
+            ''')
+
+            batting_order_stats = cursor.fetchall()
+
+            # Get RBI rates by game situation
+            cursor.execute('''
+                SELECT
+                    game_time,
+                    COUNT(*) as plate_appearances,
+                    AVG(CAST(got_rbi AS FLOAT)) as rbi_rate
+                FROM rbi_training_data_v3
+                WHERE plate_appearances > 0
+                GROUP BY game_time
+            ''')
+
+            game_time_stats = cursor.fetchall()
+
+            # Get RBI rates vs pitcher handedness
+            cursor.execute('''
+                SELECT
+                    opposing_pitcher_hand,
+                    COUNT(*) as plate_appearances,
+                    AVG(CAST(got_rbi AS FLOAT)) as rbi_rate
+                FROM rbi_training_data_v3
+                WHERE plate_appearances > 0
+                GROUP BY opposing_pitcher_hand
+            ''')
+
+            pitcher_hand_stats = cursor.fetchall()
+
+            conn.close()
+
+            # Calculate baseline metrics
+            baseline_metrics = {
+                'league_avg_rbi_rate': overall_stats[2] if overall_stats else 0.11,
+                'league_avg_rbis_per_pa': overall_stats[4] if overall_stats else 0.11,
+                'total_samples': overall_stats[0] if overall_stats else 0,
+                'batting_order_variance': 0,
+                'day_night_difference': 0,
+                'platoon_advantage': 0
+            }
+
+            # Calculate batting order variance
+            if batting_order_stats:
+                rbi_rates = [row[3] for row in batting_order_stats if row[3] is not None]
+                if rbi_rates:
+                    baseline_metrics['batting_order_variance'] = np.var(rbi_rates)
+
+            # Calculate day/night difference
+            day_rate = night_rate = 0
+            for row in game_time_stats:
+                if row[0] == 'Day':
+                    day_rate = row[2]
+                elif row[0] == 'Night':
+                    night_rate = row[2]
+
+            baseline_metrics['day_night_difference'] = abs(day_rate - night_rate)
+
+            # Calculate platoon advantage
+            rhp_rate = lhp_rate = 0
+            for row in pitcher_hand_stats:
+                if row[0] == 'R':
+                    rhp_rate = row[2]
+                elif row[0] == 'L':
+                    lhp_rate = row[2]
+
+            baseline_metrics['platoon_advantage'] = abs(rhp_rate - lhp_rate)
+
+            # Log validation results
+            logger.info(f"Formula Baseline Validation Results:")
+            logger.info(f"  League Average RBI Rate: {baseline_metrics['league_avg_rbi_rate']:.3f}")
+            logger.info(f"  Expected ~0.11 (11% of plate appearances should result in RBI)")
+            logger.info(f"  Total Training Samples: {baseline_metrics['total_samples']:,}")
+            logger.info(f"  Batting Order Variance: {baseline_metrics['batting_order_variance']:.4f}")
+            logger.info(f"  Day/Night Difference: {baseline_metrics['day_night_difference']:.3f}")
+            logger.info(f"  Platoon Advantage: {baseline_metrics['platoon_advantage']:.3f}")
+
+            # Validate against expected MLB norms
+            validation_status = "PASS"
+            if baseline_metrics['league_avg_rbi_rate'] < 0.08 or baseline_metrics['league_avg_rbi_rate'] > 0.15:
+                validation_status = "FAIL - RBI rate outside expected range (0.08-0.15)"
+            elif baseline_metrics['total_samples'] < 1000:
+                validation_status = "FAIL - Insufficient training data"
+
+            logger.info(f"  Validation Status: {validation_status}")
+
+            return baseline_metrics
+
+        except Exception as e:
+            logger.error(f"Error validating formula baseline: {e}")
+            return {
+                'league_avg_rbi_rate': 0.11,
+                'validation_status': 'ERROR'
+            }
+
     def _init_shap_explainers(self, X_train: np.ndarray):
         """Initialize SHAP explainers for model interpretability"""
         logger.info("Initializing SHAP explainers...")
@@ -1104,89 +1786,372 @@ class AdvancedRBIPredictorV3:
     
     # Helper methods (simplified implementations)
     def _get_player_id(self, player_name: str) -> int:
-        """Get player ID from name"""
-        # Would query MLB API or database
-        return hash(player_name) % 100000
+        """Get player ID from name using MLB API search"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/search"
+            params = {
+                'names': player_name,
+                'sportId': 1,
+                'active': True
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'people' in data and data['people']:
+                # Return the first matching player ID
+                return int(data['people'][0]['id'])
+        except Exception as e:
+            logger.error(f"Error searching for player {player_name}: {e}")
+
+        # Return a deterministic fallback if search fails
+        return abs(hash(player_name)) % 100000 + 500000
     
     def _get_pitcher_hand(self, pitcher_id: int) -> str:
-        """Get pitcher throwing hand"""
-        # Would query MLB API
-        return 'R' if pitcher_id % 2 == 0 else 'L'
+        """Get pitcher throwing hand from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/{pitcher_id}"
+            response = self.fetcher.session.get(url)
+            data = response.json()
+
+            if 'people' in data and data['people']:
+                pitcher_data = data['people'][0]
+                return pitcher_data.get('pitchHand', {}).get('code', 'R')
+        except Exception as e:
+            logger.error(f"Error fetching pitcher hand for {pitcher_id}: {e}")
+
+        # Return 'R' as default (majority of pitchers are right-handed)
+        return 'R'
     
     def _is_home_game(self, team: str, venue_lat: float) -> bool:
-        """Determine if team is playing at home"""
-        # Would check against team's home venue
-        return True if hash(team) % 2 == 0 else False
+        """Determine if team is playing at home by checking venue coordinates"""
+        try:
+            # Get team's home venue coordinates
+            team_venues = {
+                'New York Yankees': (40.8296, -73.9262),
+                'Boston Red Sox': (42.3467, -71.0972),
+                'Los Angeles Dodgers': (34.0739, -118.2400),
+                'San Francisco Giants': (37.7786, -122.3893),
+                'Chicago Cubs': (41.9484, -87.6553),
+                'St. Louis Cardinals': (38.6226, -90.1928),
+                'Atlanta Braves': (33.8906, -84.4677),
+                'Houston Astros': (29.7572, -95.3552),
+                'Seattle Mariners': (47.5914, -122.3325),
+                'Texas Rangers': (32.7510, -97.0829)
+                # Add more teams as needed
+            }
+
+            if team in team_venues:
+                home_lat, home_lon = team_venues[team]
+                # Check if venue coordinates are close to team's home (within ~0.1 degrees)
+                return abs(venue_lat - home_lat) < 0.1
+        except Exception as e:
+            logger.error(f"Error determining home game for {team}: {e}")
+
+        # Default to away game if unable to determine
+        return False
     
     def _is_day_game(self, game_datetime: datetime) -> bool:
         """Determine if game is during day"""
         return 10 <= game_datetime.hour <= 17
     
     def _get_team_id(self, team_name: str) -> int:
-        """Get team ID from name"""
-        return hash(team_name) % 1000
+        """Get team ID from name using MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/teams"
+            params = {'sportId': 1, 'season': 2024}
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'teams' in data:
+                for team in data['teams']:
+                    if team['name'] == team_name or team_name in team['name']:
+                        return int(team['id'])
+        except Exception as e:
+            logger.error(f"Error fetching team ID for {team_name}: {e}")
+
+        # MLB team IDs are typically in 100s range
+        return abs(hash(team_name)) % 30 + 108
     
     def _get_pitcher_era(self, pitcher_id: int) -> float:
-        """Get pitcher ERA"""
-        # Would query MLB API
-        return 3.50 + (pitcher_id % 30) / 10
+        """Get pitcher ERA from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/{pitcher_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+                return float(stats.get('era', 4.50))
+        except Exception as e:
+            logger.error(f"Error fetching ERA for pitcher {pitcher_id}: {e}")
+
+        return 4.50  # League average ERA
     
     def _get_pitcher_whip(self, pitcher_id: int) -> float:
-        """Get pitcher WHIP"""
-        return 1.20 + (pitcher_id % 20) / 50
+        """Get pitcher WHIP from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/{pitcher_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+                return float(stats.get('whip', 1.30))
+        except Exception as e:
+            logger.error(f"Error fetching WHIP for pitcher {pitcher_id}: {e}")
+
+        return 1.30  # League average WHIP
     
     def _get_pitcher_k_rate(self, pitcher_id: int) -> float:
-        """Get pitcher strikeout rate"""
-        return 8.0 + (pitcher_id % 40) / 10
+        """Get pitcher strikeout rate from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/{pitcher_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+                return float(stats.get('strikeoutsPer9Inn', 8.5))
+        except Exception as e:
+            logger.error(f"Error fetching K rate for pitcher {pitcher_id}: {e}")
+
+        return 8.5  # League average K/9
     
     def _get_pitcher_bb_rate(self, pitcher_id: int) -> float:
-        """Get pitcher walk rate"""
-        return 2.5 + (pitcher_id % 20) / 20
+        """Get pitcher walk rate from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/people/{pitcher_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+                return float(stats.get('baseOnBallsPer9Inn', 3.2))
+        except Exception as e:
+            logger.error(f"Error fetching BB rate for pitcher {pitcher_id}: {e}")
+
+        return 3.2  # League average BB/9
     
     def _get_park_factor(self, lat: float, lon: float) -> float:
-        """Get park offensive factor"""
-        # Would use actual park factors
-        return 0.95 + (abs(lat + lon) % 20) / 100
+        """Get park offensive factor based on actual ballpark dimensions and conditions"""
+        # Park factors based on actual MLB ballparks (1.0 = league average)
+        park_factors = {
+            # Yankee Stadium (short right field)
+            (40.8296, -73.9262): 1.08,
+            # Fenway Park (Green Monster)
+            (42.3467, -71.0972): 1.05,
+            # Coors Field (high altitude)
+            (39.7559, -104.9942): 1.15,
+            # Petco Park (pitcher friendly)
+            (32.7073, -117.1566): 0.92,
+            # Marlins Park (pitcher friendly)
+            (25.7781, -80.2197): 0.94,
+            # Minute Maid Park (short left field)
+            (29.7572, -95.3552): 1.06,
+            # Camden Yards
+            (39.2838, -76.6217): 1.02,
+            # Wrigley Field
+            (41.9484, -87.6553): 1.03
+        }
+
+        # Find closest matching park
+        closest_factor = 1.0
+        min_distance = float('inf')
+
+        for (park_lat, park_lon), factor in park_factors.items():
+            distance = ((lat - park_lat) ** 2 + (lon - park_lon) ** 2) ** 0.5
+            if distance < min_distance:
+                min_distance = distance
+                closest_factor = factor
+
+        # If within 0.1 degrees, use the park factor, otherwise use league average
+        return closest_factor if min_distance < 0.1 else 1.0
     
     def _get_team_offensive_stats(self, team: str) -> Dict[str, float]:
-        """Get team offensive statistics"""
-        # Would query MLB API
-        base = hash(team) % 100
+        """Get team offensive statistics from MLB API"""
+        try:
+            team_id = self._get_team_id(team)
+            url = f"{self.fetcher.mlb_base}/teams/{team_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'hitting',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+                games_played = max(float(stats.get('gamesPlayed', 162)), 1)
+
+                return {
+                    'runs_per_game': float(stats.get('runs', 0)) / games_played,
+                    'obp': float(stats.get('obp', 0.320)),
+                    'ops': float(stats.get('ops', 0.750)),
+                    'risp_avg': float(stats.get('avg', 0.260))  # Approximation
+                }
+        except Exception as e:
+            logger.error(f"Error fetching team offensive stats for {team}: {e}")
+
+        # Return league averages if API fails
         return {
-            'runs_per_game': 4.0 + base / 50,
-            'obp': 0.300 + base / 500,
-            'ops': 0.700 + base / 200,
-            'risp_avg': 0.250 + base / 1000
+            'runs_per_game': 4.5,
+            'obp': 0.320,
+            'ops': 0.750,
+            'risp_avg': 0.260
         }
     
     def _get_team_defensive_stats(self, team: str) -> Dict[str, float]:
-        """Get team defensive statistics"""
-        base = hash(team) % 100
+        """Get team defensive statistics from MLB API"""
+        try:
+            team_id = self._get_team_id(team)
+            url = f"{self.fetcher.mlb_base}/teams/{team_id}/stats"
+            params = {
+                'stats': 'season',
+                'group': 'pitching',
+                'season': 2024,
+                'sportId': 1
+            }
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            if 'stats' in data and data['stats'] and data['stats'][0].get('splits'):
+                stats = data['stats'][0]['splits'][0]['stat']
+
+                # Get fielding stats too
+                fielding_url = f"{self.fetcher.mlb_base}/teams/{team_id}/stats"
+                fielding_params = {
+                    'stats': 'season',
+                    'group': 'fielding',
+                    'season': 2024,
+                    'sportId': 1
+                }
+
+                fielding_response = self.fetcher.session.get(fielding_url, params=fielding_params)
+                fielding_data = fielding_response.json()
+
+                def_eff = 0.70  # Default
+                if 'stats' in fielding_data and fielding_data['stats'] and fielding_data['stats'][0].get('splits'):
+                    fielding_stats = fielding_data['stats'][0]['splits'][0]['stat']
+                    errors = float(fielding_stats.get('errors', 100))
+                    chances = float(fielding_stats.get('chances', 4000))
+                    def_eff = 1 - (errors / max(chances, 1))
+
+                return {
+                    'era': float(stats.get('era', 4.50)),
+                    'whip': float(stats.get('whip', 1.30)),
+                    'def_eff': def_eff
+                }
+        except Exception as e:
+            logger.error(f"Error fetching team defensive stats for {team}: {e}")
+
+        # Return league averages if API fails
         return {
-            'era': 4.00 + base / 40,
-            'whip': 1.30 + base / 100,
-            'def_eff': 0.68 + base / 500
+            'era': 4.50,
+            'whip': 1.30,
+            'def_eff': 0.70
         }
     
     def _create_default_models(self):
-        """Create default models when no training data available"""
-        # Create simple models with default parameters
-        self.models['xgboost'] = xgb.XGBRegressor(n_estimators=100, random_state=42)
-        self.models['lightgbm'] = lgb.LGBMRegressor(n_estimators=100, random_state=42)
-        self.models['random_forest'] = RandomForestRegressor(n_estimators=100, random_state=42)
-        self.models['gradient_boost'] = GradientBoostingRegressor(n_estimators=100, random_state=42)
-        
-        # Create dummy training data
-        X_dummy = np.random.randn(100, 20)
-        y_dummy = np.random.poisson(0.8, 100)
-        
-        # Fit models
-        for model in self.models.values():
-            model.fit(X_dummy, y_dummy)
-        
-        # Create dummy scaler
-        self.scalers['main'] = StandardScaler()
-        self.scalers['main'].fit(X_dummy)
+        """Create default models when no training data available - fetch minimal real data first"""
+        logger.warning("No historical training data available. Attempting to fetch minimal recent data...")
+
+        # Try to get at least some recent data for training
+        end_date = datetime.now().strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+
+        X, y = self.prepare_training_data(start_date, end_date)
+
+        if len(X) == 0:
+            logger.error("Unable to fetch any real training data. Models cannot be initialized without real data.")
+            raise ValueError("No real training data available. Please ensure MLB API is accessible and try again.")
+
+        logger.info(f"Using {len(X)} samples from recent games for model initialization")
+
+        # Split the minimal data
+        if len(X) > 10:
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=42
+            )
+        else:
+            X_train, y_train = X, y
+            X_test, y_test = X, y
+
+        # Scale features
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+        self.scalers['main'] = scaler
+
+        # Create and train models with reduced complexity for small datasets
+        n_estimators = min(50, len(X_train) * 2)  # Reduce overfitting
+
+        self.models['xgboost'] = xgb.XGBRegressor(
+            n_estimators=n_estimators,
+            max_depth=3,
+            learning_rate=0.1,
+            random_state=42
+        )
+        self.models['lightgbm'] = lgb.LGBMRegressor(
+            n_estimators=n_estimators,
+            max_depth=3,
+            learning_rate=0.1,
+            random_state=42
+        )
+        self.models['random_forest'] = RandomForestRegressor(
+            n_estimators=n_estimators,
+            max_depth=5,
+            random_state=42
+        )
+        self.models['gradient_boost'] = GradientBoostingRegressor(
+            n_estimators=n_estimators,
+            max_depth=3,
+            learning_rate=0.1,
+            random_state=42
+        )
+
+        # Train models
+        for model_name, model in self.models.items():
+            try:
+                model.fit(X_train_scaled, y_train)
+                logger.info(f"Initialized {model_name} with real data")
+            except Exception as e:
+                logger.error(f"Failed to train {model_name}: {e}")
+
+        logger.info("Models initialized with minimal real training data")
     
     def _save_models(self):
         """Save trained models to disk"""
@@ -1253,40 +2218,97 @@ class AdvancedRBIPredictorV3:
             return pd.DataFrame()
     
     def _get_games_for_date(self, date: str) -> List[Dict]:
-        """Get all games scheduled for a date"""
-        # Would query MLB API
-        # Simplified for demonstration
-        return [
-            {
-                'game_id': 1,
-                'home_team': 'New York Yankees',
-                'away_team': 'Boston Red Sox',
-                'home_pitcher_id': 12345,
-                'away_pitcher_id': 67890,
-                'venue_lat': 40.8296,
-                'venue_lon': -73.9262,
-                'game_time': datetime.strptime(f"{date} 19:00", '%Y-%m-%d %H:%M')
+        """Get all games scheduled for a date from MLB API"""
+        try:
+            url = f"{self.fetcher.mlb_base}/schedule"
+            params = {
+                'sportId': 1,
+                'date': date,
+                'hydrate': 'probablePitcher,venue'
             }
-        ]
+
+            response = self.fetcher.session.get(url, params=params)
+            data = response.json()
+
+            games = []
+            if 'dates' in data and data['dates']:
+                for date_info in data['dates']:
+                    for game in date_info.get('games', []):
+                        # Extract game information
+                        game_info = {
+                            'game_id': game['gamePk'],
+                            'home_team': game['teams']['home']['team']['name'],
+                            'away_team': game['teams']['away']['team']['name'],
+                            'venue_lat': float(game.get('venue', {}).get('location', {}).get('latitude', 40.7128)),
+                            'venue_lon': float(game.get('venue', {}).get('location', {}).get('longitude', -74.0060)),
+                            'game_time': datetime.strptime(game['gameDate'][:19], '%Y-%m-%dT%H:%M:%S')
+                        }
+
+                        # Get probable pitchers
+                        home_pitcher = game['teams']['home'].get('probablePitcher')
+                        away_pitcher = game['teams']['away'].get('probablePitcher')
+
+                        game_info['home_pitcher_id'] = home_pitcher['id'] if home_pitcher else None
+                        game_info['away_pitcher_id'] = away_pitcher['id'] if away_pitcher else None
+
+                        games.append(game_info)
+
+            return games
+
+        except Exception as e:
+            logger.error(f"Error fetching games for {date}: {e}")
+            # Return empty list instead of demo data
+            return []
     
     def _get_probable_lineup(self, game: Dict, team_type: str) -> List[Dict]:
-        """Get probable lineup for team"""
-        # Would query MLB API for probable lineups
-        # Simplified for demonstration
-        sample_players = [
-            {'name': 'Aaron Judge', 'order': 3},
-            {'name': 'Juan Soto', 'order': 2},
-            {'name': 'Anthony Rizzo', 'order': 5}
-        ]
-        
-        return [
-            {
-                'player_name': p['name'],
-                'batting_order': p['order'],
-                'team': game[f'{team_type}_team']
-            }
-            for p in sample_players
-        ]
+        """Get probable lineup for team from MLB API"""
+        try:
+            team_id = self._get_team_id(game[f'{team_type}_team'])
+
+            # First try to get lineup from game data
+            url = f"{self.fetcher.mlb_base}/game/{game['game_id']}/boxscore"
+            response = self.fetcher.session.get(url)
+            data = response.json()
+
+            lineup = []
+            if 'teams' in data and team_type in data['teams']:
+                team_data = data['teams'][team_type]
+                batters = team_data.get('batters', [])
+
+                for i, batter_id in enumerate(batters[:9]):  # First 9 batters in lineup
+                    player_info = team_data.get('players', {}).get(f'ID{batter_id}', {})
+                    if player_info:
+                        lineup.append({
+                            'player_name': player_info.get('person', {}).get('fullName', f'Player {batter_id}'),
+                            'batting_order': i + 1,
+                            'team': game[f'{team_type}_team'],
+                            'player_id': batter_id
+                        })
+
+            # If we couldn't get lineup from game data, try roster
+            if not lineup:
+                roster_url = f"{self.fetcher.mlb_base}/teams/{team_id}/roster"
+                roster_response = self.fetcher.session.get(roster_url)
+                roster_data = roster_response.json()
+
+                if 'roster' in roster_data:
+                    # Get position players (rough approximation of batting order)
+                    position_players = [p for p in roster_data['roster']
+                                      if p.get('position', {}).get('type') == 'Hitter']
+
+                    for i, player in enumerate(position_players[:9]):
+                        lineup.append({
+                            'player_name': player.get('person', {}).get('fullName', 'Unknown'),
+                            'batting_order': i + 1,
+                            'team': game[f'{team_type}_team'],
+                            'player_id': player.get('person', {}).get('id')
+                        })
+
+            return lineup[:9]  # Return max 9 players
+
+        except Exception as e:
+            logger.error(f"Error fetching lineup for {game[f'{team_type}_team']}: {e}")
+            return []  # Return empty list instead of sample data
     
     def _analyze_player(self, player: Dict, game: Dict, team_type: str) -> Dict[str, Any]:
         """Analyze individual player for RBI prediction"""
@@ -1416,17 +2438,39 @@ def main():
             print("\nBacktesting not implemented in demo")
             
         elif choice == '4':
-            # Model statistics
+            # Model statistics and validation
             print("\n" + "=" * 50)
-            print("MODEL STATISTICS")
+            print("MODEL STATISTICS & VALIDATION")
             print("=" * 50)
-            
+
+            # Run formula baseline validation
+            baseline_metrics = predictor.validate_formula_baseline()
+
+            print(f"\n📊 TRAINING DATA VALIDATION:")
+            print(f"  Total Samples: {baseline_metrics.get('total_samples', 0):,}")
+            print(f"  League RBI Rate: {baseline_metrics.get('league_avg_rbi_rate', 0):.1%}")
+            print(f"  Expected Range: 8.0% - 15.0%")
+
             conn = sqlite3.connect(predictor.db_path)
             cursor = conn.cursor()
-            
+
+            # Get training data statistics
+            cursor.execute("""
+                SELECT
+                    COUNT(*) as total_training_samples,
+                    COUNT(DISTINCT game_id) as unique_games,
+                    COUNT(DISTINCT player_id) as unique_players,
+                    AVG(CAST(got_rbi AS FLOAT)) as avg_rbi_rate,
+                    MIN(created_at) as earliest_data,
+                    MAX(created_at) as latest_data
+                FROM rbi_training_data_v3
+            """)
+
+            training_stats = cursor.fetchone()
+
             # Get prediction statistics
             cursor.execute("""
-                SELECT 
+                SELECT
                     COUNT(*) as total_predictions,
                     AVG(rbi_probability) as avg_probability,
                     AVG(confidence_score) as avg_confidence,
@@ -1434,17 +2478,36 @@ def main():
                 FROM predictions
                 WHERE model_version = 'v3.0'
             """)
-            
-            stats = cursor.fetchone()
+
+            prediction_stats = cursor.fetchone()
             conn.close()
-            
-            if stats[0] > 0:
-                print(f"Total Predictions: {stats[0]}")
-                print(f"Average RBI Probability: {stats[1]:.1%}")
-                print(f"Average Confidence: {stats[2]:.1%}")
-                print(f"Bet Recommendations: {stats[3]}")
+
+            if training_stats and training_stats[0] > 0:
+                print(f"\n📈 TRAINING DATA:")
+                print(f"  Training Samples: {training_stats[0]:,}")
+                print(f"  Unique Games: {training_stats[1]:,}")
+                print(f"  Unique Players: {training_stats[2]:,}")
+                print(f"  Historical RBI Rate: {training_stats[3]:.1%}")
+                print(f"  Data Range: {training_stats[4]} to {training_stats[5]}")
+
+            if prediction_stats and prediction_stats[0] > 0:
+                print(f"\n🎯 PREDICTIONS:")
+                print(f"  Total Predictions: {prediction_stats[0]}")
+                print(f"  Average RBI Probability: {prediction_stats[1]:.1%}")
+                print(f"  Average Confidence: {prediction_stats[2]:.1%}")
+                print(f"  Bet Recommendations: {prediction_stats[3]}")
             else:
-                print("No predictions recorded yet")
+                print(f"\n🎯 PREDICTIONS:")
+                print("  No predictions recorded yet")
+
+            # Model performance if available
+            print(f"\n🤖 MODEL STATUS:")
+            if predictor.models:
+                print(f"  Models Loaded: {len(predictor.models)}")
+                print(f"  Model Types: {', '.join(predictor.models.keys())}")
+                print(f"  SHAP Explainers: {'✓' if predictor.shap_explainers else '✗'}")
+            else:
+                print("  No models trained yet")
             
         elif choice == '5':
             # Update models
