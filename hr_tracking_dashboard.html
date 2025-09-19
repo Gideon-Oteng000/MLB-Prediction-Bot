@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB Home Run Prediction Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffd700, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .predictions-table {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .date-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .date-selector input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 14px;
+        }
+
+        .date-selector input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+        }
+
+        .predictions-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .prediction-row {
+            display: grid;
+            grid-template-columns: 50px 40px 200px 180px 120px 80px 100px;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .prediction-row.hit {
+            border-left-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .prediction-row.miss {
+            border-left-color: #f44336;
+            background: rgba(244, 67, 54, 0.1);
+        }
+
+        .prediction-row.pending {
+            border-left-color: #ff9800;
+            background: rgba(255, 152, 0, 0.1);
+        }
+
+        .rank {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #ffd700;
+        }
+
+        .status-icon {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .player-name {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .pitcher-name {
+            color: #ccc;
+            font-size: 0.9em;
+        }
+
+        .teams {
+            color: #ddd;
+            font-size: 0.9em;
+        }
+
+        .probability {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .result {
+            font-weight: bold;
+        }
+
+        .result.hit {
+            color: #4CAF50;
+        }
+
+        .result.miss {
+            color: #f44336;
+        }
+
+        .result.pending {
+            color: #ff9800;
+        }
+
+        .header-row {
+            display: grid;
+            grid-template-columns: 50px 40px 200px 180px 120px 80px 100px;
+            align-items: center;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #ccc;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .prediction-row,
+            .header-row {
+                grid-template-columns: 40px 30px 1fr;
+                gap: 10px;
+            }
+
+            .pitcher-name,
+            .teams,
+            .probability {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .refresh-btn {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+        }
+
+        .refresh-btn:hover {
+            background: linear-gradient(45deg, #1976D2, #2196F3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 MLB Home Run Prediction Tracker</h1>
+            <p>Track predictions from mlb_hr_clean_v4.py against actual results</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Today's Hit Rate</h3>
+                <div class="value" id="todayHitRate">--%</div>
+                <small id="todayHits">-- / --</small>
+            </div>
+            <div class="stat-card">
+                <h3>Top 3 Success</h3>
+                <div class="value" id="top3Success">--%</div>
+                <small id="top3Hits">-- / 3</small>
+            </div>
+            <div class="stat-card">
+                <h3>Top 5 Success</h3>
+                <div class="value" id="top5Success">--%</div>
+                <small id="top5Hits">-- / 5</small>
+            </div>
+            <div class="stat-card">
+                <h3>Weekly Average</h3>
+                <div class="value" id="weeklyAvg">--%</div>
+                <small>Last 7 days</small>
+            </div>
+        </div>
+
+        <div class="predictions-table">
+            <div class="table-header">
+                <h2>📊 Prediction Results</h2>
+                <div class="date-selector">
+                    <input type="date" id="dateInput" />
+                    <button class="btn" onclick="loadDate()">Load</button>
+                    <button class="btn refresh-btn" onclick="loadToday()">Today</button>
+                </div>
+            </div>
+
+            <div class="header-row">
+                <div>Rank</div>
+                <div>Result</div>
+                <div>Player</div>
+                <div>Pitcher</div>
+                <div>Teams</div>
+                <div>Prob %</div>
+                <div>Outcome</div>
+            </div>
+
+            <div class="predictions-grid" id="predictionsGrid">
+                <div class="loading">Loading predictions...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data structure - in real implementation, this would come from your tracking system
+        const sampleData = {
+            '2024-12-17': {
+                predictions: [
+                    {
+                        rank: 1,
+                        player: "Aaron Judge",
+                        pitcher: "Shane Baz",
+                        teams: "NYY vs TB",
+                        probability: 12.3,
+                        hit_hr: true,
+                        hr_count: 1,
+                        result: "1 HR"
+                    },
+                    {
+                        rank: 2,
+                        player: "Vladimir Guerrero Jr.",
+                        pitcher: "Dylan Cease",
+                        teams: "TOR @ SD",
+                        probability: 11.8,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/4"
+                    },
+                    {
+                        rank: 3,
+                        player: "Juan Soto",
+                        pitcher: "Logan Webb",
+                        teams: "NYY @ SF",
+                        probability: 11.2,
+                        hit_hr: true,
+                        hr_count: 2,
+                        result: "2 HR"
+                    },
+                    {
+                        rank: 4,
+                        player: "Freddie Freeman",
+                        pitcher: "Zac Gallen",
+                        teams: "LAD vs ARI",
+                        probability: 10.9,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/3"
+                    },
+                    {
+                        rank: 5,
+                        player: "Ronald Acuña Jr.",
+                        pitcher: "Spencer Strider",
+                        teams: "ATL vs HOU",
+                        probability: 10.5,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/5"
+                    },
+                    {
+                        rank: 6,
+                        player: "Mookie Betts",
+                        pitcher: "Gerrit Cole",
+                        teams: "LAD @ NYY",
+                        probability: 9.8,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/4"
+                    },
+                    {
+                        rank: 7,
+                        player: "Pete Alonso",
+                        pitcher: "Sandy Alcantara",
+                        teams: "NYM @ MIA",
+                        probability: 9.3,
+                        hit_hr: true,
+                        hr_count: 1,
+                        result: "1 HR"
+                    },
+                    {
+                        rank: 8,
+                        player: "Jose Altuve",
+                        pitcher: "Shane Bieber",
+                        teams: "HOU @ CLE",
+                        probability: 8.9,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/4"
+                    },
+                    {
+                        rank: 9,
+                        player: "Fernando Tatis Jr.",
+                        pitcher: "Jacob deGrom",
+                        teams: "SD vs TEX",
+                        probability: 8.6,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/3"
+                    },
+                    {
+                        rank: 10,
+                        player: "Kyle Tucker",
+                        pitcher: "Framber Valdez",
+                        teams: "HOU vs LAA",
+                        probability: 8.2,
+                        hit_hr: false,
+                        hr_count: 0,
+                        result: "0/5"
+                    }
+                ],
+                stats: {
+                    total_predictions: 10,
+                    total_hrs: 3,
+                    hit_rate: 30.0,
+                    top_3_hits: 2,
+                    top_5_hits: 2
+                }
+            }
+        };
+
+        function formatDate(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        function loadToday() {
+            const today = new Date();
+            document.getElementById('dateInput').value = formatDate(today);
+            loadDate();
+        }
+
+        function loadDate() {
+            const dateInput = document.getElementById('dateInput').value;
+            if (!dateInput) {
+                loadToday();
+                return;
+            }
+
+            displayPredictions(dateInput);
+        }
+
+        function displayPredictions(date) {
+            const data = sampleData[date];
+            const grid = document.getElementById('predictionsGrid');
+
+            if (!data) {
+                grid.innerHTML = '<div class="no-data">No prediction data found for this date</div>';
+                updateStats(null);
+                return;
+            }
+
+            const predictions = data.predictions;
+            const stats = data.stats;
+
+            if (!predictions || predictions.length === 0) {
+                grid.innerHTML = '<div class="no-data">No predictions found for this date</div>';
+                updateStats(null);
+                return;
+            }
+
+            grid.innerHTML = predictions.map(pred => {
+                const statusClass = pred.hit_hr === null ? 'pending' : (pred.hit_hr ? 'hit' : 'miss');
+                const statusIcon = pred.hit_hr === null ? '⏳' : (pred.hit_hr ? '✅' : '❌');
+                const resultClass = pred.hit_hr === null ? 'pending' : (pred.hit_hr ? 'hit' : 'miss');
+
+                return `
+                    <div class="prediction-row ${statusClass}">
+                        <div class="rank">#${pred.rank}</div>
+                        <div class="status-icon">${statusIcon}</div>
+                        <div class="player-name">${pred.player}</div>
+                        <div class="pitcher-name">${pred.pitcher}</div>
+                        <div class="teams">${pred.teams}</div>
+                        <div class="probability">${pred.probability}%</div>
+                        <div class="result ${resultClass}">${pred.result}</div>
+                    </div>
+                `;
+            }).join('');
+
+            updateStats(stats);
+        }
+
+        function updateStats(stats) {
+            if (!stats) {
+                document.getElementById('todayHitRate').textContent = '--%';
+                document.getElementById('todayHits').textContent = '-- / --';
+                document.getElementById('top3Success').textContent = '--%';
+                document.getElementById('top3Hits').textContent = '-- / 3';
+                document.getElementById('top5Success').textContent = '--%';
+                document.getElementById('top5Hits').textContent = '-- / 5';
+                return;
+            }
+
+            document.getElementById('todayHitRate').textContent = `${stats.hit_rate.toFixed(1)}%`;
+            document.getElementById('todayHits').textContent = `${stats.total_hrs} / ${stats.total_predictions}`;
+            
+            const top3Rate = (stats.top_3_hits / 3) * 100;
+            document.getElementById('top3Success').textContent = `${top3Rate.toFixed(1)}%`;
+            document.getElementById('top3Hits').textContent = `${stats.top_3_hits} / 3`;
+            
+            const top5Rate = (stats.top_5_hits / 5) * 100;
+            document.getElementById('top5Success').textContent = `${top5Rate.toFixed(1)}%`;
+            document.getElementById('top5Hits').textContent = `${stats.top_5_hits} / 5`;
+            
+            // Weekly average would come from backend
+            document.getElementById('weeklyAvg').textContent = '28.5%';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadToday();
+        });
+
+        // Add some interactivity
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.prediction-row')) {
+                const row = e.target.closest('.prediction-row');
+                row.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    row.style.transform = '';
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>
