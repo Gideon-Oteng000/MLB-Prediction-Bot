@@ -1,3 +1,4 @@
 *.csv
 *.txt
 professional_mlb_model.pkl
+production_system/models/production_mlb_model.pkl
