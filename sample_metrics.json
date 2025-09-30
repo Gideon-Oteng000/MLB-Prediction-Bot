@@ -1,0 +1,254 @@
+{
+  "date": "2025-09-22",
+  "players": {
+    "CJ Abrams": {
+      "player_info": {
+        "name": "CJ Abrams",
+        "team": "WSH",
+        "position": "DH",
+        "batting_order": 1
+      },
+      "raw_metrics": {
+        "season": {
+          "barrel_pct": 2.691511387163561,
+          "hard_hit_pct": 36.64596273291926,
+          "avg_exit_velocity": 88.65413870246087,
+          "max_exit_velocity": 112.7,
+          "launch_angle": 12.946308724832214,
+          "launch_angle_std": 31.6218800694109,
+          "strike_pct": 44.847485572959606,
+          "ball_pct": 32.5638911788953,
+          "bb_pct": 5.589123867069486,
+          "k_pct": 18.429003021148034,
+          "hr_rate": 0.030211480362537766,
+          "iso": 0.2312633832976445
+        },
+        "last_30": {
+          "barrel_pct": 0.0,
+          "hard_hit_pct": 35.2112676056338,
+          "avg_exit_velocity": 87.6830985915493,
+          "max_exit_velocity": 110.6,
+          "launch_angle": 13.746478873239436,
+          "launch_angle_std": 33.04054578840937,
+          "strike_pct": 50.37593984962406,
+          "ball_pct": 29.57393483709273,
+          "bb_pct": 4.672897196261682,
+          "k_pct": 27.102803738317753,
+          "hr_rate": 0.018691588785046728,
+          "iso": 0.18840579710144933
+        },
+        "last_7": {
+          "barrel_pct": 0.0,
+          "hard_hit_pct": 35.714285714285715,
+          "avg_exit_velocity": 88.75714285714287,
+          "max_exit_velocity": 109.6,
+          "launch_angle": 15.928571428571429,
+          "launch_angle_std": 27.844248917903993,
+          "strike_pct": 55.319148936170215,
+          "ball_pct": 28.723404255319153,
+          "bb_pct": 4.3478260869565215,
+          "k_pct": 34.78260869565217,
+          "hr_rate": 0.043478260869565216,
+          "iso": 0.30769230769230765
+        },
+        "career": {}
+      },
+      "blended_metrics": {
+        "barrel_pct": 1.5969679613773784,
+        "hard_hit_pct": 34.27179348480857,
+        "avg_exit_velocity": 88.42167909020117,
+        "max_exit_velocity": 111.97,
+        "launch_angle": 13.484586039728303,
+        "iso": 0.22323564689545317,
+        "bb_pct": 5.174357351721891,
+        "k_pct": 20.52589904068295,
+        "hr_rate": 0.028633937205220034
+      },
+      "sample_sizes": {
+        "season_pa": 2426,
+        "month_pa": 399,
+        "week_pa": 94
+      },
+      "is_pitcher": false
+    },
+    "Matt Olson": {
+      "player_info": {
+        "name": "Matt Olson",
+        "team": "ATL",
+        "position": "1B",
+        "batting_order": 1
+      },
+      "raw_metrics": {
+        "season": {
+          "barrel_pct": 4.068522483940043,
+          "hard_hit_pct": 50.53533190578159,
+          "avg_exit_velocity": 93.40755148741418,
+          "max_exit_velocity": 114.0,
+          "launch_angle": 14.610983981693364,
+          "launch_angle_std": 27.313750749262944,
+          "strike_pct": 45.29595015576324,
+          "ball_pct": 37.13395638629283,
+          "bb_pct": 12.567567567567567,
+          "k_pct": 23.91891891891892,
+          "hr_rate": 0.04054054054054054,
+          "iso": 0.29321663019693656
+        },
+        "last_30": {
+          "barrel_pct": 8.860759493670885,
+          "hard_hit_pct": 51.89873417721519,
+          "avg_exit_velocity": 93.28987341772151,
+          "max_exit_velocity": 111.5,
+          "launch_angle": 15.734177215189874,
+          "launch_angle_std": 26.953763288344163,
+          "strike_pct": 46.257197696737045,
+          "ball_pct": 36.08445297504799,
+          "bb_pct": 12.295081967213115,
+          "k_pct": 22.131147540983605,
+          "hr_rate": 0.07377049180327869,
+          "iso": 0.4743589743589744
+        },
+        "last_7": {
+          "barrel_pct": 12.0,
+          "hard_hit_pct": 56.00000000000001,
+          "avg_exit_velocity": 94.49600000000002,
+          "max_exit_velocity": 111.4,
+          "launch_angle": 13.68,
+          "launch_angle_std": 24.061933976026673,
+          "strike_pct": 43.05555555555556,
+          "ball_pct": 38.19444444444444,
+          "bb_pct": 11.76470588235294,
+          "k_pct": 14.705882352941178,
+          "hr_rate": 0.08823529411764706,
+          "iso": 0.6000000000000001
+        },
+        "career": {}
+      },
+      "blended_metrics": {
+        "barrel_pct": 5.8748129533851765,
+        "hard_hit_pct": 49.412296284643446,
+        "avg_exit_velocity": 93.4869768212496,
+        "max_exit_velocity": 113.24,
+        "launch_angle": 14.854843553572982,
+        "iso": 0.349462164029119,
+        "bb_pct": 12.221134018431131,
+        "k_pct": 22.525237225286716,
+        "hr_rate": 0.053038439678901685
+      },
+      "sample_sizes": {
+        "season_pa": 3210,
+        "month_pa": 521,
+        "week_pa": 144
+      },
+      "is_pitcher": false
+    },
+    "MacKenzie Gore": {
+      "player_info": {
+        "name": "MacKenzie Gore",
+        "team": "WSH",
+        "position": "P"
+      },
+      "raw_metrics": {
+        "season": {
+          "barrel_pct_allowed": 2.8077753779697625,
+          "hard_hit_pct_allowed": 41.252699784017274,
+          "avg_exit_velocity_allowed": 89.8859813084112,
+          "launch_angle_allowed": 15.80373831775701,
+          "bb_pct": 8.955223880597014,
+          "k_pct": 27.137042062415194,
+          "hr_rate": 0.025780189959294438
+        },
+        "last_30": {
+          "barrel_pct_allowed": 2.3255813953488373,
+          "hard_hit_pct_allowed": 46.51162790697674,
+          "avg_exit_velocity_allowed": 91.24883720930234,
+          "launch_angle_allowed": 12.581395348837209,
+          "bb_pct": 11.29032258064516,
+          "k_pct": 19.35483870967742,
+          "hr_rate": 0.0
+        },
+        "last_7": {
+          "barrel_pct_allowed": 7.6923076923076925,
+          "hard_hit_pct_allowed": 38.46153846153847,
+          "avg_exit_velocity_allowed": 87.53846153846153,
+          "launch_angle_allowed": 6.3076923076923075,
+          "bb_pct": 14.285714285714285,
+          "k_pct": 23.809523809523807,
+          "hr_rate": 0.0
+        },
+        "career": {}
+      },
+      "blended_metrics": {
+        "barrel_pct_allowed": 3.151570414617278,
+        "hard_hit_pct_allowed": 42.55126208865723,
+        "avg_exit_velocity_allowed": 89.99194330663903,
+        "launch_angle_allowed": 13.887430826074597,
+        "bb_pct": 9.44417817119056,
+        "k_pct": 24.2123370521449,
+        "hr_rate": 0.017370877507386612
+      },
+      "sample_sizes": {
+        "season_bf": 3032,
+        "month_bf": 269,
+        "week_bf": 92
+      },
+      "is_pitcher": true
+    },
+    "Chris Sale": {
+      "player_info": {
+        "name": "Chris Sale",
+        "team": "ATL",
+        "position": "P"
+      },
+      "raw_metrics": {
+        "season": {
+          "barrel_pct_allowed": 0.6230529595015576,
+          "hard_hit_pct_allowed": 29.595015576323984,
+          "avg_exit_velocity_allowed": 86.57060931899642,
+          "launch_angle_allowed": 11.806451612903226,
+          "bb_pct": 6.133828996282528,
+          "k_pct": 31.59851301115242,
+          "hr_rate": 0.022304832713754646
+        },
+        "last_30": {
+          "barrel_pct_allowed": 0.0,
+          "hard_hit_pct_allowed": 42.857142857142854,
+          "avg_exit_velocity_allowed": 88.55892857142858,
+          "launch_angle_allowed": 8.946428571428571,
+          "bb_pct": 2.083333333333333,
+          "k_pct": 37.5,
+          "hr_rate": 0.020833333333333332
+        },
+        "last_7": {
+          "barrel_pct_allowed": 0.0,
+          "hard_hit_pct_allowed": 33.33333333333333,
+          "avg_exit_velocity_allowed": 84.14444444444445,
+          "launch_angle_allowed": -6.055555555555555,
+          "bb_pct": 0.0,
+          "k_pct": 33.33333333333333,
+          "hr_rate": 0.0
+        },
+        "career": {}
+      },
+      "blended_metrics": {
+        "barrel_pct_allowed": 0.37383177570093457,
+        "hard_hit_pct_allowed": 33.947485536270584,
+        "avg_exit_velocity_allowed": 86.82507264464925,
+        "launch_angle_allowed": 9.162243983614951,
+        "bb_pct": 4.750114991785674,
+        "k_pct": 31.998574960950357,
+        "hr_rate": 0.020085443355357724
+      },
+      "sample_sizes": {
+        "season_bf": 2130,
+        "month_bf": 369,
+        "week_bf": 106
+      },
+      "is_pitcher": true
+    }
+  },
+  "metadata": {
+    "total_players": 4,
+    "processing_time": "41.37 seconds",
+    "data_source": "Baseball Savant via pybaseball"
+  }
+}

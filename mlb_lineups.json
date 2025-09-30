@@ -1,0 +1,3339 @@
+{
+  "date": "2025-09-28",
+  "source": "mlb_stats",
+  "games": {
+    "776151": {
+      "away_team": "Detroit Tigers",
+      "home_team": "Boston Red Sox",
+      "away_lineup": [
+        {
+          "name": "Parker Meadows",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Zach McKinstry",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Justyn-Henry Malloy",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Kerry Carpenter",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Wenceel P\u00e9rez",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Javier B\u00e1ez",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Trey Sweeney",
+          "position": "SS",
+          "batting_order": 7
+        },
+        {
+          "name": "Andy Ib\u00e1\u00f1ez",
+          "position": "1B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jake Rogers",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Jarren Duran",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Trevor Story",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Masataka Yoshida",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Ceddanne Rafaela",
+          "position": "CF",
+          "batting_order": 4
+        },
+        {
+          "name": "Wilyer Abreu",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Nathaniel Lowe",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Connor Wong",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "David Hamilton",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Nick Sogard",
+          "position": "3B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Chris Paddack",
+        "wins": "5",
+        "losses": "11",
+        "era": "5.27"
+      },
+      "home_pitcher": {
+        "name": "Jos\u00e9 De Le\u00f3n",
+        "wins": "",
+        "losses": "",
+        "era": ""
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776138": {
+      "away_team": "Kansas City Royals",
+      "home_team": "Athletics",
+      "away_lineup": [
+        {
+          "name": "Maikel Garcia",
+          "position": "3B",
+          "batting_order": 1
+        },
+        {
+          "name": "Bobby Witt Jr.",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Vinnie Pasquantino",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Salvador Perez",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Mike Yastrzemski",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Carter Jensen",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Adam Frazier",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Michael Massey",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "John Rave",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Colby Thomas",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Nick Kurtz",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Brent Rooker",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Tyler Soderstrom",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Darell Hernaiz",
+          "position": "2B",
+          "batting_order": 5
+        },
+        {
+          "name": "Brett Harris",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "JJ Bleday",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Max Muncy",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Willie MacIver",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Cole Ragans",
+        "wins": "3",
+        "losses": "3",
+        "era": "5.02"
+      },
+      "home_pitcher": {
+        "name": "Brady Basso",
+        "wins": "1",
+        "losses": "0",
+        "era": "1.74"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776137": {
+      "away_team": "Colorado Rockies",
+      "home_team": "San Francisco Giants",
+      "away_lineup": [
+        {
+          "name": "Ezequiel Tovar",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Hunter Goodman",
+          "position": "C",
+          "batting_order": 2
+        },
+        {
+          "name": "Blaine Crim",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Jordan Beck",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Brenton Doyle",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Yanquiel Fern\u00e1ndez",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Kyle Karros",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Warming Bernabel",
+          "position": "DH",
+          "batting_order": 8
+        },
+        {
+          "name": "Ryan Ritter",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Heliot Ramos",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Willy Adames",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Rafael Devers",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Matt Chapman",
+          "position": "3B",
+          "batting_order": 4
+        },
+        {
+          "name": "Wilmer Flores",
+          "position": "1B",
+          "batting_order": 5
+        },
+        {
+          "name": "Jung Hoo Lee",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Patrick Bailey",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Christian Koss",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Drew Gilbert",
+          "position": "RF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "McCade Brown",
+        "wins": "0",
+        "losses": "4",
+        "era": "7.54"
+      },
+      "home_pitcher": {
+        "name": "Logan Webb",
+        "wins": "14",
+        "losses": "11",
+        "era": "3.30"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776141": {
+      "away_team": "Minnesota Twins",
+      "home_team": "Philadelphia Phillies",
+      "away_lineup": [
+        {
+          "name": "Austin Martin",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Ryan Jeffers",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Royce Lewis",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Kody Clemens",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "Brooks Lee",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Carson McCusker",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Ryan Fitzgerald",
+          "position": "2B",
+          "batting_order": 7
+        },
+        {
+          "name": "Christian V\u00e1zquez",
+          "position": "C",
+          "batting_order": 8
+        },
+        {
+          "name": "James Outman",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trea Turner",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Kyle Schwarber",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Bryce Harper",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Alec Bohm",
+          "position": "3B",
+          "batting_order": 4
+        },
+        {
+          "name": "Brandon Marsh",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Nick Castellanos",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Max Kepler",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Bryson Stott",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Rafael March\u00e1n",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Simeon Woods Richardson",
+        "wins": "7",
+        "losses": "4",
+        "era": "4.27"
+      },
+      "home_pitcher": {
+        "name": "Cristopher S\u00e1nchez",
+        "wins": "13",
+        "losses": "5",
+        "era": "2.57"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776143": {
+      "away_team": "Chicago White Sox",
+      "home_team": "Washington Nationals",
+      "away_lineup": [
+        {
+          "name": "Chase Meidroth",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Kyle Teel",
+          "position": "C",
+          "batting_order": 2
+        },
+        {
+          "name": "Colson Montgomery",
+          "position": "SS",
+          "batting_order": 3
+        },
+        {
+          "name": "Miguel Vargas",
+          "position": "3B",
+          "batting_order": 4
+        },
+        {
+          "name": "Edgar Quero",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Brooks Baldwin",
+          "position": "LF",
+          "batting_order": 6
+        },
+        {
+          "name": "Lenyn Sosa",
+          "position": "1B",
+          "batting_order": 7
+        },
+        {
+          "name": "Dominic Fletcher",
+          "position": "RF",
+          "batting_order": 8
+        },
+        {
+          "name": "Michael A. Taylor",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "James Wood",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "CJ Abrams",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Josh Bell",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Daylen Lile",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Dylan Crews",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Luis Garc\u00eda Jr.",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Riley Adams",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Brady House",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jacob Young",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Shane Smith",
+        "wins": "6",
+        "losses": "8",
+        "era": "3.98"
+      },
+      "home_pitcher": {
+        "name": "Brad Lord",
+        "wins": "5",
+        "losses": "9",
+        "era": "4.12"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776140": {
+      "away_team": "Baltimore Orioles",
+      "home_team": "New York Yankees",
+      "away_lineup": [
+        {
+          "name": "Jackson Holliday",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Jordan Westburg",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Gunnar Henderson",
+          "position": "SS",
+          "batting_order": 3
+        },
+        {
+          "name": "Tyler O'Neill",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Adley Rutschman",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Ryan Mountcastle",
+          "position": "DH",
+          "batting_order": 6
+        },
+        {
+          "name": "Dylan Beavers",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Colton Cowser",
+          "position": "CF",
+          "batting_order": 8
+        },
+        {
+          "name": "Coby Mayo",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trent Grisham",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Ben Rice",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Aaron Judge",
+          "position": "RF",
+          "batting_order": 3
+        },
+        {
+          "name": "Cody Bellinger",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Giancarlo Stanton",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Austin Wells",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Anthony Volpe",
+          "position": "SS",
+          "batting_order": 7
+        },
+        {
+          "name": "Ryan McMahon",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jos\u00e9 Caballero",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Kyle Bradish",
+        "wins": "1",
+        "losses": "1",
+        "era": "2.25"
+      },
+      "home_pitcher": {
+        "name": "Luis Gil",
+        "wins": "4",
+        "losses": "1",
+        "era": "3.29"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776135": {
+      "away_team": "Houston Astros",
+      "home_team": "Los Angeles Angels",
+      "away_lineup": [
+        {
+          "name": "Zach Cole",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Mauricio Dub\u00f3n",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Victor Caratini",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Yainer Diaz",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Jes\u00fas S\u00e1nchez",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Cam Smith",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Ram\u00f3n Ur\u00edas",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Brice Matthews",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jacob Melton",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Luis Rengifo",
+          "position": "3B",
+          "batting_order": 1
+        },
+        {
+          "name": "Mike Trout",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Jo Adell",
+          "position": "RF",
+          "batting_order": 3
+        },
+        {
+          "name": "Chris Taylor",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Christian Moore",
+          "position": "2B",
+          "batting_order": 5
+        },
+        {
+          "name": "Carter Kieboom",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Sebasti\u00e1n  Rivero",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Denzer Guzman",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Bryce Teodosio",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Lance McCullers Jr.",
+        "wins": "2",
+        "losses": "5",
+        "era": "6.71"
+      },
+      "home_pitcher": {
+        "name": "Sam Aldegheri",
+        "wins": "0",
+        "losses": "1",
+        "era": "8.00"
+      },
+      "game_time": "2025-09-28T19:07:00Z"
+    },
+    "776145": {
+      "away_team": "Tampa Bay Rays",
+      "home_team": "Toronto Blue Jays",
+      "away_lineup": [
+        {
+          "name": "Richie Palacios",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Junior Caminero",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Jonathan Aranda",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Josh Lowe",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Jake Mangum",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Hunter Feduccia",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Tristan Gray",
+          "position": "2B",
+          "batting_order": 7
+        },
+        {
+          "name": "Carson Williams",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Bob Seymour",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "George Springer",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Davis Schneider",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Anthony Santander",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Daulton Varsho",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Alejandro Kirk",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Addison Barger",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Ernie Clement",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Myles Straw",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Ian Seymour",
+        "wins": "4",
+        "losses": "2",
+        "era": "2.85"
+      },
+      "home_pitcher": {
+        "name": "Kevin Gausman",
+        "wins": "10",
+        "losses": "11",
+        "era": "3.47"
+      },
+      "game_time": "2025-09-28T19:07:00Z"
+    },
+    "776136": {
+      "away_team": "Arizona Diamondbacks",
+      "home_team": "San Diego Padres",
+      "away_lineup": [
+        {
+          "name": "Ketel Marte",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Jordan Lawlar",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Geraldo Perdomo",
+          "position": "SS",
+          "batting_order": 3
+        },
+        {
+          "name": "Tim Tawa",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "James McCann",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Ildemaro Vargas",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Alek Thomas",
+          "position": "CF",
+          "batting_order": 7
+        },
+        {
+          "name": "Jake McCarthy",
+          "position": "LF",
+          "batting_order": 8
+        },
+        {
+          "name": "Jorge Barrosa",
+          "position": "RF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Fernando Tatis Jr.",
+          "position": "RF",
+          "batting_order": 1
+        },
+        {
+          "name": "Ryan O'Hearn",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Manny Machado",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Jackson Merrill",
+          "position": "CF",
+          "batting_order": 4
+        },
+        {
+          "name": "Xander Bogaerts",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Gavin Sheets",
+          "position": "LF",
+          "batting_order": 6
+        },
+        {
+          "name": "Jake Cronenworth",
+          "position": "DH",
+          "batting_order": 7
+        },
+        {
+          "name": "Jose Iglesias",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Freddy Fermin",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Brandon Pfaadt",
+        "wins": "13",
+        "losses": "8",
+        "era": "5.00"
+      },
+      "home_pitcher": {
+        "name": "JP Sears",
+        "wins": "8",
+        "losses": "11",
+        "era": "5.12"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776139": {
+      "away_team": "Los Angeles Dodgers",
+      "home_team": "Seattle Mariners",
+      "away_lineup": [
+        {
+          "name": "Shohei Ohtani",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Mookie Betts",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Freddie Freeman",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Teoscar Hern\u00e1ndez",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Michael Conforto",
+          "position": "LF",
+          "batting_order": 5
+        },
+        {
+          "name": "Andy Pages",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Enrique Hern\u00e1ndez",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Hyeseong Kim",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Ben Rortvedt",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Randy Arozarena",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Cal Raleigh",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Eugenio Su\u00e1rez",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Mitch Garver",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Luke Raley",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "J.P. Crawford",
+          "position": "SS",
+          "batting_order": 6
+        },
+        {
+          "name": "Leo Rivas",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Cole Young",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Miles Mastrobuoni",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Clayton Kershaw",
+        "wins": "10",
+        "losses": "2",
+        "era": "3.52"
+      },
+      "home_pitcher": {
+        "name": "Bryce Miller",
+        "wins": "4",
+        "losses": "5",
+        "era": "5.53"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776147": {
+      "away_team": "Texas Rangers",
+      "home_team": "Cleveland Guardians",
+      "away_lineup": [
+        {
+          "name": "Michael Helman",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Cody Freeman",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Josh Jung",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Adolis Garc\u00eda",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Jake Burger",
+          "position": "1B",
+          "batting_order": 5
+        },
+        {
+          "name": "Ezequiel Duran",
+          "position": "SS",
+          "batting_order": 6
+        },
+        {
+          "name": "Jonah Heim",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Dylan Moore",
+          "position": "RF",
+          "batting_order": 8
+        },
+        {
+          "name": "Alejandro Osuna",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Steven Kwan",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Angel Mart\u00ednez",
+          "position": "CF",
+          "batting_order": 2
+        },
+        {
+          "name": "Jos\u00e9 Ram\u00edrez",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Johnathan Rodr\u00edguez",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Bo Naylor",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Gabriel Arias",
+          "position": "SS",
+          "batting_order": 6
+        },
+        {
+          "name": "Brayan Rocchio",
+          "position": "2B",
+          "batting_order": 7
+        },
+        {
+          "name": "Daniel Schneemann",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jhonkensy Noel",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Patrick Corbin",
+        "wins": "7",
+        "losses": "11",
+        "era": "4.34"
+      },
+      "home_pitcher": {
+        "name": "Logan Allen",
+        "wins": "8",
+        "losses": "11",
+        "era": "4.14"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776148": {
+      "away_team": "New York Mets",
+      "home_team": "Miami Marlins",
+      "away_lineup": [
+        {
+          "name": "Francisco Lindor",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Juan Soto",
+          "position": "RF",
+          "batting_order": 2
+        },
+        {
+          "name": "Pete Alonso",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Brandon Nimmo",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Mark Vientos",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Jeff McNeil",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Francisco Alvarez",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Ronny Mauricio",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Tyrone Taylor",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Xavier Edwards",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Agust\u00edn Ram\u00edrez",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Jakob Marsee",
+          "position": "CF",
+          "batting_order": 3
+        },
+        {
+          "name": "Otto Lopez",
+          "position": "SS",
+          "batting_order": 4
+        },
+        {
+          "name": "Connor Norby",
+          "position": "3B",
+          "batting_order": 5
+        },
+        {
+          "name": "Eric Wagaman",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Heriberto Hern\u00e1ndez",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Brian Navarreto",
+          "position": "C",
+          "batting_order": 8
+        },
+        {
+          "name": "Javier Sanoja",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Sean Manaea",
+        "wins": "2",
+        "losses": "4",
+        "era": "5.80"
+      },
+      "home_pitcher": {
+        "name": "Edward Cabrera",
+        "wins": "7",
+        "losses": "7",
+        "era": "3.66"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776144": {
+      "away_team": "Cincinnati Reds",
+      "home_team": "Milwaukee Brewers",
+      "away_lineup": [
+        {
+          "name": "TJ Friedl",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Noelvi Marte",
+          "position": "RF",
+          "batting_order": 2
+        },
+        {
+          "name": "Gavin Lux",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Miguel Andujar",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Elly De La Cruz",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Spencer Steer",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Ke'Bryan Hayes",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Jose Trevino",
+          "position": "C",
+          "batting_order": 8
+        },
+        {
+          "name": "Matt McLain",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Christian Yelich",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Jackson Chourio",
+          "position": "CF",
+          "batting_order": 2
+        },
+        {
+          "name": "Brice Turang",
+          "position": "2B",
+          "batting_order": 3
+        },
+        {
+          "name": "Jake Bauers",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "Sal Frelick",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Caleb Durbin",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "Isaac Collins",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Andruw Monasterio",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Danny Jansen",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Brady Singer",
+        "wins": "14",
+        "losses": "11",
+        "era": "3.95"
+      },
+      "home_pitcher": {
+        "name": "Freddy Peralta",
+        "wins": "17",
+        "losses": "6",
+        "era": "2.68"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776149": {
+      "away_team": "Pittsburgh Pirates",
+      "home_team": "Atlanta Braves",
+      "away_lineup": [
+        {
+          "name": "Jared Triolo",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Nick Gonzales",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Tommy Pham",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Andrew McCutchen",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Joey Bart",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Alexander Canario",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Nick Yorke",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Rafael Flores",
+          "position": "1B",
+          "batting_order": 8
+        },
+        {
+          "name": "Cam Devanney",
+          "position": "3B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Jurickson Profar",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Matt Olson",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Ronald Acu\u00f1a Jr.",
+          "position": "RF",
+          "batting_order": 3
+        },
+        {
+          "name": "Drake Baldwin",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Ha-Seong Kim",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Michael Harris II",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Marcell Ozuna",
+          "position": "DH",
+          "batting_order": 7
+        },
+        {
+          "name": "Nacho Alvarez Jr.",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Nick Allen",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Johan Oviedo",
+        "wins": "2",
+        "losses": "0",
+        "era": "3.57"
+      },
+      "home_pitcher": {
+        "name": "Charlie Morton",
+        "wins": "9",
+        "losses": "11",
+        "era": "5.89"
+      },
+      "game_time": "2025-09-28T19:15:00Z"
+    },
+    "776142": {
+      "away_team": "St. Louis Cardinals",
+      "home_team": "Chicago Cubs",
+      "away_lineup": [
+        {
+          "name": "Jos\u00e9 Ferm\u00edn",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Iv\u00e1n Herrera",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Nolan Gorman",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Thomas Saggese",
+          "position": "SS",
+          "batting_order": 4
+        },
+        {
+          "name": "Jordan Walker",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Jimmy Crooks",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Yohel Pozo",
+          "position": "1B",
+          "batting_order": 7
+        },
+        {
+          "name": "Victor Scott II",
+          "position": "CF",
+          "batting_order": 8
+        },
+        {
+          "name": "Nathan Church",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Michael Busch",
+          "position": "1B",
+          "batting_order": 1
+        },
+        {
+          "name": "Nico Hoerner",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Ian Happ",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Kyle Tucker",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Seiya Suzuki",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Mois\u00e9s Ballesteros",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Pete Crow-Armstrong",
+          "position": "CF",
+          "batting_order": 7
+        },
+        {
+          "name": "Dansby Swanson",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Willi Castro",
+          "position": "3B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Kyle Leahy",
+        "wins": "4",
+        "losses": "2",
+        "era": "3.18"
+      },
+      "home_pitcher": {
+        "name": "Javier Assad",
+        "wins": "3",
+        "losses": "1",
+        "era": "4.26"
+      },
+      "game_time": "2025-09-28T19:20:00Z"
+    }
+  },
+  "mlb_stats": {
+    "776151": {
+      "away_team": "Detroit Tigers",
+      "home_team": "Boston Red Sox",
+      "away_lineup": [
+        {
+          "name": "Parker Meadows",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Zach McKinstry",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Justyn-Henry Malloy",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Kerry Carpenter",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Wenceel P\u00e9rez",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Javier B\u00e1ez",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Trey Sweeney",
+          "position": "SS",
+          "batting_order": 7
+        },
+        {
+          "name": "Andy Ib\u00e1\u00f1ez",
+          "position": "1B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jake Rogers",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Jarren Duran",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Trevor Story",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Masataka Yoshida",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Ceddanne Rafaela",
+          "position": "CF",
+          "batting_order": 4
+        },
+        {
+          "name": "Wilyer Abreu",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Nathaniel Lowe",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Connor Wong",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "David Hamilton",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Nick Sogard",
+          "position": "3B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Chris Paddack",
+        "wins": "5",
+        "losses": "11",
+        "era": "5.27"
+      },
+      "home_pitcher": {
+        "name": "Jos\u00e9 De Le\u00f3n",
+        "wins": "",
+        "losses": "",
+        "era": ""
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776138": {
+      "away_team": "Kansas City Royals",
+      "home_team": "Athletics",
+      "away_lineup": [
+        {
+          "name": "Maikel Garcia",
+          "position": "3B",
+          "batting_order": 1
+        },
+        {
+          "name": "Bobby Witt Jr.",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Vinnie Pasquantino",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Salvador Perez",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Mike Yastrzemski",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Carter Jensen",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Adam Frazier",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Michael Massey",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "John Rave",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Colby Thomas",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Nick Kurtz",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Brent Rooker",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Tyler Soderstrom",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Darell Hernaiz",
+          "position": "2B",
+          "batting_order": 5
+        },
+        {
+          "name": "Brett Harris",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "JJ Bleday",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Max Muncy",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Willie MacIver",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Cole Ragans",
+        "wins": "3",
+        "losses": "3",
+        "era": "5.02"
+      },
+      "home_pitcher": {
+        "name": "Brady Basso",
+        "wins": "1",
+        "losses": "0",
+        "era": "1.74"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776137": {
+      "away_team": "Colorado Rockies",
+      "home_team": "San Francisco Giants",
+      "away_lineup": [
+        {
+          "name": "Ezequiel Tovar",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Hunter Goodman",
+          "position": "C",
+          "batting_order": 2
+        },
+        {
+          "name": "Blaine Crim",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Jordan Beck",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Brenton Doyle",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Yanquiel Fern\u00e1ndez",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Kyle Karros",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Warming Bernabel",
+          "position": "DH",
+          "batting_order": 8
+        },
+        {
+          "name": "Ryan Ritter",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Heliot Ramos",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Willy Adames",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Rafael Devers",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Matt Chapman",
+          "position": "3B",
+          "batting_order": 4
+        },
+        {
+          "name": "Wilmer Flores",
+          "position": "1B",
+          "batting_order": 5
+        },
+        {
+          "name": "Jung Hoo Lee",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Patrick Bailey",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Christian Koss",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Drew Gilbert",
+          "position": "RF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "McCade Brown",
+        "wins": "0",
+        "losses": "4",
+        "era": "7.54"
+      },
+      "home_pitcher": {
+        "name": "Logan Webb",
+        "wins": "14",
+        "losses": "11",
+        "era": "3.30"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776141": {
+      "away_team": "Minnesota Twins",
+      "home_team": "Philadelphia Phillies",
+      "away_lineup": [
+        {
+          "name": "Austin Martin",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Ryan Jeffers",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Royce Lewis",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Kody Clemens",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "Brooks Lee",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Carson McCusker",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Ryan Fitzgerald",
+          "position": "2B",
+          "batting_order": 7
+        },
+        {
+          "name": "Christian V\u00e1zquez",
+          "position": "C",
+          "batting_order": 8
+        },
+        {
+          "name": "James Outman",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trea Turner",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Kyle Schwarber",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Bryce Harper",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Alec Bohm",
+          "position": "3B",
+          "batting_order": 4
+        },
+        {
+          "name": "Brandon Marsh",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Nick Castellanos",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Max Kepler",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Bryson Stott",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Rafael March\u00e1n",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Simeon Woods Richardson",
+        "wins": "7",
+        "losses": "4",
+        "era": "4.27"
+      },
+      "home_pitcher": {
+        "name": "Cristopher S\u00e1nchez",
+        "wins": "13",
+        "losses": "5",
+        "era": "2.57"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776143": {
+      "away_team": "Chicago White Sox",
+      "home_team": "Washington Nationals",
+      "away_lineup": [
+        {
+          "name": "Chase Meidroth",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Kyle Teel",
+          "position": "C",
+          "batting_order": 2
+        },
+        {
+          "name": "Colson Montgomery",
+          "position": "SS",
+          "batting_order": 3
+        },
+        {
+          "name": "Miguel Vargas",
+          "position": "3B",
+          "batting_order": 4
+        },
+        {
+          "name": "Edgar Quero",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Brooks Baldwin",
+          "position": "LF",
+          "batting_order": 6
+        },
+        {
+          "name": "Lenyn Sosa",
+          "position": "1B",
+          "batting_order": 7
+        },
+        {
+          "name": "Dominic Fletcher",
+          "position": "RF",
+          "batting_order": 8
+        },
+        {
+          "name": "Michael A. Taylor",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "James Wood",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "CJ Abrams",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Josh Bell",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Daylen Lile",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Dylan Crews",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Luis Garc\u00eda Jr.",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Riley Adams",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Brady House",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jacob Young",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Shane Smith",
+        "wins": "6",
+        "losses": "8",
+        "era": "3.98"
+      },
+      "home_pitcher": {
+        "name": "Brad Lord",
+        "wins": "5",
+        "losses": "9",
+        "era": "4.12"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776140": {
+      "away_team": "Baltimore Orioles",
+      "home_team": "New York Yankees",
+      "away_lineup": [
+        {
+          "name": "Jackson Holliday",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Jordan Westburg",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Gunnar Henderson",
+          "position": "SS",
+          "batting_order": 3
+        },
+        {
+          "name": "Tyler O'Neill",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Adley Rutschman",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Ryan Mountcastle",
+          "position": "DH",
+          "batting_order": 6
+        },
+        {
+          "name": "Dylan Beavers",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Colton Cowser",
+          "position": "CF",
+          "batting_order": 8
+        },
+        {
+          "name": "Coby Mayo",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trent Grisham",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Ben Rice",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Aaron Judge",
+          "position": "RF",
+          "batting_order": 3
+        },
+        {
+          "name": "Cody Bellinger",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Giancarlo Stanton",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Austin Wells",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Anthony Volpe",
+          "position": "SS",
+          "batting_order": 7
+        },
+        {
+          "name": "Ryan McMahon",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jos\u00e9 Caballero",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Kyle Bradish",
+        "wins": "1",
+        "losses": "1",
+        "era": "2.25"
+      },
+      "home_pitcher": {
+        "name": "Luis Gil",
+        "wins": "4",
+        "losses": "1",
+        "era": "3.29"
+      },
+      "game_time": "2025-09-28T19:05:00Z"
+    },
+    "776135": {
+      "away_team": "Houston Astros",
+      "home_team": "Los Angeles Angels",
+      "away_lineup": [
+        {
+          "name": "Zach Cole",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Mauricio Dub\u00f3n",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Victor Caratini",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Yainer Diaz",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Jes\u00fas S\u00e1nchez",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Cam Smith",
+          "position": "RF",
+          "batting_order": 6
+        },
+        {
+          "name": "Ram\u00f3n Ur\u00edas",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Brice Matthews",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jacob Melton",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Luis Rengifo",
+          "position": "3B",
+          "batting_order": 1
+        },
+        {
+          "name": "Mike Trout",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Jo Adell",
+          "position": "RF",
+          "batting_order": 3
+        },
+        {
+          "name": "Chris Taylor",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Christian Moore",
+          "position": "2B",
+          "batting_order": 5
+        },
+        {
+          "name": "Carter Kieboom",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Sebasti\u00e1n  Rivero",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Denzer Guzman",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Bryce Teodosio",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Lance McCullers Jr.",
+        "wins": "2",
+        "losses": "5",
+        "era": "6.71"
+      },
+      "home_pitcher": {
+        "name": "Sam Aldegheri",
+        "wins": "0",
+        "losses": "1",
+        "era": "8.00"
+      },
+      "game_time": "2025-09-28T19:07:00Z"
+    },
+    "776145": {
+      "away_team": "Tampa Bay Rays",
+      "home_team": "Toronto Blue Jays",
+      "away_lineup": [
+        {
+          "name": "Richie Palacios",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Junior Caminero",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Jonathan Aranda",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Josh Lowe",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Jake Mangum",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Hunter Feduccia",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Tristan Gray",
+          "position": "2B",
+          "batting_order": 7
+        },
+        {
+          "name": "Carson Williams",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Bob Seymour",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "George Springer",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Davis Schneider",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Anthony Santander",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Daulton Varsho",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Alejandro Kirk",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Addison Barger",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Ernie Clement",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Myles Straw",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Ian Seymour",
+        "wins": "4",
+        "losses": "2",
+        "era": "2.85"
+      },
+      "home_pitcher": {
+        "name": "Kevin Gausman",
+        "wins": "10",
+        "losses": "11",
+        "era": "3.47"
+      },
+      "game_time": "2025-09-28T19:07:00Z"
+    },
+    "776136": {
+      "away_team": "Arizona Diamondbacks",
+      "home_team": "San Diego Padres",
+      "away_lineup": [
+        {
+          "name": "Ketel Marte",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Jordan Lawlar",
+          "position": "3B",
+          "batting_order": 2
+        },
+        {
+          "name": "Geraldo Perdomo",
+          "position": "SS",
+          "batting_order": 3
+        },
+        {
+          "name": "Tim Tawa",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "James McCann",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Ildemaro Vargas",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Alek Thomas",
+          "position": "CF",
+          "batting_order": 7
+        },
+        {
+          "name": "Jake McCarthy",
+          "position": "LF",
+          "batting_order": 8
+        },
+        {
+          "name": "Jorge Barrosa",
+          "position": "RF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Fernando Tatis Jr.",
+          "position": "RF",
+          "batting_order": 1
+        },
+        {
+          "name": "Ryan O'Hearn",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Manny Machado",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Jackson Merrill",
+          "position": "CF",
+          "batting_order": 4
+        },
+        {
+          "name": "Xander Bogaerts",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Gavin Sheets",
+          "position": "LF",
+          "batting_order": 6
+        },
+        {
+          "name": "Jake Cronenworth",
+          "position": "DH",
+          "batting_order": 7
+        },
+        {
+          "name": "Jose Iglesias",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Freddy Fermin",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Brandon Pfaadt",
+        "wins": "13",
+        "losses": "8",
+        "era": "5.00"
+      },
+      "home_pitcher": {
+        "name": "JP Sears",
+        "wins": "8",
+        "losses": "11",
+        "era": "5.12"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776139": {
+      "away_team": "Los Angeles Dodgers",
+      "home_team": "Seattle Mariners",
+      "away_lineup": [
+        {
+          "name": "Shohei Ohtani",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Mookie Betts",
+          "position": "SS",
+          "batting_order": 2
+        },
+        {
+          "name": "Freddie Freeman",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Teoscar Hern\u00e1ndez",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Michael Conforto",
+          "position": "LF",
+          "batting_order": 5
+        },
+        {
+          "name": "Andy Pages",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Enrique Hern\u00e1ndez",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Hyeseong Kim",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Ben Rortvedt",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Randy Arozarena",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Cal Raleigh",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Eugenio Su\u00e1rez",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Mitch Garver",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Luke Raley",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "J.P. Crawford",
+          "position": "SS",
+          "batting_order": 6
+        },
+        {
+          "name": "Leo Rivas",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Cole Young",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Miles Mastrobuoni",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Clayton Kershaw",
+        "wins": "10",
+        "losses": "2",
+        "era": "3.52"
+      },
+      "home_pitcher": {
+        "name": "Bryce Miller",
+        "wins": "4",
+        "losses": "5",
+        "era": "5.53"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776147": {
+      "away_team": "Texas Rangers",
+      "home_team": "Cleveland Guardians",
+      "away_lineup": [
+        {
+          "name": "Michael Helman",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Cody Freeman",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Josh Jung",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Adolis Garc\u00eda",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Jake Burger",
+          "position": "1B",
+          "batting_order": 5
+        },
+        {
+          "name": "Ezequiel Duran",
+          "position": "SS",
+          "batting_order": 6
+        },
+        {
+          "name": "Jonah Heim",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Dylan Moore",
+          "position": "RF",
+          "batting_order": 8
+        },
+        {
+          "name": "Alejandro Osuna",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Steven Kwan",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Angel Mart\u00ednez",
+          "position": "CF",
+          "batting_order": 2
+        },
+        {
+          "name": "Jos\u00e9 Ram\u00edrez",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Johnathan Rodr\u00edguez",
+          "position": "RF",
+          "batting_order": 4
+        },
+        {
+          "name": "Bo Naylor",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Gabriel Arias",
+          "position": "SS",
+          "batting_order": 6
+        },
+        {
+          "name": "Brayan Rocchio",
+          "position": "2B",
+          "batting_order": 7
+        },
+        {
+          "name": "Daniel Schneemann",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Jhonkensy Noel",
+          "position": "1B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Patrick Corbin",
+        "wins": "7",
+        "losses": "11",
+        "era": "4.34"
+      },
+      "home_pitcher": {
+        "name": "Logan Allen",
+        "wins": "8",
+        "losses": "11",
+        "era": "4.14"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776148": {
+      "away_team": "New York Mets",
+      "home_team": "Miami Marlins",
+      "away_lineup": [
+        {
+          "name": "Francisco Lindor",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Juan Soto",
+          "position": "RF",
+          "batting_order": 2
+        },
+        {
+          "name": "Pete Alonso",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Brandon Nimmo",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Mark Vientos",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Jeff McNeil",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Francisco Alvarez",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Ronny Mauricio",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Tyrone Taylor",
+          "position": "CF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Xavier Edwards",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Agust\u00edn Ram\u00edrez",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Jakob Marsee",
+          "position": "CF",
+          "batting_order": 3
+        },
+        {
+          "name": "Otto Lopez",
+          "position": "SS",
+          "batting_order": 4
+        },
+        {
+          "name": "Connor Norby",
+          "position": "3B",
+          "batting_order": 5
+        },
+        {
+          "name": "Eric Wagaman",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Heriberto Hern\u00e1ndez",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Brian Navarreto",
+          "position": "C",
+          "batting_order": 8
+        },
+        {
+          "name": "Javier Sanoja",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Sean Manaea",
+        "wins": "2",
+        "losses": "4",
+        "era": "5.80"
+      },
+      "home_pitcher": {
+        "name": "Edward Cabrera",
+        "wins": "7",
+        "losses": "7",
+        "era": "3.66"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776144": {
+      "away_team": "Cincinnati Reds",
+      "home_team": "Milwaukee Brewers",
+      "away_lineup": [
+        {
+          "name": "TJ Friedl",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Noelvi Marte",
+          "position": "RF",
+          "batting_order": 2
+        },
+        {
+          "name": "Gavin Lux",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Miguel Andujar",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Elly De La Cruz",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Spencer Steer",
+          "position": "1B",
+          "batting_order": 6
+        },
+        {
+          "name": "Ke'Bryan Hayes",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Jose Trevino",
+          "position": "C",
+          "batting_order": 8
+        },
+        {
+          "name": "Matt McLain",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Christian Yelich",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Jackson Chourio",
+          "position": "CF",
+          "batting_order": 2
+        },
+        {
+          "name": "Brice Turang",
+          "position": "2B",
+          "batting_order": 3
+        },
+        {
+          "name": "Jake Bauers",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "Sal Frelick",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Caleb Durbin",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "Isaac Collins",
+          "position": "LF",
+          "batting_order": 7
+        },
+        {
+          "name": "Andruw Monasterio",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Danny Jansen",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Brady Singer",
+        "wins": "14",
+        "losses": "11",
+        "era": "3.95"
+      },
+      "home_pitcher": {
+        "name": "Freddy Peralta",
+        "wins": "17",
+        "losses": "6",
+        "era": "2.68"
+      },
+      "game_time": "2025-09-28T19:10:00Z"
+    },
+    "776149": {
+      "away_team": "Pittsburgh Pirates",
+      "home_team": "Atlanta Braves",
+      "away_lineup": [
+        {
+          "name": "Jared Triolo",
+          "position": "SS",
+          "batting_order": 1
+        },
+        {
+          "name": "Nick Gonzales",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Tommy Pham",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Andrew McCutchen",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Joey Bart",
+          "position": "C",
+          "batting_order": 5
+        },
+        {
+          "name": "Alexander Canario",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Nick Yorke",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Rafael Flores",
+          "position": "1B",
+          "batting_order": 8
+        },
+        {
+          "name": "Cam Devanney",
+          "position": "3B",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Jurickson Profar",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Matt Olson",
+          "position": "1B",
+          "batting_order": 2
+        },
+        {
+          "name": "Ronald Acu\u00f1a Jr.",
+          "position": "RF",
+          "batting_order": 3
+        },
+        {
+          "name": "Drake Baldwin",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Ha-Seong Kim",
+          "position": "SS",
+          "batting_order": 5
+        },
+        {
+          "name": "Michael Harris II",
+          "position": "CF",
+          "batting_order": 6
+        },
+        {
+          "name": "Marcell Ozuna",
+          "position": "DH",
+          "batting_order": 7
+        },
+        {
+          "name": "Nacho Alvarez Jr.",
+          "position": "3B",
+          "batting_order": 8
+        },
+        {
+          "name": "Nick Allen",
+          "position": "2B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Johan Oviedo",
+        "wins": "2",
+        "losses": "0",
+        "era": "3.57"
+      },
+      "home_pitcher": {
+        "name": "Charlie Morton",
+        "wins": "9",
+        "losses": "11",
+        "era": "5.89"
+      },
+      "game_time": "2025-09-28T19:15:00Z"
+    },
+    "776142": {
+      "away_team": "St. Louis Cardinals",
+      "home_team": "Chicago Cubs",
+      "away_lineup": [
+        {
+          "name": "Jos\u00e9 Ferm\u00edn",
+          "position": "2B",
+          "batting_order": 1
+        },
+        {
+          "name": "Iv\u00e1n Herrera",
+          "position": "DH",
+          "batting_order": 2
+        },
+        {
+          "name": "Nolan Gorman",
+          "position": "3B",
+          "batting_order": 3
+        },
+        {
+          "name": "Thomas Saggese",
+          "position": "SS",
+          "batting_order": 4
+        },
+        {
+          "name": "Jordan Walker",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Jimmy Crooks",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Yohel Pozo",
+          "position": "1B",
+          "batting_order": 7
+        },
+        {
+          "name": "Victor Scott II",
+          "position": "CF",
+          "batting_order": 8
+        },
+        {
+          "name": "Nathan Church",
+          "position": "LF",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Michael Busch",
+          "position": "1B",
+          "batting_order": 1
+        },
+        {
+          "name": "Nico Hoerner",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Ian Happ",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Kyle Tucker",
+          "position": "DH",
+          "batting_order": 4
+        },
+        {
+          "name": "Seiya Suzuki",
+          "position": "RF",
+          "batting_order": 5
+        },
+        {
+          "name": "Mois\u00e9s Ballesteros",
+          "position": "C",
+          "batting_order": 6
+        },
+        {
+          "name": "Pete Crow-Armstrong",
+          "position": "CF",
+          "batting_order": 7
+        },
+        {
+          "name": "Dansby Swanson",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Willi Castro",
+          "position": "3B",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Kyle Leahy",
+        "wins": "4",
+        "losses": "2",
+        "era": "3.18"
+      },
+      "home_pitcher": {
+        "name": "Javier Assad",
+        "wins": "3",
+        "losses": "1",
+        "era": "4.26"
+      },
+      "game_time": "2025-09-28T19:20:00Z"
+    }
+  },
+  "espn": {}
+}

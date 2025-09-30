@@ -1,0 +1,92 @@
+2025-09-25 17:43:31,772 - INFO - Comprehensive database schema initialized
+2025-09-25 17:43:31,773 - INFO - Comprehensive Statcast Fetcher initialized
+2025-09-25 17:43:31,773 - INFO - Target batter metrics: 31
+2025-09-25 17:43:31,774 - INFO - Target pitcher metrics: 31
+2025-09-25 17:43:52,880 - INFO - Comprehensive database schema initialized
+2025-09-25 17:43:52,880 - INFO - Comprehensive Statcast Fetcher initialized
+2025-09-25 17:43:52,880 - INFO - Target batter metrics: 31
+2025-09-25 17:43:52,880 - INFO - Target pitcher metrics: 31
+2025-09-25 17:44:10,134 - INFO - Comprehensive database schema initialized
+2025-09-25 17:44:10,135 - INFO - Comprehensive Statcast Fetcher initialized
+2025-09-25 17:44:10,135 - INFO - Target batter metrics: 31
+2025-09-25 17:44:10,135 - INFO - Target pitcher metrics: 31
+2025-09-25 17:44:27,949 - INFO - Comprehensive database schema initialized
+2025-09-25 17:44:27,950 - INFO - Comprehensive Statcast Fetcher initialized
+2025-09-25 17:44:27,950 - INFO - Target batter metrics: 31
+2025-09-25 17:44:27,951 - INFO - Target pitcher metrics: 31
+2025-09-25 17:44:28,161 - INFO - Initialized park factors for 30 stadiums
+2025-09-25 17:44:28,171 - INFO - Collecting batter metrics for 2024
+2025-09-25 17:44:48,108 - INFO - Retrieved 526 batter records for 2024
+2025-09-25 17:44:49,661 - INFO - Processed 526 batter records for 2024
+2025-09-25 17:44:49,909 - INFO - Collecting pitcher metrics for 2024
+2025-09-25 17:44:56,923 - INFO - Retrieved 351 pitcher records for 2024
+2025-09-25 17:44:57,188 - ERROR - Error collecting pitcher metrics for 2024: 43 values for 44 columns
+2025-09-25 17:44:57,353 - INFO - Collecting daily game data for 2024
+2025-09-25 17:45:07,356 - INFO - Integrating and validating comprehensive dataset
+2025-09-25 17:45:07,366 - INFO -   Batter records: 526
+2025-09-25 17:45:07,366 - INFO -   Pitcher records: 0
+2025-09-25 17:45:07,366 - INFO -   Seasons covered: 1
+2025-09-25 17:45:07,366 - INFO -   Total home runs: 5,408
+2025-09-25 17:45:33,748 - INFO - Comprehensive database schema initialized
+2025-09-25 17:45:33,749 - INFO - Comprehensive Statcast Fetcher initialized
+2025-09-25 17:45:33,749 - INFO - Target batter metrics: 31
+2025-09-25 17:45:33,750 - INFO - Target pitcher metrics: 31
+2025-09-25 17:46:58,266 - INFO - Comprehensive database schema initialized
+2025-09-25 17:46:58,267 - INFO - Comprehensive Statcast Fetcher initialized
+2025-09-25 17:46:58,268 - INFO - Target batter metrics: 31
+2025-09-25 17:46:58,268 - INFO - Target pitcher metrics: 31
+2025-09-25 17:46:58,624 - INFO - Initialized park factors for 30 stadiums
+2025-09-25 17:46:58,696 - INFO - Collecting batter metrics for 2018
+2025-09-25 17:47:07,245 - INFO - Retrieved 550 batter records for 2018
+2025-09-25 17:47:07,829 - INFO - Processed 550 batter records for 2018
+2025-09-25 17:47:08,093 - INFO - Collecting pitcher metrics for 2018
+2025-09-25 17:47:15,064 - INFO - Retrieved 336 pitcher records for 2018
+2025-09-25 17:47:15,344 - ERROR - Error collecting pitcher metrics for 2018: 43 values for 44 columns
+2025-09-25 17:47:15,746 - INFO - Collecting daily game data for 2018
+2025-09-25 17:47:25,753 - INFO - Collecting batter metrics for 2019
+2025-09-25 17:47:31,915 - INFO - Retrieved 567 batter records for 2019
+2025-09-25 17:47:32,787 - INFO - Processed 567 batter records for 2019
+2025-09-25 17:47:33,030 - INFO - Collecting pitcher metrics for 2019
+2025-09-25 17:47:39,251 - INFO - Retrieved 341 pitcher records for 2019
+2025-09-25 17:47:39,530 - ERROR - Error collecting pitcher metrics for 2019: 43 values for 44 columns
+2025-09-25 17:47:39,900 - INFO - Collecting daily game data for 2019
+2025-09-25 17:47:49,904 - INFO - Collecting batter metrics for 2020
+2025-09-25 17:47:55,332 - INFO - Retrieved 414 batter records for 2020
+2025-09-25 17:47:55,872 - INFO - Processed 414 batter records for 2020
+2025-09-25 17:47:56,048 - INFO - Collecting pitcher metrics for 2020
+2025-09-25 17:47:59,147 - INFO - Retrieved 81 pitcher records for 2020
+2025-09-25 17:47:59,225 - ERROR - Error collecting pitcher metrics for 2020: 43 values for 44 columns
+2025-09-25 17:47:59,272 - INFO - Collecting daily game data for 2020
+2025-09-25 17:48:09,283 - INFO - Collecting batter metrics for 2021
+2025-09-25 17:48:16,593 - INFO - Retrieved 556 batter records for 2021
+2025-09-25 17:48:17,158 - INFO - Processed 556 batter records for 2021
+2025-09-25 17:48:17,434 - INFO - Collecting pitcher metrics for 2021
+2025-09-25 17:48:23,348 - INFO - Retrieved 338 pitcher records for 2021
+2025-09-25 17:48:23,614 - ERROR - Error collecting pitcher metrics for 2021: 43 values for 44 columns
+2025-09-25 17:48:23,754 - INFO - Collecting daily game data for 2021
+2025-09-25 17:48:33,761 - INFO - Collecting batter metrics for 2022
+2025-09-25 17:48:40,452 - INFO - Retrieved 547 batter records for 2022
+2025-09-25 17:48:40,882 - INFO - Processed 547 batter records for 2022
+2025-09-25 17:48:41,051 - INFO - Collecting pitcher metrics for 2022
+2025-09-25 17:48:46,275 - INFO - Retrieved 347 pitcher records for 2022
+2025-09-25 17:48:46,449 - ERROR - Error collecting pitcher metrics for 2022: 43 values for 44 columns
+2025-09-25 17:48:46,549 - INFO - Collecting daily game data for 2022
+2025-09-25 17:48:56,553 - INFO - Collecting batter metrics for 2023
+2025-09-25 17:49:02,832 - INFO - Retrieved 542 batter records for 2023
+2025-09-25 17:49:03,198 - INFO - Processed 542 batter records for 2023
+2025-09-25 17:49:03,351 - INFO - Collecting pitcher metrics for 2023
+2025-09-25 17:49:08,571 - INFO - Retrieved 357 pitcher records for 2023
+2025-09-25 17:49:08,740 - ERROR - Error collecting pitcher metrics for 2023: 43 values for 44 columns
+2025-09-25 17:49:08,848 - INFO - Collecting daily game data for 2023
+2025-09-25 17:49:18,854 - INFO - Collecting batter metrics for 2024
+2025-09-25 17:49:21,814 - INFO - Retrieved 526 batter records for 2024
+2025-09-25 17:49:22,280 - INFO - Processed 526 batter records for 2024
+2025-09-25 17:49:22,284 - INFO - Collecting pitcher metrics for 2024
+2025-09-25 17:49:22,463 - INFO - Retrieved 351 pitcher records for 2024
+2025-09-25 17:49:22,721 - ERROR - Error collecting pitcher metrics for 2024: 43 values for 44 columns
+2025-09-25 17:49:22,724 - INFO - Collecting daily game data for 2024
+2025-09-25 17:49:32,728 - INFO - Integrating and validating comprehensive dataset
+2025-09-25 17:49:32,739 - INFO -   Batter records: 3,702
+2025-09-25 17:49:32,739 - INFO -   Pitcher records: 0
+2025-09-25 17:49:32,739 - INFO -   Seasons covered: 7
+2025-09-25 17:49:32,739 - INFO -   Total home runs: 36,786

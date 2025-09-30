@@ -258,27 +258,170 @@ class SportsRadarV8:
         
         return team_name[:3].upper()
 
-class FrequentStartersFallback:
-    """Fallback to use most frequent starters when lineups unavailable"""
-    
+class LineupManager:
+    """Unified lineup manager using multiple API sources"""
+
     def __init__(self):
         self.config = Config()
-        
-    def get_games_with_projected_lineups(self):
-        """Get games with projected lineups based on recent playing time"""
-        print("\n[DATA] Using frequent starters fallback...")
-        
+        self.session = requests.Session()
+        self.processed_games = set()  # Track processed game IDs to avoid duplicates
+
+    def get_all_todays_games(self):
+        """Get all today's games with lineups from multiple sources"""
+        print("\n" + "=" * 60)
+        print("FETCHING ALL TODAY'S GAMES WITH LINEUPS")
+        print("=" * 60)
+
+        all_games = []
+        self.processed_games.clear()
+
+        # 1. Primary source: SportsRadar v8
+        print("\n[1/4] Fetching from SportsRadar v8...")
+        sportradar_games = self._get_sportradar_games()
+        all_games.extend(sportradar_games)
+        print(f"   [SUCCESS] SportsRadar: {len(sportradar_games)} games")
+
+        # 2. Fill gaps with MLB StatsAPI
+        print("\n[2/4] Filling gaps with MLB StatsAPI...")
+        statsapi_games = self._get_statsapi_games()
+        all_games.extend(statsapi_games)
+        print(f"   [SUCCESS] StatsAPI: {len(statsapi_games)} additional games")
+
+        # 3. Fill remaining gaps with ESPN
+        print("\n[3/4] Filling gaps with ESPN...")
+        espn_games = self._get_espn_games()
+        all_games.extend(espn_games)
+        print(f"   [SUCCESS] ESPN: {len(espn_games)} additional games")
+
+        # 4. Final fallback: Rotogrinders
+        print("\n[4/4] Final check with Rotogrinders...")
+        roto_games = self._get_rotogrinders_games()
+        all_games.extend(roto_games)
+        print(f"   [SUCCESS] Rotogrinders: {len(roto_games)} additional games")
+
+        print(f"\n" + "=" * 60)
+        print(f"TOTAL GAMES COLLECTED: {len(all_games)}")
+        print("=" * 60)
+
+        return all_games
+
+    def _get_sportradar_games(self):
+        """Get games from SportsRadar v8 (existing logic)"""
+        try:
+            # Get today's schedule
+            date_str = datetime.now().strftime('%Y/%m/%d')
+            schedule_url = f"{self.config.SPORTRADAR_BASE}/games/{date_str}/schedule.json"
+
+            response = self.session.get(
+                schedule_url,
+                params={'api_key': self.config.SPORTRADAR_KEY},
+                timeout=10
+            )
+
+            if response.status_code != 200:
+                print(f"   [ERROR] SportsRadar error: {response.status_code}")
+                return []
+
+            schedule_data = response.json()
+            if 'games' not in schedule_data:
+                return []
+
+            all_games = schedule_data['games']
+            scheduled_games = [g for g in all_games if g.get('status') in ['scheduled', 'created']]
+
+            games_with_lineups = []
+
+            for game in scheduled_games:
+                time.sleep(1.2)  # Rate limiting
+
+                game_id = game['id']
+                if game_id in self.processed_games:
+                    continue
+
+                # Get game summary
+                summary_url = f"{self.config.SPORTRADAR_BASE}/games/{game_id}/summary.json"
+                summary_response = self.session.get(
+                    summary_url,
+                    params={'api_key': self.config.SPORTRADAR_KEY},
+                    timeout=10
+                )
+
+                if summary_response.status_code != 200:
+                    continue
+
+                summary_data = summary_response.json()
+                if 'game' not in summary_data:
+                    continue
+
+                game_data = summary_data['game']
+
+                game_info = {
+                    'game_id': game_id,
+                    'home_team': game['home']['name'],
+                    'away_team': game['away']['name'],
+                    'home_team_abbr': self._get_team_abbr(game['home']['name']),
+                    'away_team_abbr': self._get_team_abbr(game['away']['name']),
+                    'venue': game_data.get('venue', {}).get('name', ''),
+                    'home_lineup': [],
+                    'away_lineup': [],
+                    'home_pitcher': None,
+                    'away_pitcher': None,
+                    'source': 'SportsRadar'
+                }
+
+                # Extract lineups and pitchers (existing logic)
+                if 'home' in game_data:
+                    home = game_data['home']
+                    if 'probable_pitcher' in home:
+                        pitcher = home['probable_pitcher']
+                        game_info['home_pitcher'] = {
+                            'name': pitcher.get('full_name', pitcher.get('last_name', 'TBD')),
+                            'id': pitcher.get('id')
+                        }
+                    if 'lineup' in home and 'players' in home:
+                        game_info['home_lineup'] = self._extract_sportradar_lineup(
+                            home['lineup'], home['players']
+                        )
+
+                if 'away' in game_data:
+                    away = game_data['away']
+                    if 'probable_pitcher' in away:
+                        pitcher = away['probable_pitcher']
+                        game_info['away_pitcher'] = {
+                            'name': pitcher.get('full_name', pitcher.get('last_name', 'TBD')),
+                            'id': pitcher.get('id')
+                        }
+                    if 'lineup' in away and 'players' in away:
+                        game_info['away_lineup'] = self._extract_sportradar_lineup(
+                            away['lineup'], away['players']
+                        )
+
+                self.processed_games.add(game_id)
+                games_with_lineups.append(game_info)
+
+            return games_with_lineups
+
+        except Exception as e:
+            print(f"   [ERROR] SportsRadar error: {e}")
+            return []
+
+    def _get_statsapi_games(self):
+        """Get missing games from MLB StatsAPI"""
         try:
             today = datetime.now().strftime('%m/%d/%Y')
             schedule = statsapi.schedule(date=today)
-            
+
             games = []
             for game_data in schedule:
                 if game_data['status'] in ['Final', 'Game Over', 'Completed']:
                     continue
-                
+
+                game_id = str(game_data['game_id'])
+                if game_id in self.processed_games:
+                    continue
+
                 game_info = {
-                    'game_id': game_data['game_id'],
+                    'game_id': game_id,
                     'home_team': game_data['home_name'],
                     'away_team': game_data['away_name'],
                     'home_team_abbr': self._get_team_abbr(game_data['home_name']),
@@ -287,91 +430,221 @@ class FrequentStartersFallback:
                     'home_lineup': self._get_frequent_starters(game_data['home_id'], game_data['home_name']),
                     'away_lineup': self._get_frequent_starters(game_data['away_id'], game_data['away_name']),
                     'home_pitcher': {'name': 'TBD'},
-                    'away_pitcher': {'name': 'TBD'}
+                    'away_pitcher': {'name': 'TBD'},
+                    'source': 'StatsAPI'
                 }
-                
-                if game_info['home_lineup'] and game_info['away_lineup']:
-                    games.append(game_info)
-            
-            print(f"   [STATS] Generated projected lineups for {len(games)} games")
+
+                self.processed_games.add(game_id)
+                games.append(game_info)
+
             return games
-            
+
         except Exception as e:
-            print(f"   [ERROR] Error: {e}")
+            print(f"   [ERROR] StatsAPI error: {e}")
             return []
-    
-    def _get_frequent_starters(self, team_id, team_name):
-        """Get team's most frequent starters from recent games"""
+
+    def _get_espn_games(self):
+        """Get missing games from ESPN API"""
         try:
-            # Get team roster first
+            date_str = datetime.now().strftime('%Y%m%d')
+            espn_url = f"https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates={date_str}"
+
+            response = self.session.get(espn_url, timeout=10)
+            if response.status_code != 200:
+                return []
+
+            data = response.json()
+            games = []
+
+            for event in data.get('events', []):
+                game_id = f"espn_{event['id']}"
+                if game_id in self.processed_games:
+                    continue
+
+                if event['status']['type']['state'] in ['post']:
+                    continue
+
+                competitions = event.get('competitions', [{}])[0]
+                competitors = competitions.get('competitors', [])
+
+                if len(competitors) < 2:
+                    continue
+
+                home_team = next((c for c in competitors if c['homeAway'] == 'home'), {})
+                away_team = next((c for c in competitors if c['homeAway'] == 'away'), {})
+
+                game_info = {
+                    'game_id': game_id,
+                    'home_team': home_team.get('team', {}).get('displayName', ''),
+                    'away_team': away_team.get('team', {}).get('displayName', ''),
+                    'home_team_abbr': home_team.get('team', {}).get('abbreviation', ''),
+                    'away_team_abbr': away_team.get('team', {}).get('abbreviation', ''),
+                    'venue': competitions.get('venue', {}).get('fullName', ''),
+                    'home_lineup': self._generate_generic_lineup(home_team.get('team', {}).get('displayName', '')),
+                    'away_lineup': self._generate_generic_lineup(away_team.get('team', {}).get('displayName', '')),
+                    'home_pitcher': {'name': 'TBD'},
+                    'away_pitcher': {'name': 'TBD'},
+                    'source': 'ESPN'
+                }
+
+                self.processed_games.add(game_id)
+                games.append(game_info)
+
+            return games
+
+        except Exception as e:
+            print(f"   [ERROR] ESPN error: {e}")
+            return []
+
+    def _get_rotogrinders_games(self):
+        """Get missing games from Rotogrinders API"""
+        try:
+            roto_url = "https://rotogrinders.com/api/lineups?sport=MLB"
+            response = self.session.get(roto_url, timeout=10)
+
+            if response.status_code != 200:
+                return []
+
+            data = response.json()
+            games = []
+
+            for game in data.get('games', []):
+                game_id = f"roto_{game.get('id', '')}"
+                if game_id in self.processed_games:
+                    continue
+
+                game_info = {
+                    'game_id': game_id,
+                    'home_team': game.get('home_team', {}).get('name', ''),
+                    'away_team': game.get('away_team', {}).get('name', ''),
+                    'home_team_abbr': game.get('home_team', {}).get('code', ''),
+                    'away_team_abbr': game.get('away_team', {}).get('code', ''),
+                    'venue': game.get('venue', ''),
+                    'home_lineup': self._extract_roto_lineup(game.get('home_lineup', [])),
+                    'away_lineup': self._extract_roto_lineup(game.get('away_lineup', [])),
+                    'home_pitcher': {'name': game.get('home_pitcher', {}).get('name', 'TBD')},
+                    'away_pitcher': {'name': game.get('away_pitcher', {}).get('name', 'TBD')},
+                    'source': 'Rotogrinders'
+                }
+
+                self.processed_games.add(game_id)
+                games.append(game_info)
+
+            return games
+
+        except Exception as e:
+            print(f"   [ERROR] Rotogrinders error: {e}")
+            return []
+
+    def _extract_sportradar_lineup(self, lineup_data, players_data):
+        """Extract lineup from SportsRadar format (existing logic)"""
+        lineup = []
+
+        player_map = {}
+        if isinstance(players_data, list):
+            for player_info in players_data:
+                if isinstance(player_info, dict):
+                    player_id = player_info.get('id')
+                    player_name = player_info.get('full_name') or player_info.get('name', 'Unknown')
+                    if player_id:
+                        player_map[player_id] = player_name
+        elif isinstance(players_data, dict):
+            for player_id, player_info in players_data.items():
+                player_map[player_id] = player_info.get('full_name', 'Unknown')
+
+        for entry in lineup_data:
+            if entry.get('position') == 1:  # Skip pitcher
+                continue
+
+            player_id = entry.get('id')
+            if player_id and player_id in player_map:
+                lineup.append({
+                    'name': player_map[player_id],
+                    'order': entry.get('order', 0),
+                    'position': entry.get('position', 0)
+                })
+
+        lineup.sort(key=lambda x: x['order'])
+        return lineup[:9]
+
+    def _get_frequent_starters(self, team_id, team_name):
+        """Get frequent starters from StatsAPI (existing logic)"""
+        try:
             roster_data = statsapi.get('team_roster', {'teamId': team_id})
             roster = {p['person']['fullName']: p['person']['id'] for p in roster_data.get('roster', [])}
-            
-            # Get last 10 games
+
             end_date = datetime.now()
             start_date = end_date - timedelta(days=15)
-            
+
             schedule = statsapi.schedule(
                 team=team_id,
                 start_date=start_date.strftime('%Y-%m-%d'),
                 end_date=end_date.strftime('%Y-%m-%d')
             )
-            
+
             player_counts = {}
-            
-            # Count appearances
+
             for game in schedule[-10:]:
                 if game['status'] != 'Final':
                     continue
-                    
+
                 try:
                     boxscore = statsapi.boxscore_data(game['game_id'])
-                    
-                    # Determine if home or away
                     is_home = game['home_name'] == team_name
                     team_key = 'home' if is_home else 'away'
-                    
-                    # Count batters
+
                     for player_id, player in boxscore[team_key]['players'].items():
                         if player.get('stats', {}).get('batting', {}):
                             name = player['person']['fullName']
-                            # Verify player is on roster
                             if name in roster:
                                 player_counts[name] = player_counts.get(name, 0) + 1
                 except:
                     continue
-            
-            # Sort by frequency
+
             sorted_players = sorted(player_counts.items(), key=lambda x: x[1], reverse=True)
-            
+
             lineup = []
             for i, (name, count) in enumerate(sorted_players[:9], 1):
                 lineup.append({'name': name, 'order': i})
-            
-            # Fill with generic if not enough
+
             while len(lineup) < 9:
                 lineup.append({'name': f'{team_name} Player {len(lineup)+1}', 'order': len(lineup)+1})
-            
+
             return lineup
-            
+
         except:
-            # Generic lineup if all else fails
-            return [{'name': f'{team_name} Player {i}', 'order': i} for i in range(1, 10)]
-    
+            return self._generate_generic_lineup(team_name)
+
+    def _generate_generic_lineup(self, team_name):
+        """Generate a generic lineup when no data is available"""
+        return [{'name': f'{team_name} Player {i}', 'order': i} for i in range(1, 10)]
+
+    def _extract_roto_lineup(self, lineup_data):
+        """Extract lineup from Rotogrinders format"""
+        lineup = []
+        for i, player in enumerate(lineup_data[:9], 1):
+            lineup.append({
+                'name': player.get('name', f'Player {i}'),
+                'order': i,
+                'position': player.get('position', i)
+            })
+        return lineup
+
     def _get_team_abbr(self, team_name):
         """Get team abbreviation"""
         abbr_map = {
-            'Yankees': 'NYY', 'Red Sox': 'BOS', 'Rays': 'TB', 'Orioles': 'BAL',
-            'Guardians': 'CLE', 'Twins': 'MIN', 'White Sox': 'CHW', 'Royals': 'KC',
-            'Astros': 'HOU', 'Athletics': 'OAK', 'Rangers': 'TEX', 'Angels': 'LAA',
-            'Mets': 'NYM', 'Braves': 'ATL', 'Phillies': 'PHI', 'Marlins': 'MIA',
-            'Brewers': 'MIL', 'Cardinals': 'STL', 'Cubs': 'CHC', 'Reds': 'CIN',
-            'Dodgers': 'LAD', 'Giants': 'SF', 'Padres': 'SD', 'Rockies': 'COL'
+            'Yankees': 'NYY', 'Red Sox': 'BOS', 'Rays': 'TB', 'Orioles': 'BAL', 'Blue Jays': 'TOR',
+            'Guardians': 'CLE', 'Twins': 'MIN', 'White Sox': 'CHW', 'Royals': 'KC', 'Tigers': 'DET',
+            'Astros': 'HOU', 'Athletics': 'OAK', 'Rangers': 'TEX', 'Angels': 'LAA', 'Mariners': 'SEA',
+            'Mets': 'NYM', 'Braves': 'ATL', 'Phillies': 'PHI', 'Marlins': 'MIA', 'Nationals': 'WSN',
+            'Brewers': 'MIL', 'Cardinals': 'STL', 'Cubs': 'CHC', 'Reds': 'CIN', 'Pirates': 'PIT',
+            'Dodgers': 'LAD', 'Giants': 'SF', 'Padres': 'SD', 'Rockies': 'COL', 'Diamondbacks': 'ARI'
         }
-        
+
         for key, value in abbr_map.items():
             if key in team_name:
                 return value
+
         return team_name[:3].upper()
 
 class SimpleCache:
@@ -579,38 +852,37 @@ class HRProbabilityModel:
         return min(hr_prob, 0.15)
 
 class CleanHRPredictorV5:
-    """Main prediction system using SportsRadar v8"""
-    
+    """Main prediction system using unified LineupManager"""
+
     def __init__(self):
-        self.sportradar = SportsRadarV8()
-        self.fallback = FrequentStartersFallback()
+        self.lineup_manager = LineupManager()
         self.model = HRProbabilityModel()
-    
+
     def run_predictions(self):
         """Generate clean HR predictions"""
         print("=" * 80)
-        print("MLB HOME RUN PREDICTIONS v5.0")
+        print("MLB HOME RUN PREDICTIONS v5.0 - ENHANCED")
         print(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
         print("=" * 80)
-        
-        # Try SportsRadar v8 first
-        games = self.sportradar.get_todays_games_with_lineups()
-        source = "SportsRadar v8"
-        
-        # Fallback if no games from SportsRadar
+
+        # Get all games using unified LineupManager
+        games = self.lineup_manager.get_all_todays_games()
+
         if not games:
-            print("\n[WARNING] SportsRadar lineups not available, using projected lineups...")
-            games = self.fallback.get_games_with_projected_lineups()
-            source = "Projected (Recent Games)"
-        
-        if not games:
-            print("\n[ERROR] No games available")
-            print("Try running 2-3 hours before game time when lineups are posted")
+            print("\n[ERROR] No games available from any source")
+            print("Please check your internet connection and API availability")
             return pd.DataFrame()
-        
-        print(f"\n[GAME] Processing {len(games)} games")
-        print(f"[DATA] Data Source: {source}")
-        
+
+        # Count games by source
+        source_counts = {}
+        for game in games:
+            source = game.get('source', 'Unknown')
+            source_counts[source] = source_counts.get(source, 0) + 1
+
+        print(f"\n[GAME] Processing {len(games)} games from multiple sources:")
+        for source, count in source_counts.items():
+            print(f"   [DATA] {source}: {count} games")
+
         all_predictions = []
         games_processed = 0
         
@@ -664,8 +936,11 @@ class CleanHRPredictorV5:
             print("Lineups may not be posted yet. Try again closer to game time.")
             return pd.DataFrame()
         
+        # Remove duplicate players (keep highest probability prediction)
+        deduplicated_predictions = self._deduplicate_predictions(all_predictions)
+
         # Create DataFrame and sort
-        df = pd.DataFrame(all_predictions)
+        df = pd.DataFrame(deduplicated_predictions)
         df = df.sort_values('HR_Probability', ascending=False).reset_index(drop=True)
         
         # Keep only top 10
@@ -688,15 +963,44 @@ class CleanHRPredictorV5:
         print(f"[SUCCESS] Predictions saved to: {filename}")
         print(f"[DATA] Games processed: {games_processed}")
         print(f"[INFO] Total predictions: {len(all_predictions)}")
-        print(f"[TARGET] Data source: {source}")
-        
-        if 'Projected' in source:
-            print("\n[WARNING] Note: Using projected lineups based on recent games.")
-            print("   Actual lineups may differ. Bets void if player doesn't start.")
-        else:
-            print("\n[WARNING] Note: Lineups subject to change. Bets void if player doesn't start.")
-        
+        print("[TARGET] Data sources:")
+        for source, count in source_counts.items():
+            print(f"   {source}: {count} games")
+
+        print("\n[WARNING] Note: Lineups subject to change. Bets void if player doesn't start.")
+        print("[INFO] Enhanced system now processes ALL daily games with multiple API sources")
+
         return df
+
+    def _deduplicate_predictions(self, all_predictions):
+        """Remove duplicate players, keeping the highest probability prediction for each"""
+        from collections import defaultdict
+
+        # Group predictions by player name
+        player_predictions = defaultdict(list)
+
+        for prediction in all_predictions:
+            player_name = prediction['Hitter']
+            player_predictions[player_name].append(prediction)
+
+        # For each player, keep only the highest probability prediction
+        deduplicated = []
+
+        for player_name, predictions in player_predictions.items():
+            if len(predictions) == 1:
+                # Only one prediction, keep it
+                deduplicated.append(predictions[0])
+            else:
+                # Multiple predictions, keep the highest probability
+                best_prediction = max(predictions, key=lambda x: x['HR_Probability'])
+
+                # Add note about multiple matchups
+                num_matchups = len(predictions)
+                best_prediction['Teams'] += f" ({num_matchups} games)"
+
+                deduplicated.append(best_prediction)
+
+        return deduplicated
 
 # Main execution
 if __name__ == "__main__":
