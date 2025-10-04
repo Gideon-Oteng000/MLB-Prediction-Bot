@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "description": "MLB Stadium Compass Bearings from Home Plate to Center Field",
+    "units": "degrees",
+    "measurement_reference": "Azimuth measured clockwise from North (0°=N, 90°=E, 180°=S, 270°=W)",
+    "source": "Compiled from ballparks.com orientations and verified sources",
+    "note": "Some measurements are approximate based on available data. MLB Rule 1.04 recommends East-Northeast orientation (~67°), but most parks deviate from this.",
+    "last_updated": "2025-10-02"
+  },
+  "stadiums": {
+    "AL_East": {
+      "NYY": {
+        "team": "New York Yankees",
+        "stadium": "Yankee Stadium",
+        "city": "Bronx, NY",
+        "bearing": 75,
+        "orientation_description": "East-Northeast",
+        "notes": "Confirmed approximately 75° from multiple sources"
+      },
+      "BOS": {
+        "team": "Boston Red Sox",
+        "stadium": "Fenway Park",
+        "city": "Boston, MA",
+        "bearing": 45,
+        "orientation_description": "Northeast",
+        "notes": "Historic park, oriented more north than Rule 1.04 recommends"
+      },
+      "TB": {
+        "team": "Tampa Bay Rays",
+        "stadium": "Tropicana Field",
+        "city": "St. Petersburg, FL",
+        "bearing": 45,
+        "orientation_description": "Northeast",
+        "notes": "Indoor stadium"
+      },
+      "TOR": {
+        "team": "Toronto Blue Jays",
+        "stadium": "Rogers Centre",
+        "city": "Toronto, ON",
+        "bearing": 0,
+        "orientation_description": "North",
+        "notes": "Retractable roof, faces due north"
+      },
+      "BAL": {
+        "team": "Baltimore Orioles",
+        "stadium": "Oriole Park at Camden Yards",
+        "city": "Baltimore, MD",
+        "bearing": 30,
+        "orientation_description": "North-Northeast",
+        "notes": "Iconic retro ballpark design"
+      }
+    },
+    "AL_Central": {
+      "CLE": {
+        "team": "Cleveland Guardians",
+        "stadium": "Progressive Field",
+        "city": "Cleveland, OH",
+        "bearing": 0,
+        "orientation_description": "North",
+        "notes": "Faces due north"
+      },
+      "MIN": {
+        "team": "Minnesota Twins",
+        "stadium": "Target Field",
+        "city": "Minneapolis, MN",
+        "bearing": 90,
+        "orientation_description": "East",
+        "notes": "Faces due east"
+      },
+      "KC": {
+        "team": "Kansas City Royals",
+        "stadium": "Kauffman Stadium",
+        "city": "Kansas City, MO",
+        "bearing": 45,
+        "orientation_description": "Northeast",
+        "notes": "Classic symmetrical design"
+      },
+      "CWS": {
+        "team": "Chicago White Sox",
+        "stadium": "Guaranteed Rate Field",
+        "city": "Chicago, IL",
+        "bearing": 135,
+        "orientation_description": "Southeast",
+        "notes": "Formerly U.S. Cellular Field"
+      },
+      "DET": {
+        "team": "Detroit Tigers",
+        "stadium": "Comerica Park",
+        "city": "Detroit, MI",
+        "bearing": 150,
+        "orientation_description": "South-Southeast",
+        "notes": "Most southward-facing park in MLB, furthest from Rule 1.04 recommendation"
+      }
+    },
+    "AL_West": {
+      "HOU": {
+        "team": "Houston Astros",
+        "stadium": "Minute Maid Park",
+        "city": "Houston, TX",
+        "bearing": 345,
+        "orientation_description": "North-Northwest",
+        "notes": "Retractable roof, unique orientation"
+      },
+      "SEA": {
+        "team": "Seattle Mariners",
+        "stadium": "T-Mobile Park",
+        "city": "Seattle, WA",
+        "bearing": 45,
+        "orientation_description": "Northeast",
+        "notes": "Formerly Safeco Field, retractable roof"
+      },
+      "LAA": {
+        "team": "Los Angeles Angels",
+        "stadium": "Angel Stadium",
+        "city": "Anaheim, CA",
+        "bearing": 45,
+        "orientation_description": "Northeast",
+        "notes": "Classic design from 1966"
+      },
+      "TEX": {
+        "team": "Texas Rangers",
+        "stadium": "Globe Life Field",
+        "city": "Arlington, TX",
+        "bearing": 67,
+        "orientation_description": "East-Northeast",
+        "notes": "Opened 2020, retractable roof, follows Rule 1.04 orientation"
+      },
+      "OAK": {
+        "team": "Oakland Athletics",
+        "stadium": "Oakland Coliseum",
+        "city": "Oakland, CA",
+        "bearing": 60,
+        "orientation_description": "East-Northeast",
+        "notes": "Multi-purpose stadium, to be replaced"
+      }
+    },
+    "NL_East": {
+      "ATL": {
+        "team": "Atlanta Braves",
+        "stadium": "Truist Park",
+        "city": "Atlanta, GA",
+        "bearing": 135,
+        "orientation_description": "Southeast",
+        "notes": "Opened 2017, replaced Turner Field"
+      },
+      "NYM": {
+        "team": "New York Mets",
+        "stadium": "Citi Field",
+        "city": "Flushing, NY",
+        "bearing": 30,
+        "orientation_description": "North-Northeast",
+        "notes": "Opened 2009"
+      },
+      "PHI": {
+        "team": "Philadelphia Phillies",
+        "stadium": "Citizens Bank Park",
+        "city": "Philadelphia, PA",
+        "bearing": 15,
+        "orientation_description": "North-Northeast",
+        "notes": "Skyline views from outfield"
+      },
+      "WSH": {
+        "team": "Washington Nationals",
+        "stadium": "Nationals Park",
+        "city": "Washington, DC",
+        "bearing": 30,
+        "orientation_description": "North-Northeast",
+        "notes": "Located along Anacostia River"
+      },
+      "MIA": {
+        "team": "Miami Marlins",
+        "stadium": "loanDepot Park",
+        "city": "Miami, FL",
+        "bearing": 120,
+        "orientation_description": "East-Southeast",
+        "notes": "Formerly Marlins Park, retractable roof"
+      }
+    },
+    "NL_Central": {
+      "MIL": {
+        "team": "Milwaukee Brewers",
+        "stadium": "American Family Field",
+        "city": "Milwaukee, WI",
+        "bearing": 135,
+        "orientation_description": "Southeast",
+        "notes": "Formerly Miller Park, retractable roof"
+      },
+      "CHC": {
+        "team": "Chicago Cubs",
+        "stadium": "Wrigley Field",
+        "city": "Chicago, IL",
+        "bearing": 30,
+        "orientation_description": "North-Northeast",
+        "notes": "Historic park (1914), ivy-covered outfield walls"
+      },
+      "STL": {
+        "team": "St. Louis Cardinals",
+        "stadium": "Busch Stadium",
+        "city": "St. Louis, MO",
+        "bearing": 60,
+        "orientation_description": "East-Northeast",
+        "notes": "Downtown location with Gateway Arch views"
+      },
+      "PIT": {
+        "team": "Pittsburgh Pirates",
+        "stadium": "PNC Park",
+        "city": "Pittsburgh, PA",
+        "bearing": 120,
+        "orientation_description": "East-Southeast",
+        "notes": "Allegheny River and city skyline views"
+      },
+      "CIN": {
+        "team": "Cincinnati Reds",
+        "stadium": "Great American Ball Park",
+        "city": "Cincinnati, OH",
+        "bearing": 120,
+        "orientation_description": "East-Southeast",
+        "notes": "Located along Ohio River"
+      }
+    },
+    "NL_West": {
+      "LAD": {
+        "team": "Los Angeles Dodgers",
+        "stadium": "Dodger Stadium",
+        "city": "Los Angeles, CA",
+        "bearing": 30,
+        "orientation_description": "North-Northeast",
+        "notes": "Opened 1962, classic symmetric design"
+      },
+      "SD": {
+        "team": "San Diego Padres",
+        "stadium": "Petco Park",
+        "city": "San Diego, CA",
+        "bearing": 0,
+        "orientation_description": "North",
+        "notes": "Downtown location, faces due north"
+      },
+      "SF": {
+        "team": "San Francisco Giants",
+        "stadium": "Oracle Park",
+        "city": "San Francisco, CA",
+        "bearing": 90,
+        "orientation_description": "East",
+        "notes": "Formerly AT&T Park, faces east toward McCovey Cove"
+      },
+      "COL": {
+        "team": "Colorado Rockies",
+        "stadium": "Coors Field",
+        "city": "Denver, CO",
+        "bearing": 0,
+        "orientation_description": "North",
+        "notes": "High altitude (5,200 ft), faces due north"
+      },
+      "ARI": {
+        "team": "Arizona Diamondbacks",
+        "stadium": "Chase Field",
+        "city": "Phoenix, AZ",
+        "bearing": 0,
+        "orientation_description": "North",
+        "notes": "Retractable roof, faces due north"
+      }
+    }
+  },
+  "orientation_summary": {
+    "mlb_rule_1_04": "Recommends East-Northeast orientation (approximately 67°)",
+    "compliant_stadiums": ["Globe Life Field (TEX)", "Busch Stadium (STL)", "Oakland Coliseum (OAK)"],
+    "range": "No MLB stadiums face between South-Southeast (150°) and Northwest (315°)",
+    "most_unusual": "Comerica Park (DET) at 150° - furthest south orientation in MLB",
+    "due_north_facing": ["Rogers Centre (TOR)", "Progressive Field (CLE)", "Petco Park (SD)", "Coors Field (COL)", "Chase Field (ARI)"],
+    "due_east_facing": ["Target Field (MIN)", "Oracle Park (SF)"]
+  }
+}

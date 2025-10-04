@@ -61,6 +61,13 @@ class AdvancedMetricsFetcher:
             'k_pct': [0.70, 0.25, 0.05, 0.00],
             'bb_pct': [0.70, 0.25, 0.05, 0.00],
             'fb_pct': [0.65, 0.25, 0.10, 0.00],
+            'gb_pct': [0.65, 0.25, 0.10, 0.00],
+            'gb_fb_ratio': [0.65, 0.25, 0.10, 0.00],
+            'ld_pct': [0.60, 0.30, 0.10, 0.00],
+            'hr_rate_vs_lhb': [0.55, 0.30, 0.15, 0.00],
+            'hr_rate_vs_rhb': [0.55, 0.30, 0.15, 0.00],
+            'hard_hit_pct_vs_lhb': [0.55, 0.30, 0.15, 0.00],
+            'hard_hit_pct_vs_rhb': [0.55, 0.30, 0.15, 0.00],
             'platoon_hr_allowed': [0.40, 0.30, 0.10, 0.20],
             'recent_workload': [0.20, 0.60, 0.20, 0.00]
         }
@@ -691,6 +698,31 @@ class AdvancedMetricsFetcher:
                 metrics['avg_exit_velocity_allowed'] = batted_balls['launch_speed'].mean()
                 metrics['launch_angle_allowed'] = batted_balls['launch_angle'].mean() if 'launch_angle' in batted_balls.columns else None
 
+                # Batted ball type percentages (GB/FB ratio and FB%)
+                if 'bb_type' in batted_balls.columns:
+                    bb_type_counts = batted_balls['bb_type'].value_counts()
+                    total_bb = len(batted_balls)
+
+                    ground_balls = bb_type_counts.get('ground_ball', 0)
+                    fly_balls = bb_type_counts.get('fly_ball', 0)
+                    line_drives = bb_type_counts.get('line_drive', 0)
+                    popups = bb_type_counts.get('popup', 0)
+
+                    # GB/FB ratio
+                    if fly_balls > 0:
+                        metrics['gb_fb_ratio'] = ground_balls / fly_balls
+                    else:
+                        metrics['gb_fb_ratio'] = ground_balls  # If no fly balls, just use GB count
+
+                    # Flyball percentage
+                    metrics['fb_pct'] = (fly_balls / total_bb) * 100 if total_bb > 0 else 0
+
+                    # Ground ball percentage
+                    metrics['gb_pct'] = (ground_balls / total_bb) * 100 if total_bb > 0 else 0
+
+                    # Line drive percentage
+                    metrics['ld_pct'] = (line_drives / total_bb) * 100 if total_bb > 0 else 0
+
             # Pitcher outcome metrics
             plate_appearances = data.groupby(['game_date', 'at_bat_number']).size()
             pa_count = len(plate_appearances)
@@ -703,6 +735,38 @@ class AdvancedMetricsFetcher:
                 metrics['bb_pct'] = (walks / pa_count) * 100
                 metrics['k_pct'] = (strikeouts / pa_count) * 100
                 metrics['hr_rate'] = home_runs / pa_count
+
+            # Platoon splits - analyze vs LHB and RHB separately
+            if 'stand' in data.columns:
+                # vs Left-handed batters
+                vs_lhb = data[data['stand'] == 'L']
+                if not vs_lhb.empty:
+                    lhb_pa = vs_lhb.groupby(['game_date', 'at_bat_number']).size()
+                    lhb_pa_count = len(lhb_pa)
+                    if lhb_pa_count > 0:
+                        lhb_hr = vs_lhb['events'].eq('home_run').sum()
+                        metrics['hr_rate_vs_lhb'] = lhb_hr / lhb_pa_count
+
+                        # Hard hit % vs LHB
+                        lhb_batted = vs_lhb[vs_lhb['type'] == 'X']
+                        if not lhb_batted.empty:
+                            lhb_hard_hits = lhb_batted['launch_speed'] >= 95
+                            metrics['hard_hit_pct_vs_lhb'] = lhb_hard_hits.mean() * 100
+
+                # vs Right-handed batters
+                vs_rhb = data[data['stand'] == 'R']
+                if not vs_rhb.empty:
+                    rhb_pa = vs_rhb.groupby(['game_date', 'at_bat_number']).size()
+                    rhb_pa_count = len(rhb_pa)
+                    if rhb_pa_count > 0:
+                        rhb_hr = vs_rhb['events'].eq('home_run').sum()
+                        metrics['hr_rate_vs_rhb'] = rhb_hr / rhb_pa_count
+
+                        # Hard hit % vs RHB
+                        rhb_batted = vs_rhb[vs_rhb['type'] == 'X']
+                        if not rhb_batted.empty:
+                            rhb_hard_hits = rhb_batted['launch_speed'] >= 95
+                            metrics['hard_hit_pct_vs_rhb'] = rhb_hard_hits.mean() * 100
 
             return metrics
 
@@ -762,7 +826,9 @@ class AdvancedMetricsFetcher:
         # Define pitcher metrics to blend
         metrics_to_blend = [
             'barrel_pct_allowed', 'hard_hit_pct_allowed', 'avg_exit_velocity_allowed',
-            'launch_angle_allowed', 'bb_pct', 'k_pct', 'hr_rate'
+            'launch_angle_allowed', 'bb_pct', 'k_pct', 'hr_rate', 'fb_pct', 'gb_pct',
+            'gb_fb_ratio', 'ld_pct', 'hr_rate_vs_lhb', 'hr_rate_vs_rhb',
+            'hard_hit_pct_vs_lhb', 'hard_hit_pct_vs_rhb'
         ]
 
         for metric in metrics_to_blend:

@@ -30,7 +30,8 @@ class WeatherBallparkFetcher:
                 'lat': 40.8296,
                 'lon': -73.9262,
                 'hr_factor': 1.12,
-                'elevation': 55
+                'elevation': 55,
+                'orientation': 75
             },
             'BOS': {
                 'name': 'Fenway Park',
@@ -38,7 +39,8 @@ class WeatherBallparkFetcher:
                 'lat': 42.3467,
                 'lon': -71.0972,
                 'hr_factor': 1.06,
-                'elevation': 21
+                'elevation': 21,
+                'orientation': 45
             },
             'TB': {
                 'name': 'Tropicana Field',
@@ -46,7 +48,8 @@ class WeatherBallparkFetcher:
                 'lat': 27.7682,
                 'lon': -82.6534,
                 'hr_factor': 0.95,
-                'elevation': 15
+                'elevation': 15,
+                'orientation': 45
             },
             'TOR': {
                 'name': 'Rogers Centre',
@@ -54,7 +57,8 @@ class WeatherBallparkFetcher:
                 'lat': 43.6414,
                 'lon': -79.3894,
                 'hr_factor': 1.02,
-                'elevation': 91
+                'elevation': 91,
+                'orientation': 0
             },
             'BAL': {
                 'name': 'Oriole Park at Camden Yards',
@@ -62,7 +66,8 @@ class WeatherBallparkFetcher:
                 'lat': 39.2838,
                 'lon': -76.6218,
                 'hr_factor': 1.08,
-                'elevation': 20
+                'elevation': 20,
+                'orientation': 30
             },
 
             # AL Central
@@ -72,7 +77,8 @@ class WeatherBallparkFetcher:
                 'lat': 41.4958,
                 'lon': -81.6852,
                 'hr_factor': 0.98,
-                'elevation': 660
+                'elevation': 660,
+                'orientation': 0
             },
             'MIN': {
                 'name': 'Target Field',
@@ -80,7 +86,8 @@ class WeatherBallparkFetcher:
                 'lat': 44.9816,
                 'lon': -93.2776,
                 'hr_factor': 1.01,
-                'elevation': 815
+                'elevation': 815,
+                'orientation': 90
             },
             'KC': {
                 'name': 'Kauffman Stadium',
@@ -88,7 +95,8 @@ class WeatherBallparkFetcher:
                 'lat': 39.0517,
                 'lon': -94.4803,
                 'hr_factor': 0.97,
-                'elevation': 750
+                'elevation': 750,
+                'orientation': 45
             },
             'CWS': {
                 'name': 'Guaranteed Rate Field',
@@ -96,7 +104,8 @@ class WeatherBallparkFetcher:
                 'lat': 41.8300,
                 'lon': -87.6338,
                 'hr_factor': 1.03,
-                'elevation': 595
+                'elevation': 595,
+                'orientation': 135
             },
             'DET': {
                 'name': 'Comerica Park',
@@ -104,7 +113,8 @@ class WeatherBallparkFetcher:
                 'lat': 42.3390,
                 'lon': -83.0485,
                 'hr_factor': 0.94,
-                'elevation': 585
+                'elevation': 585,
+                'orientation': 150
             },
 
             # AL West
@@ -114,7 +124,8 @@ class WeatherBallparkFetcher:
                 'lat': 42.7762,
                 'lon': -95.3900,
                 'hr_factor': 1.09,
-                'elevation': 22
+                'elevation': 22,
+                'orientation': 345
             },
             'SEA': {
                 'name': 'T-Mobile Park',
@@ -122,7 +133,8 @@ class WeatherBallparkFetcher:
                 'lat': 47.5914,
                 'lon': -122.3326,
                 'hr_factor': 0.92,
-                'elevation': 134
+                'elevation': 134,
+                'orientation': 45
             },
             'LAA': {
                 'name': 'Angel Stadium',
@@ -130,7 +142,8 @@ class WeatherBallparkFetcher:
                 'lat': 33.8003,
                 'lon': -117.8827,
                 'hr_factor': 0.96,
-                'elevation': 153
+                'elevation': 153,
+                'orientation': 45
             },
             'TEX': {
                 'name': 'Globe Life Field',
@@ -138,7 +151,8 @@ class WeatherBallparkFetcher:
                 'lat': 32.7473,
                 'lon': -97.0817,
                 'hr_factor': 1.05,
-                'elevation': 551
+                'elevation': 551,
+                'orientation': 67
             },
             'OAK': {
                 'name': 'Oakland Coliseum',
@@ -146,7 +160,8 @@ class WeatherBallparkFetcher:
                 'lat': 37.7516,
                 'lon': -122.2008,
                 'hr_factor': 0.89,
-                'elevation': 13
+                'elevation': 13,
+                'orientation': 60
             },
 
             # NL East
@@ -156,7 +171,8 @@ class WeatherBallparkFetcher:
                 'lat': 33.8906,
                 'lon': -84.4677,
                 'hr_factor': 1.04,
-                'elevation': 1050
+                'elevation': 1050,
+                'orientation': 135
             },
             'NYM': {
                 'name': 'Citi Field',
@@ -164,7 +180,8 @@ class WeatherBallparkFetcher:
                 'lat': 40.7571,
                 'lon': -73.8458,
                 'hr_factor': 0.93,
-                'elevation': 37
+                'elevation': 37,
+                'orientation': 30
             },
             'PHI': {
                 'name': 'Citizens Bank Park',
@@ -172,7 +189,8 @@ class WeatherBallparkFetcher:
                 'lat': 39.9061,
                 'lon': -75.1665,
                 'hr_factor': 1.07,
-                'elevation': 20
+                'elevation': 20,
+                'orientation': 15
             },
             'WSH': {
                 'name': 'Nationals Park',
@@ -180,7 +198,8 @@ class WeatherBallparkFetcher:
                 'lat': 38.8730,
                 'lon': -77.0074,
                 'hr_factor': 1.01,
-                'elevation': 12
+                'elevation': 12,
+                'orientation': 30
             },
             'MIA': {
                 'name': 'loanDepot Park',
@@ -188,7 +207,8 @@ class WeatherBallparkFetcher:
                 'lat': 25.7781,
                 'lon': -80.2197,
                 'hr_factor': 0.85,
-                'elevation': 8
+                'elevation': 8,
+                'orientation': 120
             },
 
             # NL Central
@@ -198,7 +218,8 @@ class WeatherBallparkFetcher:
                 'lat': 43.0280,
                 'lon': -87.9712,
                 'hr_factor': 1.02,
-                'elevation': 635
+                'elevation': 635,
+                'orientation': 135
             },
             'CHC': {
                 'name': 'Wrigley Field',
@@ -206,7 +227,8 @@ class WeatherBallparkFetcher:
                 'lat': 41.9484,
                 'lon': -87.6553,
                 'hr_factor': 1.15,
-                'elevation': 595
+                'elevation': 595,
+                'orientation': 30
             },
             'STL': {
                 'name': 'Busch Stadium',
@@ -214,7 +236,8 @@ class WeatherBallparkFetcher:
                 'lat': 38.6226,
                 'lon': -90.1928,
                 'hr_factor': 0.99,
-                'elevation': 465
+                'elevation': 465,
+                'orientation': 60
             },
             'PIT': {
                 'name': 'PNC Park',
@@ -222,7 +245,8 @@ class WeatherBallparkFetcher:
                 'lat': 40.4469,
                 'lon': -80.0057,
                 'hr_factor': 0.91,
-                'elevation': 730
+                'elevation': 730,
+                'orientation': 120
             },
             'CIN': {
                 'name': 'Great American Ball Park',
@@ -230,7 +254,8 @@ class WeatherBallparkFetcher:
                 'lat': 39.0975,
                 'lon': -84.5068,
                 'hr_factor': 1.03,
-                'elevation': 550
+                'elevation': 550,
+                'orientation': 120
             },
 
             # NL West
@@ -240,7 +265,8 @@ class WeatherBallparkFetcher:
                 'lat': 34.0739,
                 'lon': -118.2400,
                 'hr_factor': 0.88,
-                'elevation': 340
+                'elevation': 340,
+                'orientation': 30
             },
             'SD': {
                 'name': 'Petco Park',
@@ -248,7 +274,8 @@ class WeatherBallparkFetcher:
                 'lat': 32.7073,
                 'lon': -117.1566,
                 'hr_factor': 0.88,
-                'elevation': 62
+                'elevation': 62,
+                'orientation': 0
             },
             'SF': {
                 'name': 'Oracle Park',
@@ -256,7 +283,8 @@ class WeatherBallparkFetcher:
                 'lat': 37.7786,
                 'lon': -122.3893,
                 'hr_factor': 0.81,
-                'elevation': 12
+                'elevation': 12,
+                'orientation': 90
             },
             'COL': {
                 'name': 'Coors Field',
@@ -264,7 +292,8 @@ class WeatherBallparkFetcher:
                 'lat': 39.7559,
                 'lon': -104.9942,
                 'hr_factor': 1.25,
-                'elevation': 5200
+                'elevation': 5200,
+                'orientation': 0
             },
             'ARI': {
                 'name': 'Chase Field',
@@ -272,7 +301,8 @@ class WeatherBallparkFetcher:
                 'lat': 33.4452,
                 'lon': -112.0667,
                 'hr_factor': 1.06,
-                'elevation': 1059
+                'elevation': 1059,
+                'orientation': 0
             }
         }
 
@@ -488,21 +518,38 @@ class WeatherBallparkFetcher:
             elif temp < 50:
                 effects['temperature_effect'] = 1 - ((50 - temp) / 10) * 0.015
 
-            # Wind effect: Tailwind helps, headwind hurts
-            # Assuming wind directions: 45-135° and 225-315° help (roughly toward foul poles)
+            # Wind effect: Calculate relative wind direction based on stadium orientation
+            # Stadium orientation is the bearing from home plate to center field
+            stadium_orientation = stadium.get('orientation', 67)  # Default to MLB Rule 1.04 (ENE)
+
+            # Calculate angle difference between wind direction and stadium orientation
+            # This tells us if wind is blowing from behind home plate (favorable) or from outfield (unfavorable)
+            angle_diff = (wind_direction - stadium_orientation + 180) % 360 - 180
+
+            # Wind blowing out (from home plate toward outfield) increases HR distance
+            # Wind blowing in (from outfield toward home plate) decreases HR distance
             wind_factor = 0
-            if (45 <= wind_direction <= 135) or (225 <= wind_direction <= 315):
-                # Favorable wind direction
-                wind_factor = wind_speed * 0.003  # 3% per 10mph favorable wind
-            elif (135 < wind_direction < 225) or (wind_direction < 45 or wind_direction > 315):
-                # Unfavorable wind direction
-                wind_factor = -wind_speed * 0.004  # -4% per 10mph unfavorable wind
+
+            if -45 <= angle_diff <= 45:
+                # Wind blowing straight out to center field (most favorable)
+                wind_factor = wind_speed * 0.005  # 5% per 10mph
+            elif 45 < angle_diff <= 90 or -90 <= angle_diff < -45:
+                # Wind blowing out to power alleys (favorable)
+                wind_factor = wind_speed * 0.004  # 4% per 10mph
+            elif 90 < angle_diff <= 135 or -135 <= angle_diff < -90:
+                # Cross-wind (minimal effect)
+                wind_factor = wind_speed * 0.001  # 1% per 10mph
+            else:
+                # Wind blowing in from outfield (unfavorable)
+                wind_factor = -wind_speed * 0.004  # -4% per 10mph
 
             effects['wind_effect'] = max(0.7, min(1.3, 1 + wind_factor))
 
             # Humidity effect: High humidity = denser air = less distance
             if humidity > 60:
-                effects['humidity_effect'] = 1 - ((humidity - 60) / 100) * 0.1
+                effects['humidity_effect'] = 1 + ((humidity - 60) / 100) * 0.05  # slight boost
+            elif humidity < 40:
+                effects['humidity_effect'] = 1 - ((40 - humidity) / 100) * 0.05
 
             # Pressure effect: Low pressure = thinner air = more distance
             # Standard pressure ~30.00 inHg (~1013 mb)

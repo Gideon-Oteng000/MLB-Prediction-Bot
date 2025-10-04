@@ -92,69 +92,108 @@ class MasterHRPredictor:
         """
         Get weather/ballpark multiplier for the game
         """
-        weather_data = data.get('weather_ballpark', {})
+        # Get weather data from the game itself
+        game_weather = data.get('games', {}).get(game_key, {}).get('weather_ballpark', {})
 
-        # Try different game key formats
-        possible_keys = [game_key, f"mlb_{game_key}"]
-
-        for key in possible_keys:
-            if key in weather_data:
-                return weather_data[key].get('total_hr_multiplier', 1.0)
+        if game_weather:
+            return game_weather.get('total_hr_multiplier', 1.0)
 
         # Default multiplier if no weather data
         return 1.0
 
     def _calculate_batter_hr_probability(self, batter: Dict, pitcher: Dict, weather_multiplier: float) -> float:
         """
-        Calculate HR probability for batter vs pitcher matchup
+        Statistically grounded HR probability:
+        League-normalized + batter/pitcher factors + lineup slot + park/weather
+        Enhanced with GB%, barrel suppression, hard-hit suppression, and platoon splits (additive adjustments)
         """
-        batter_metrics = batter.get('blended_metrics', {})
-        pitcher_metrics = pitcher.get('blended_metrics', {})
+        # League baseline
+        league_hr_rate = 0.033
 
-        # Base batter power metrics (convert percentages to decimals)
-        batter_hr_rate = batter_metrics.get('hr_rate', 0.025)
-        batter_barrel_pct = batter_metrics.get('barrel_pct', 6.0) / 100  # Convert % to decimal
-        batter_hard_hit_pct = batter_metrics.get('hard_hit_pct', 35.0) / 100  # Convert % to decimal
-        batter_exit_velocity = batter_metrics.get('avg_exit_velocity', 88.0)
-        batter_iso = batter_metrics.get('iso', 0.150)
+        # Batter stats
+        bm = batter.get('blended_metrics', {})
+        batter_hr_rate = bm.get('hr_rate', 0.025)
+        batter_barrel_pct = bm.get('barrel_pct', 7.0) / 100
+        batter_iso = bm.get('iso', 0.150)
+        batter_order = batter.get('order', 5)
+        batter_handedness = batter.get('bat_side', 'R')  # L or R
 
-        # Pitcher suppression metrics (use defaults if no metrics available)
-        if pitcher_metrics and pitcher_metrics:
-            pitcher_hr_rate = pitcher_metrics.get('hr_rate', 0.025)
-            pitcher_k_pct = pitcher_metrics.get('k_pct', 22.0) / 100  # Convert % to decimal
-            pitcher_hard_hit_pct = pitcher_metrics.get('hard_hit_pct', 35.0) / 100  # Convert % to decimal
-            pitcher_barrel_pct = pitcher_metrics.get('barrel_pct', 6.0) / 100  # Convert % to decimal
-        else:
-            # Use league average defaults when no pitcher metrics
-            pitcher_hr_rate = 0.025
-            pitcher_k_pct = 0.22
-            pitcher_hard_hit_pct = 0.35
-            pitcher_barrel_pct = 0.06
+        # Pitcher stats with regression to the mean for small samples
+        pm = pitcher.get('blended_metrics', {})
+        pitcher_sample_size = pitcher.get('sample_sizes', {}).get('season_bf', 0)
 
-        # Simpler, more stable calculation
+        # Regression weight: 500 batters faced
+        regression_weight = 500
 
-        # Base probability from batter's HR rate (scale it down for daily game)
-        base_prob = batter_hr_rate * 0.75  # Daily game is less ABs than season rate
+        # Regress pitcher HR rate toward league mean
+        raw_pitcher_hr_rate = pm.get('hr_rate', 0.025)
+        pitcher_hr_rate = (raw_pitcher_hr_rate * pitcher_sample_size + league_hr_rate * regression_weight) / (pitcher_sample_size + regression_weight)
 
-        # Power adjustment: Smaller bonuses for high performers
-        power_bonus = (batter_barrel_pct - 0.06) * 0.15 + (batter_iso - 0.150) * 0.08
+        pitcher_k_pct = pm.get('k_pct', 22.0) / 100
+        pitcher_gb_pct = pm.get('gb_pct', 45.0) / 100
+        pitcher_barrel_pct = pm.get('barrel_pct_allowed', 6.0) / 100
+        pitcher_hard_hit_pct = pm.get('hard_hit_pct_allowed', 35.0) / 100
 
-        # Contact adjustment: Smaller bonus for hard hit%
-        contact_bonus = (batter_hard_hit_pct - 0.35) * 0.05
+        # Platoon-specific pitcher stats (also regressed)
+        raw_pitcher_hr_rate_vs_lhb = pm.get('hr_rate_vs_lhb', raw_pitcher_hr_rate)
+        raw_pitcher_hr_rate_vs_rhb = pm.get('hr_rate_vs_rhb', raw_pitcher_hr_rate)
 
-        # Pitcher adjustment: Reduce for good strikeout pitchers
-        pitcher_penalty = (pitcher_k_pct - 0.22) * 0.05
+        pitcher_hr_rate_vs_lhb = (raw_pitcher_hr_rate_vs_lhb * pitcher_sample_size + league_hr_rate * regression_weight) / (pitcher_sample_size + regression_weight)
+        pitcher_hr_rate_vs_rhb = (raw_pitcher_hr_rate_vs_rhb * pitcher_sample_size + league_hr_rate * regression_weight) / (pitcher_sample_size + regression_weight)
 
-        # Combined probability
-        matchup_prob = base_prob + power_bonus + contact_bonus - pitcher_penalty
+        # Batter factors (multiplicative)
+        batter_hr_factor = batter_hr_rate / league_hr_rate
+        barrel_factor = 1 + (batter_barrel_pct - 0.07) * 1.5
+        iso_factor = 1 + (batter_iso - 0.150) * 0.8
+        batter_factor = batter_hr_factor * barrel_factor * iso_factor
 
-        # Apply weather/ballpark multiplier
-        final_prob = matchup_prob * weather_multiplier
+        # Base pitcher factor (multiplicative)
+        pitcher_hr_factor = pitcher_hr_rate / league_hr_rate
+        k_factor = 1 - ((pitcher_k_pct - 0.22) * 0.5)
+        pitcher_base_factor = pitcher_hr_factor * k_factor
 
-        # Cap probabilities at reasonable bounds (0.1% to 12%)
-        final_prob = max(0.001, min(0.12, final_prob))
+        # Pitcher adjustments (ADDITIVE)
+        pitcher_adjustments = 0.0
 
-        return round(final_prob * 100, 1)  # Convert to percentage
+        # 1. Ground ball bonus/penalty
+        # HR penalty if GB% > 45%, bonus if GB% < 45%
+        gb_bonus = (0.45 - pitcher_gb_pct) * 0.10
+        pitcher_adjustments += gb_bonus
+
+        # 2. Barrel suppression
+        # Penalty if pitcher allows more barrels than 6% league avg
+        barrel_penalty = (pitcher_barrel_pct - 0.06) * 0.12
+        pitcher_adjustments += barrel_penalty
+
+        # 3. Hard-hit suppression
+        # Penalty if pitcher allows more hard contact than 35% league avg
+        hardhit_penalty = (pitcher_hard_hit_pct - 0.35) * 0.08
+        pitcher_adjustments += hardhit_penalty
+
+        # 4. Platoon splits
+        # Compare handedness-specific HR rate to overall HR rate
+        platoon_adjust = 0.0
+        if batter_handedness == "L" and pitcher_hr_rate_vs_lhb:
+            platoon_adjust = (pitcher_hr_rate_vs_lhb - pitcher_hr_rate) * 0.5
+        elif batter_handedness == "R" and pitcher_hr_rate_vs_rhb:
+            platoon_adjust = (pitcher_hr_rate_vs_rhb - pitcher_hr_rate) * 0.5
+        pitcher_adjustments += platoon_adjust
+
+        # Lineup slot factor
+        lineup_pa_weights = {1:1.10, 2:1.08, 3:1.06, 4:1.04, 5:1.02, 6:1.00, 7:0.98, 8:0.96, 9:0.94}
+        lineup_factor = lineup_pa_weights.get(batter_order, 1.0)
+
+        # Final probability calculation
+        # Base probability from multiplicative factors
+        base_hr_prob = league_hr_rate * batter_factor * pitcher_base_factor * lineup_factor * weather_multiplier
+
+        # Apply additive pitcher adjustments
+        hr_prob = base_hr_prob * (1 + pitcher_adjustments)
+
+        # Bound results
+        hr_prob = max(0.001, min(0.20, hr_prob))
+
+        return round(hr_prob * 100, 1)  # percentage
 
     def get_top_predictions(self, predictions: List[Dict], top_n: int = 15) -> List[Dict]:
         """

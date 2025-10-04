@@ -4,7 +4,11 @@
       "Bash(python test:*)",
       "Bash(python:*)",
       "Bash(timeout:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "WebSearch",
+      "WebFetch(domain:www.baseball-almanac.com)",
+      "WebFetch(domain:tht.fangraphs.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [],
     "ask": []
