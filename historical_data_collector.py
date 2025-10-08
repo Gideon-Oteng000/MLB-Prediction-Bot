@@ -127,39 +127,41 @@ class HistoricalDataCollector:
 
     def _collect_year_data(self, year: int):
         """
-        Collect data for a single year
+        Collect data for a single year using statcast data directly
         """
-        # Get season schedule
-        print(f"Fetching {year} season schedule...")
+        print(f"Fetching {year} season games...")
 
         try:
-            # Fetch season schedule using pybaseball
+            # Instead of using schedule, fetch statcast data by date ranges
+            # Get all game dates for the year from statcast
             start_date = f"{year}-03-15"
             end_date = f"{year}-11-15"
 
-            # Get all games for the season
-            schedule = pyb.schedule_and_record(year, 'NYY')  # Start with one team
+            print(f"Fetching statcast data from {start_date} to {end_date}...")
 
-            # Get unique game dates
-            if schedule is not None and not schedule.empty:
-                game_dates = schedule['Date'].unique()
+            # Fetch sample statcast data to get game dates
+            statcast_sample = pyb.statcast(start_dt=start_date, end_dt=end_date)
+
+            if statcast_sample is not None and not statcast_sample.empty:
+                # Get unique game dates
+                game_dates = sorted(statcast_sample['game_date'].unique())
                 total_games = len(game_dates)
 
                 print(f"Found {total_games} game dates in {year}")
 
-                # Process each game date
-                for i, game_date in enumerate(game_dates[:10], 1):  # TESTING: Limit to 10 games
+                # Process each game date (limit to 3 for testing)
+                for i, game_date in enumerate(game_dates[:3], 1):
                     print(f"\nProcessing {year} game {i}/{min(10, total_games)}: {game_date}")
                     self._collect_game_date_data(year, game_date)
 
                     # Rate limiting
                     time.sleep(0.5)
 
-                    # Save checkpoint every 50 games
-                    if i % 50 == 0:
+                    # Save checkpoint every 10 games
+                    if i % 10 == 0:
                         self._save_checkpoint()
             else:
-                print(f"No schedule data found for {year}")
+                print(f"No statcast data found for {year}")
 
         except Exception as e:
             print(f"Error collecting data for {year}: {e}")
@@ -183,10 +185,14 @@ class HistoricalDataCollector:
 
             for game in games:
                 game_id = game['game_id']
-                print(f"    Game: {game['away_team']} @ {game['home_team']}")
+                print(f"    Game ID: {game_id}")
 
-                # Fetch lineups
-                home_lineup, away_lineup = self._fetch_game_lineups(game_id, game_date_str)
+                # Fetch lineups (returns all batters in game)
+                all_lineup, _ = self._fetch_game_lineups(game_id, game_date_str)
+
+                if not all_lineup:
+                    print(f"      No lineup data found, skipping...")
+                    continue
 
                 # Fetch HR outcomes for this game
                 hr_outcomes = self._fetch_hr_outcomes(game_id, game_date_str)
@@ -194,19 +200,9 @@ class HistoricalDataCollector:
                 # Process each batter
                 all_batters = []
 
-                # Home team batters
-                for batter in home_lineup:
+                for batter in all_lineup:
                     batter_data = self._process_batter(
-                        batter, game, game_date_str, 'home', hr_outcomes
-                    )
-                    if batter_data:
-                        all_batters.append(batter_data)
-                        self.training_rows.append(batter_data)
-
-                # Away team batters
-                for batter in away_lineup:
-                    batter_data = self._process_batter(
-                        batter, game, game_date_str, 'away', hr_outcomes
+                        batter, game, game_date_str, 'unknown', hr_outcomes
                     )
                     if batter_data:
                         all_batters.append(batter_data)
@@ -233,65 +229,42 @@ class HistoricalDataCollector:
 
     def _fetch_games_on_date(self, game_date: str) -> List[Dict]:
         """
-        Fetch all games on a specific date using pybaseball
+        Fetch all games on a specific date from statcast data
         """
         try:
-            # Parse date
-            date_obj = pd.to_datetime(game_date)
-            year = date_obj.year
+            # Fetch statcast data for this date
+            statcast_data = pyb.statcast(start_dt=game_date, end_dt=game_date)
 
-            # Get all team schedules for this date
-            # We'll fetch schedule for all teams and deduplicate
+            if statcast_data is None or statcast_data.empty:
+                return []
+
+            # Get unique game_pk (game identifiers)
+            unique_games = statcast_data['game_pk'].unique()
+
             games = []
-            teams_checked = set()
 
-            # List of all team abbreviations
-            all_teams = list(self.stadiums.keys())
+            for game_pk in unique_games:
+                game_data = statcast_data[statcast_data['game_pk'] == game_pk]
 
-            for team in all_teams:
-                if team in teams_checked:
+                if game_data.empty:
                     continue
 
-                try:
-                    schedule = pyb.schedule_and_record(year, team)
+                # Extract home and away teams from the data
+                # In statcast, we can infer teams from player data
+                first_row = game_data.iloc[0]
 
-                    if schedule is not None and not schedule.empty:
-                        # Filter for specific date
-                        schedule['Date'] = pd.to_datetime(schedule['Date'])
-                        game_on_date = schedule[schedule['Date'] == date_obj]
+                # Create a simple game record
+                # Note: We'll use generic identifiers since team names aren't directly in statcast
+                game_id = f"{game_date}_{game_pk}"
 
-                        if not game_on_date.empty:
-                            for _, row in game_on_date.iterrows():
-                                opp = row.get('Opp', '')
-                                if opp.startswith('@'):
-                                    # Away game
-                                    home_team = opp[1:]
-                                    away_team = team
-                                else:
-                                    # Home game
-                                    home_team = team
-                                    away_team = opp
-
-                                game_id = f"{year}_{game_date}_{away_team}_at_{home_team}"
-
-                                # Check if game already added
-                                if game_id not in [g['game_id'] for g in games]:
-                                    games.append({
-                                        'game_id': game_id,
-                                        'date': game_date,
-                                        'home_team': home_team,
-                                        'away_team': away_team,
-                                        'stadium': self.stadiums.get(home_team, {}).get('name', '')
-                                    })
-
-                                teams_checked.add(home_team)
-                                teams_checked.add(away_team)
-
-                    time.sleep(0.1)  # Rate limiting
-
-                except Exception as e:
-                    print(f"      Error fetching schedule for {team}: {e}")
-                    continue
+                games.append({
+                    'game_id': game_id,
+                    'game_pk': game_pk,
+                    'date': game_date,
+                    'home_team': 'Unknown',  # Will be inferred from player data
+                    'away_team': 'Unknown',
+                    'stadium': 'Unknown'
+                })
 
             return games
 
@@ -304,13 +277,12 @@ class HistoricalDataCollector:
         Fetch lineups for both teams using statcast data
         """
         try:
-            # Extract teams from game_id
+            # Extract game_pk from game_id
             parts = game_id.split('_')
-            if len(parts) < 4:
+            if len(parts) < 2:
                 return [], []
 
-            # Get all plate appearances for this date
-            date_obj = pd.to_datetime(game_date)
+            game_pk = int(parts[-1])
 
             # Fetch statcast data for this date
             statcast_data = pyb.statcast(start_dt=game_date, end_dt=game_date)
@@ -318,27 +290,29 @@ class HistoricalDataCollector:
             if statcast_data is None or statcast_data.empty:
                 return [], []
 
-            # Extract unique batters (this is simplified - ideally filter by game)
-            home_lineup = []
-            away_lineup = []
+            # Filter for this specific game
+            game_data = statcast_data[statcast_data['game_pk'] == game_pk]
 
-            # Get unique batters and basic info
-            batters = statcast_data.groupby(['batter', 'player_name']).size().reset_index()
+            if game_data.empty:
+                return [], []
 
-            for _, row in batters.head(18).iterrows():  # Assume ~9 per team
+            # Get unique batters and their info
+            batters = game_data.groupby(['batter', 'player_name', 'stand']).size().reset_index()
+            batters = batters.rename(columns={0: 'count'})
+
+            all_batters = []
+
+            for _, row in batters.iterrows():
                 batter_info = {
-                    'player_id': row['batter'],
+                    'player_id': int(row['batter']),
                     'player_name': row['player_name'],
-                    'bat_side': statcast_data[statcast_data['batter'] == row['batter']]['stand'].iloc[0] if len(statcast_data[statcast_data['batter'] == row['batter']]) > 0 else 'R'
+                    'bat_side': row['stand']
                 }
+                all_batters.append(batter_info)
 
-                # Simplified - split batters between home/away
-                if len(home_lineup) < 9:
-                    home_lineup.append(batter_info)
-                else:
-                    away_lineup.append(batter_info)
-
-            return home_lineup, away_lineup
+            # For simplicity, return all batters in one list
+            # In reality, we'd need additional data to separate home/away
+            return all_batters, []
 
         except Exception as e:
             print(f"      Error fetching lineups: {e}")
@@ -516,14 +490,22 @@ class HistoricalDataCollector:
             stadium_info = self.stadiums.get(home_team, {})
 
             # Create training row
+            # Handle team assignment
+            if home_away in ['home', 'away']:
+                team = game[f'{home_away}_team']
+                opponent = game['away_team' if home_away == 'home' else 'home_team']
+            else:
+                team = 'Unknown'
+                opponent = 'Unknown'
+
             row = {
                 # Identifiers
                 'game_id': game['game_id'],
                 'date': game_date,
                 'player_name': player_name,
                 'player_id': player_id,
-                'team': game[f'{home_away}_team'],
-                'opponent': game['away_team' if home_away == 'home' else 'home_team'],
+                'team': team,
+                'opponent': opponent,
                 'home_away': home_away,
 
                 # Stadium
@@ -682,8 +664,8 @@ def main():
         print("Collection cancelled")
         return
 
-    # Initialize collector
-    collector = HistoricalDataCollector(start_year=2018, end_year=2024)
+    # Initialize collector (testing with 2024 only first)
+    collector = HistoricalDataCollector(start_year=2024, end_year=2024)
 
     # Collect all data
     collector.collect_all_data()

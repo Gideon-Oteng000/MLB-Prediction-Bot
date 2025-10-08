@@ -1,866 +1,61 @@
 {
-  "date": "2025-10-04",
+  "date": "2025-10-07",
   "source": "mlb_stats",
   "games": {
-    "813047": {
-      "away_team": "Chicago Cubs",
-      "home_team": "Milwaukee Brewers",
+    "813056": {
+      "away_team": "Seattle Mariners",
+      "home_team": "Detroit Tigers",
       "away_lineup": [
         {
-          "name": "Michael Busch",
-          "position": "1B",
+          "name": "Randy Arozarena",
+          "position": "LF",
           "batting_order": 1,
           "blended_metrics": {
-            "barrel_pct": 8.142975805046925,
-            "hard_hit_pct": 45.39893210089078,
-            "avg_exit_velocity": 92.16542034147444,
-            "max_exit_velocity": 111.25,
-            "launch_angle": 17.620666553595658,
-            "sweet_spot_pct": 44.58337897042716,
-            "iso": 0.41244418082206685,
-            "bb_pct": 8.906574399745525,
-            "k_pct": 20.365987091337423,
-            "hr_rate": 0.07411221314296056
+            "barrel_pct": 1.6542358424925445,
+            "hard_hit_pct": 48.42249239837797,
+            "avg_exit_velocity": 91.99457258672024,
+            "max_exit_velocity": 111.81,
+            "launch_angle": 10.994240103085403,
+            "sweet_spot_pct": 32.724253888188315,
+            "iso": 0.23534143797942797,
+            "bb_pct": 8.406575574186014,
+            "k_pct": 26.807852622495815,
+            "hr_rate": 0.028399873144100335
           },
           "sample_sizes": {
-            "season_pa": 2468,
-            "month_pa": 382,
-            "week_pa": 69
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Nico Hoerner",
-          "position": "2B",
-          "batting_order": 2,
-          "blended_metrics": {
-            "barrel_pct": 2.3545135260593817,
-            "hard_hit_pct": 30.10362509846752,
-            "avg_exit_velocity": 87.69654538655699,
-            "max_exit_velocity": 107.72999999999999,
-            "launch_angle": 11.763139665326728,
-            "sweet_spot_pct": 36.453420135705116,
-            "iso": 0.12144120117539225,
-            "bb_pct": 5.441959394553741,
-            "k_pct": 7.16290549043239,
-            "hr_rate": 0.011806175279231066
-          },
-          "sample_sizes": {
-            "season_pa": 2365,
-            "month_pa": 407,
-            "week_pa": 77
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Kyle Tucker",
-          "position": "DH",
-          "batting_order": 3,
-          "blended_metrics": {
-            "barrel_pct": 2.1516061594449027,
-            "hard_hit_pct": 31.411474819639366,
-            "avg_exit_velocity": 87.35939299719888,
-            "max_exit_velocity": 106.09,
-            "launch_angle": 18.24117086834734,
-            "sweet_spot_pct": 38.07907778496014,
-            "iso": 0.17329952675354612,
-            "bb_pct": 9.99230508578785,
-            "k_pct": 14.878835101522286,
-            "hr_rate": 0.02475638437351525
-          },
-          "sample_sizes": {
-            "season_pa": 2474,
-            "month_pa": 100,
-            "week_pa": 73
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Seiya Suzuki",
-          "position": "RF",
-          "batting_order": 4,
-          "blended_metrics": {
-            "barrel_pct": 3.5227318090245885,
-            "hard_hit_pct": 47.79285423513997,
-            "avg_exit_velocity": 91.53172538177989,
-            "max_exit_velocity": 115.12,
-            "launch_angle": 17.227876777251186,
-            "sweet_spot_pct": 36.06135155656796,
-            "iso": 0.4223666250961226,
-            "bb_pct": 10.293027803080783,
-            "k_pct": 24.902880155526514,
-            "hr_rate": 0.06783457546496244
-          },
-          "sample_sizes": {
-            "season_pa": 2915,
-            "month_pa": 335,
-            "week_pa": 92
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Ian Happ",
-          "position": "LF",
-          "batting_order": 5,
-          "blended_metrics": {
-            "barrel_pct": 2.6430402684231056,
-            "hard_hit_pct": 46.928036811535556,
-            "avg_exit_velocity": 90.43243907647472,
-            "max_exit_velocity": 111.60999999999999,
-            "launch_angle": 15.967661728952052,
-            "sweet_spot_pct": 35.099233800173145,
-            "iso": 0.26002880427021713,
-            "bb_pct": 11.64878854844243,
-            "k_pct": 25.41131228541699,
-            "hr_rate": 0.030825909357737973
-          },
-          "sample_sizes": {
-            "season_pa": 2899,
-            "month_pa": 453,
-            "week_pa": 79
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Carson Kelly",
-          "position": "C",
-          "batting_order": 6,
-          "blended_metrics": {
-            "barrel_pct": 2.8756612656489917,
-            "hard_hit_pct": 37.424237397677906,
-            "avg_exit_velocity": 88.3032574189096,
-            "max_exit_velocity": 109.64999999999999,
-            "launch_angle": 18.34796305144131,
-            "sweet_spot_pct": 37.877112135176645,
-            "iso": 0.2607945735280126,
-            "bb_pct": 8.343709932567744,
-            "k_pct": 21.79404628098714,
-            "hr_rate": 0.04632709911920857
-          },
-          "sample_sizes": {
-            "season_pa": 1775,
-            "month_pa": 271,
+            "season_pa": 3102,
+            "month_pa": 434,
             "week_pa": 44
           },
           "metrics_source": "advanced_statcast"
         },
         {
-          "name": "Pete Crow-Armstrong",
-          "position": "CF",
-          "batting_order": 7,
-          "blended_metrics": {
-            "barrel_pct": 2.8331300066755674,
-            "hard_hit_pct": 44.08016700866392,
-            "avg_exit_velocity": 90.23547619047619,
-            "max_exit_velocity": 111.93333333333334,
-            "launch_angle": 16.862499999999997,
-            "sweet_spot_pct": 42.49999999999999,
-            "iso": 0.23727813667607886,
-            "bb_pct": 3.364814759150703,
-            "k_pct": 28.313910375653084,
-            "hr_rate": 0.03867011393384702
-          },
-          "sample_sizes": {
-            "season_pa": 0,
-            "month_pa": 357,
-            "week_pa": 72
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Dansby Swanson",
-          "position": "SS",
-          "batting_order": 8,
-          "blended_metrics": {
-            "barrel_pct": 4.559235409217622,
-            "hard_hit_pct": 43.5790551744579,
-            "avg_exit_velocity": 90.46739007269707,
-            "max_exit_velocity": 107.68999999999998,
-            "launch_angle": 14.144616548538664,
-            "sweet_spot_pct": 39.485837438423644,
-            "iso": 0.2461544214334192,
-            "bb_pct": 8.112182072829132,
-            "k_pct": 26.362031370949975,
-            "hr_rate": 0.031160318759478285
-          },
-          "sample_sizes": {
-            "season_pa": 2675,
-            "month_pa": 420,
-            "week_pa": 68
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Matt Shaw",
-          "position": "3B",
-          "batting_order": 9,
-          "blended_metrics": {
-            "barrel_pct": 1.8330544409823428,
-            "hard_hit_pct": 21.8202246519073,
-            "avg_exit_velocity": 82.3816809640523,
-            "max_exit_velocity": 107.48,
-            "launch_angle": 11.696936274509804,
-            "sweet_spot_pct": 33.170731707317074,
-            "iso": 0.2151451730007361,
-            "bb_pct": 8.611552617008515,
-            "k_pct": 23.8721536373246,
-            "hr_rate": 0.02447658609536822
-          },
-          "sample_sizes": {
-            "season_pa": 1877,
-            "month_pa": 360,
-            "week_pa": 56
-          },
-          "metrics_source": "advanced_statcast"
-        }
-      ],
-      "home_lineup": [
-        {
-          "name": "Jackson Chourio",
-          "position": "LF",
-          "batting_order": 1,
-          "blended_metrics": {
-            "barrel_pct": 3.857269892967337,
-            "hard_hit_pct": 41.62353874908036,
-            "avg_exit_velocity": 90.2097072072072,
-            "max_exit_velocity": 112.43,
-            "launch_angle": 8.591665267752223,
-            "sweet_spot_pct": 36.47953495779583,
-            "iso": 0.2606106333401027,
-            "bb_pct": 5.208293579364395,
-            "k_pct": 20.401939430156663,
-            "hr_rate": 0.03904693929081768
-          },
-          "sample_sizes": {
-            "season_pa": 2258,
-            "month_pa": 417,
-            "week_pa": 47
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Brice Turang",
-          "position": "2B",
+          "name": "Cal Raleigh",
+          "position": "C",
           "batting_order": 2,
           "blended_metrics": {
-            "barrel_pct": 3.0536176403533766,
-            "hard_hit_pct": 44.40910967915081,
-            "avg_exit_velocity": 90.05419356486212,
-            "max_exit_velocity": 110.86,
-            "launch_angle": 10.2,
-            "sweet_spot_pct": 34.0423197492163,
-            "iso": 0.19796979791241032,
-            "bb_pct": 11.080801799490702,
-            "k_pct": 22.230587696936226,
-            "hr_rate": 0.02155584133577424
+            "barrel_pct": 4.218469345706923,
+            "hard_hit_pct": 43.69601961608652,
+            "avg_exit_velocity": 90.68778717579565,
+            "max_exit_velocity": 113.56,
+            "launch_angle": 23.55764020679275,
+            "sweet_spot_pct": 40.06331826265829,
+            "iso": 0.48848435257872697,
+            "bb_pct": 10.305499333897155,
+            "k_pct": 25.189457019394887,
+            "hr_rate": 0.07681845363732025
           },
           "sample_sizes": {
-            "season_pa": 2869,
-            "month_pa": 400,
-            "week_pa": 42
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "William Contreras",
-          "position": "C",
-          "batting_order": 3,
-          "blended_metrics": {
-            "barrel_pct": 0.6926043385960133,
-            "hard_hit_pct": 47.63826209076791,
-            "avg_exit_velocity": 91.28841516972483,
-            "max_exit_velocity": 113.54444444444445,
-            "launch_angle": 7.0591599987146125,
-            "sweet_spot_pct": 28.779334182281247,
-            "iso": 0.15919922022033914,
-            "bb_pct": 11.686063333226773,
-            "k_pct": 17.375260800534363,
-            "hr_rate": 0.020308203891567057
-          },
-          "sample_sizes": {
-            "season_pa": 2679,
-            "month_pa": 243,
-            "week_pa": 0
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Christian Yelich",
-          "position": "DH",
-          "batting_order": 4,
-          "blended_metrics": {
-            "barrel_pct": 2.1403880862003652,
-            "hard_hit_pct": 41.482232144497736,
-            "avg_exit_velocity": 90.72633311051693,
-            "max_exit_velocity": 112.53999999999999,
-            "launch_angle": 2.1221657754010694,
-            "sweet_spot_pct": 27.286584085660294,
-            "iso": 0.25756055723669913,
-            "bb_pct": 7.671079098140178,
-            "k_pct": 24.10202986666421,
-            "hr_rate": 0.03760491752511348
-          },
-          "sample_sizes": {
-            "season_pa": 2743,
-            "month_pa": 319,
-            "week_pa": 41
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Andrew Vaughn",
-          "position": "1B",
-          "batting_order": 5,
-          "blended_metrics": {
-            "barrel_pct": 3.233279320790903,
-            "hard_hit_pct": 43.02535253266004,
-            "avg_exit_velocity": 91.95633228291317,
-            "max_exit_velocity": 109.87,
-            "launch_angle": 12.966334033613444,
-            "sweet_spot_pct": 43.64092797783934,
-            "iso": 0.19555198175542288,
-            "bb_pct": 7.974717944175504,
-            "k_pct": 16.501218464879763,
-            "hr_rate": 0.019865289540408317
-          },
-          "sample_sizes": {
-            "season_pa": 1863,
-            "month_pa": 264,
-            "week_pa": 25
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Sal Frelick",
-          "position": "RF",
-          "batting_order": 6,
-          "blended_metrics": {
-            "barrel_pct": 1.5909784600005517,
-            "hard_hit_pct": 22.56445085660641,
-            "avg_exit_velocity": 83.12031397488202,
-            "max_exit_velocity": 106.33,
-            "launch_angle": 10.52349791013584,
-            "sweet_spot_pct": 25.807260920897285,
-            "iso": 0.16021207397249007,
-            "bb_pct": 7.789336169807682,
-            "k_pct": 13.842111963077375,
-            "hr_rate": 0.02214538576695345
-          },
-          "sample_sizes": {
-            "season_pa": 2447,
-            "month_pa": 317,
-            "week_pa": 20
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Caleb Durbin",
-          "position": "3B",
-          "batting_order": 7,
-          "blended_metrics": {
-            "barrel_pct": 1.091747087783318,
-            "hard_hit_pct": 23.195306536895504,
-            "avg_exit_velocity": 84.1550135566188,
-            "max_exit_velocity": 105.79,
-            "launch_angle": 10.998708133971292,
-            "sweet_spot_pct": 27.669024339504887,
-            "iso": 0.13635176461676313,
-            "bb_pct": 5.7831516500077775,
-            "k_pct": 9.656336122115263,
-            "hr_rate": 0.01806660623193792
-          },
-          "sample_sizes": {
-            "season_pa": 1997,
-            "month_pa": 315,
-            "week_pa": 29
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Blake Perkins",
-          "position": "CF",
-          "batting_order": 8,
-          "blended_metrics": {
-            "barrel_pct": 0.5430067427253852,
-            "hard_hit_pct": 25.218573431964316,
-            "avg_exit_velocity": 82.63022152994115,
-            "max_exit_velocity": 103.58999999999999,
-            "launch_angle": 3.85098650051921,
-            "sweet_spot_pct": 35.71428571428571,
-            "iso": 0.16096190175510935,
-            "bb_pct": 8.052794736442225,
-            "k_pct": 24.562569173117087,
-            "hr_rate": 0.013769299758216341
-          },
-          "sample_sizes": {
-            "season_pa": 708,
-            "month_pa": 165,
-            "week_pa": 8
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Joey Ortiz",
-          "position": "SS",
-          "batting_order": 9,
-          "blended_metrics": {
-            "barrel_pct": 0.28432094216012715,
-            "hard_hit_pct": 27.80972273023944,
-            "avg_exit_velocity": 81.42059093067425,
-            "max_exit_velocity": 108.74,
-            "launch_angle": 12.819772079772079,
-            "sweet_spot_pct": 24.511589039890925,
-            "iso": 0.1289021834482768,
-            "bb_pct": 4.522327558930549,
-            "k_pct": 14.671751605271542,
-            "hr_rate": 0.011995968301381716
-          },
-          "sample_sizes": {
-            "season_pa": 2044,
-            "month_pa": 225,
-            "week_pa": 23
-          },
-          "metrics_source": "advanced_statcast"
-        }
-      ],
-      "away_pitcher": {
-        "name": "Matthew Boyd",
-        "wins": "14",
-        "losses": "8",
-        "era": "3.21",
-        "blended_metrics": {
-          "barrel_pct_allowed": 1.4323172730252378,
-          "hard_hit_pct_allowed": 36.7944936086529,
-          "avg_exit_velocity_allowed": 87.86294186264846,
-          "launch_angle_allowed": 14.204357132798197,
-          "bb_pct": 5.719218956988093,
-          "k_pct": 18.14972228332192,
-          "hr_rate": 0.028156496691390268,
-          "fb_pct": 29.927346225281333,
-          "gb_pct": 39.852944389817544,
-          "gb_fb_ratio": 1.3676152364013636,
-          "ld_pct": 20.933464437889214,
-          "hr_rate_vs_lhb": 0.017460438222763237,
-          "hr_rate_vs_rhb": 0.030408351898374174,
-          "hard_hit_pct_vs_lhb": 29.627054794520546,
-          "hard_hit_pct_vs_rhb": 41.774633481077394
-        },
-        "sample_sizes": {
-          "season_bf": 3006,
-          "month_bf": 397,
-          "week_bf": 58
-        },
-        "metrics_source": "advanced_statcast"
-      },
-      "home_pitcher": {
-        "name": "Freddy Peralta",
-        "wins": "17",
-        "losses": "6",
-        "era": "2.70",
-        "blended_metrics": {
-          "barrel_pct_allowed": 5.133891213389122,
-          "hard_hit_pct_allowed": 38.605020920502085,
-          "avg_exit_velocity_allowed": 88.71031903686982,
-          "launch_angle_allowed": 19.290173062452972,
-          "bb_pct": 8.309639692240799,
-          "k_pct": 29.533554612031832,
-          "hr_rate": 0.04209058619447986,
-          "fb_pct": 27.932357043235704,
-          "gb_pct": 36.674337517433756,
-          "gb_fb_ratio": 1.3431159420289855,
-          "ld_pct": 22.289818688981867,
-          "hr_rate_vs_lhb": 0.06971066907775768,
-          "hr_rate_vs_rhb": 0.041992526357934074,
-          "hard_hit_pct_vs_lhb": 31.55928060066352,
-          "hard_hit_pct_vs_rhb": 46.99175157690441
-        },
-        "sample_sizes": {
-          "season_bf": 3288,
-          "month_bf": 419,
-          "week_bf": 44
-        },
-        "metrics_source": "advanced_statcast"
-      },
-      "game_time": "2025-10-04T18:08:00Z"
-    },
-    "813063": {
-      "away_team": "New York Yankees",
-      "home_team": "Toronto Blue Jays",
-      "away_lineup": [
-        {
-          "name": "Trent Grisham",
-          "position": "CF",
-          "batting_order": 1,
-          "blended_metrics": {
-            "barrel_pct": 4.880221616856854,
-            "hard_hit_pct": 44.24617745390391,
-            "avg_exit_velocity": 91.35192519559854,
-            "max_exit_velocity": 108.85,
-            "launch_angle": 20.215997653265497,
-            "sweet_spot_pct": 32.65597499205066,
-            "iso": 0.3261078134638471,
-            "bb_pct": 14.152104925036893,
-            "k_pct": 25.84290275237147,
-            "hr_rate": 0.05133635790999633
-          },
-          "sample_sizes": {
-            "season_pa": 2610,
-            "month_pa": 427,
-            "week_pa": 83
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Aaron Judge",
-          "position": "RF",
-          "batting_order": 2,
-          "blended_metrics": {
-            "barrel_pct": 6.26439117598147,
-            "hard_hit_pct": 56.97157883866099,
-            "avg_exit_velocity": 95.60650540600176,
-            "max_exit_velocity": 117.49999999999999,
-            "launch_angle": 17.766758605472198,
-            "sweet_spot_pct": 41.18685340083645,
-            "iso": 0.48893110507887083,
-            "bb_pct": 13.961394811636998,
-            "k_pct": 22.288192735302676,
-            "hr_rate": 0.07747488328166736
-          },
-          "sample_sizes": {
-            "season_pa": 2852,
-            "month_pa": 443,
-            "week_pa": 66
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Cody Bellinger",
-          "position": "LF",
-          "batting_order": 3,
-          "blended_metrics": {
-            "barrel_pct": 2.491529491497221,
-            "hard_hit_pct": 32.46826582102012,
-            "avg_exit_velocity": 87.14025132275131,
-            "max_exit_velocity": 108.58000000000001,
-            "launch_angle": 18.178774928774928,
-            "sweet_spot_pct": 35.5307748978635,
-            "iso": 0.21604860746375418,
-            "bb_pct": 8.769406360216518,
-            "k_pct": 13.601962966480384,
-            "hr_rate": 0.033986413216976846
-          },
-          "sample_sizes": {
-            "season_pa": 2813,
-            "month_pa": 432,
-            "week_pa": 60
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Ben Rice",
-          "position": "1B",
-          "batting_order": 4,
-          "blended_metrics": {
-            "barrel_pct": 5.280972621952285,
-            "hard_hit_pct": 52.88512208101469,
-            "avg_exit_velocity": 92.89402750815745,
-            "max_exit_velocity": 112.66,
-            "launch_angle": 14.871297904438329,
-            "sweet_spot_pct": 43.3051312497481,
-            "iso": 0.3502963171844365,
-            "bb_pct": 7.927718369013031,
-            "k_pct": 17.035610339864633,
-            "hr_rate": 0.06624917427243064
-          },
-          "sample_sizes": {
-            "season_pa": 2322,
-            "month_pa": 343,
-            "week_pa": 56
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Giancarlo Stanton",
-          "position": "DH",
-          "batting_order": 5,
-          "blended_metrics": {
-            "barrel_pct": 8.219544498138488,
-            "hard_hit_pct": 52.84451203973385,
-            "avg_exit_velocity": 94.87161292014052,
-            "max_exit_velocity": 116.95,
-            "launch_angle": 13.78710712600283,
-            "sweet_spot_pct": 35.932043416705994,
-            "iso": 0.4894774432362215,
-            "bb_pct": 9.150934393872046,
-            "k_pct": 33.17313713884467,
-            "hr_rate": 0.07480914261495125
-          },
-          "sample_sizes": {
-            "season_pa": 1267,
-            "month_pa": 388,
-            "week_pa": 91
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Jazz Chisholm Jr.",
-          "position": "2B",
-          "batting_order": 6,
-          "blended_metrics": {
-            "barrel_pct": 3.779255352954553,
-            "hard_hit_pct": 40.41002605477202,
-            "avg_exit_velocity": 88.86669950738917,
-            "max_exit_velocity": 111.47,
-            "launch_angle": 15.521576354679802,
-            "sweet_spot_pct": 32.772893772893774,
-            "iso": 0.3090884694290746,
-            "bb_pct": 8.407720246908752,
-            "k_pct": 27.33983390157285,
-            "hr_rate": 0.046204438608428086
-          },
-          "sample_sizes": {
-            "season_pa": 2352,
-            "month_pa": 352,
-            "week_pa": 54
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Ryan McMahon",
-          "position": "3B",
-          "batting_order": 7,
-          "blended_metrics": {
-            "barrel_pct": 3.0022807828803906,
-            "hard_hit_pct": 46.87534287920468,
-            "avg_exit_velocity": 92.13902780132226,
-            "max_exit_velocity": 114.6,
-            "launch_angle": 10.291095948465841,
-            "sweet_spot_pct": 39.10243407707911,
-            "iso": 0.2675396451040682,
-            "bb_pct": 11.174402186800569,
-            "k_pct": 32.98789366358407,
-            "hr_rate": 0.035782798220694266
-          },
-          "sample_sizes": {
-            "season_pa": 2733,
-            "month_pa": 274,
-            "week_pa": 53
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Anthony Volpe",
-          "position": "SS",
-          "batting_order": 8,
-          "blended_metrics": {
-            "barrel_pct": 3.2147008782172026,
-            "hard_hit_pct": 37.64519720410704,
-            "avg_exit_velocity": 88.97002111300183,
-            "max_exit_velocity": 109.21000000000001,
-            "launch_angle": 14.390527509926262,
-            "sweet_spot_pct": 37.97195494890729,
-            "iso": 0.25072790975609516,
-            "bb_pct": 5.707922686823272,
-            "k_pct": 27.243655058704338,
-            "hr_rate": 0.03236305782030946
-          },
-          "sample_sizes": {
-            "season_pa": 2640,
-            "month_pa": 293,
-            "week_pa": 74
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Austin Wells",
-          "position": "C",
-          "batting_order": 9,
-          "blended_metrics": {
-            "barrel_pct": 4.073755017368999,
-            "hard_hit_pct": 42.04085590391481,
-            "avg_exit_velocity": 89.7284143870314,
-            "max_exit_velocity": 110.81,
-            "launch_angle": 17.42068469044953,
-            "sweet_spot_pct": 34.84602745534531,
-            "iso": 0.279879968757169,
-            "bb_pct": 6.560648761988421,
-            "k_pct": 27.579199550071692,
-            "hr_rate": 0.03775113546608701
-          },
-          "sample_sizes": {
-            "season_pa": 2022,
-            "month_pa": 282,
-            "week_pa": 58
-          },
-          "metrics_source": "advanced_statcast"
-        }
-      ],
-      "home_lineup": [
-        {
-          "name": "George Springer",
-          "position": "DH",
-          "batting_order": 1,
-          "blended_metrics": {
-            "barrel_pct": 4.119061344102702,
-            "hard_hit_pct": 45.9744900709295,
-            "avg_exit_velocity": 90.6812016514559,
-            "max_exit_velocity": 112.96,
-            "launch_angle": 17.899374805984976,
-            "sweet_spot_pct": 40.92628205128205,
-            "iso": 0.32780726550097145,
-            "bb_pct": 11.218009113288332,
-            "k_pct": 18.829490412478197,
-            "hr_rate": 0.05613050458609461
-          },
-          "sample_sizes": {
-            "season_pa": 2479,
-            "month_pa": 391,
-            "week_pa": 38
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Nathan Lukes",
-          "position": "RF",
-          "batting_order": 2,
-          "blended_metrics": {
-            "barrel_pct": 1.3091041729320534,
-            "hard_hit_pct": 37.939740004906696,
-            "avg_exit_velocity": 88.78857954545454,
-            "max_exit_velocity": 109.56,
-            "launch_angle": 10.401379359634074,
-            "sweet_spot_pct": 29.85645933014354,
-            "iso": 0.19964227292732334,
-            "bb_pct": 7.36462249387888,
-            "k_pct": 14.66068981750373,
-            "hr_rate": 0.025928377192613945
-          },
-          "sample_sizes": {
-            "season_pa": 1787,
-            "month_pa": 285,
-            "week_pa": 30
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Vladimir Guerrero Jr.",
-          "position": "1B",
-          "batting_order": 3,
-          "blended_metrics": {
-            "barrel_pct": 1.5716830592954625,
-            "hard_hit_pct": 48.040490490263565,
-            "avg_exit_velocity": 92.0361525433603,
-            "max_exit_velocity": 117.98,
-            "launch_angle": 5.453397881496192,
-            "sweet_spot_pct": 31.886957960940087,
-            "iso": 0.17316119428858184,
-            "bb_pct": 8.530176167310616,
-            "k_pct": 13.606139267014221,
-            "hr_rate": 0.02454042191658061
-          },
-          "sample_sizes": {
-            "season_pa": 2670,
-            "month_pa": 319,
-            "week_pa": 36
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Addison Barger",
-          "position": "3B",
-          "batting_order": 4,
-          "blended_metrics": {
-            "barrel_pct": 4.6394585472854075,
-            "hard_hit_pct": 46.32003969856474,
-            "avg_exit_velocity": 91.05672794117648,
-            "max_exit_velocity": 114.46,
-            "launch_angle": 12.585364145658264,
-            "sweet_spot_pct": 38.08333333333333,
-            "iso": 0.304189778150067,
-            "bb_pct": 7.4722152858450634,
-            "k_pct": 21.732315259628248,
-            "hr_rate": 0.04666530988485335
-          },
-          "sample_sizes": {
-            "season_pa": 2079,
-            "month_pa": 301,
-            "week_pa": 34
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Alejandro Kirk",
-          "position": "C",
-          "batting_order": 5,
-          "blended_metrics": {
-            "barrel_pct": 5.161751447846095,
-            "hard_hit_pct": 44.61184537798668,
-            "avg_exit_velocity": 92.71656314699794,
-            "max_exit_velocity": 111.1,
-            "launch_angle": 13.693840579710145,
-            "sweet_spot_pct": 51.086956521739125,
-            "iso": 0.4021040306531751,
-            "bb_pct": 8.427779299304067,
-            "k_pct": 16.80456906660413,
-            "hr_rate": 0.12018689042586808
-          },
-          "sample_sizes": {
-            "season_pa": 0,
-            "month_pa": 303,
-            "week_pa": 40
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Daulton Varsho",
-          "position": "CF",
-          "batting_order": 6,
-          "blended_metrics": {
-            "barrel_pct": 4.30463788502714,
-            "hard_hit_pct": 32.7432515250041,
-            "avg_exit_velocity": 86.9180038778636,
-            "max_exit_velocity": 111.96000000000001,
-            "launch_angle": 22.132412748069214,
-            "sweet_spot_pct": 39.19835024177491,
-            "iso": 0.3937455416681732,
-            "bb_pct": 4.926622885487916,
-            "k_pct": 25.58535599379426,
-            "hr_rate": 0.05667438709500576
-          },
-          "sample_sizes": {
-            "season_pa": 1121,
-            "month_pa": 240,
+            "season_pa": 3059,
+            "month_pa": 373,
             "week_pa": 24
           },
           "metrics_source": "advanced_statcast"
         },
         {
-          "name": "Anthony Santander",
-          "position": "LF",
-          "batting_order": 7,
-          "blended_metrics": {
-            "barrel_pct": 1.181105149792027,
-            "hard_hit_pct": 36.33304871955507,
-            "avg_exit_velocity": 86.3718792866941,
-            "max_exit_velocity": 109.8888888888889,
-            "launch_angle": 18.636831275720166,
-            "sweet_spot_pct": 22.489959839357432,
-            "iso": 0.13755305698152268,
-            "bb_pct": 10.25719009309447,
-            "k_pct": 28.080234359632804,
-            "hr_rate": 0.01940156143680224
-          },
-          "sample_sizes": {
-            "season_pa": 1154,
-            "month_pa": 62,
-            "week_pa": 15
-          },
-          "metrics_source": "advanced_statcast"
-        },
-        {
-          "name": "Andr\u00e9s Gim\u00e9nez",
-          "position": "SS",
-          "batting_order": 8,
+          "name": "Julio Rodr\u00edguez",
+          "position": "CF",
+          "batting_order": 3,
           "blended_metrics": {},
           "sample_sizes": {
             "season_pa": 0,
@@ -870,128 +65,835 @@
           "metrics_source": "advanced_statcast"
         },
         {
-          "name": "Ernie Clement",
+          "name": "Jorge Polanco",
           "position": "2B",
-          "batting_order": 9,
+          "batting_order": 4,
           "blended_metrics": {
-            "barrel_pct": 0.7405765686084432,
-            "hard_hit_pct": 23.07845229849221,
-            "avg_exit_velocity": 84.70356774380524,
-            "max_exit_velocity": 106.97000000000001,
-            "launch_angle": 21.24610204790003,
-            "sweet_spot_pct": 38.28546920569566,
-            "iso": 0.15057590526612438,
-            "bb_pct": 4.777926642592603,
-            "k_pct": 9.491395250966734,
-            "hr_rate": 0.012850627844196976
+            "barrel_pct": 4.104506087212147,
+            "hard_hit_pct": 42.14625470218984,
+            "avg_exit_velocity": 90.12713002114165,
+            "max_exit_velocity": 110.47,
+            "launch_angle": 17.70478329809725,
+            "sweet_spot_pct": 40.88967695174984,
+            "iso": 0.34479716286649814,
+            "bb_pct": 6.2469625104103805,
+            "k_pct": 13.938991781087589,
+            "hr_rate": 0.06974267818262316
           },
           "sample_sizes": {
-            "season_pa": 1988,
-            "month_pa": 249,
+            "season_pa": 2216,
+            "month_pa": 329,
+            "week_pa": 30
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Josh Naylor",
+          "position": "1B",
+          "batting_order": 5,
+          "blended_metrics": {
+            "barrel_pct": 1.2364695536291521,
+            "hard_hit_pct": 36.9737054426029,
+            "avg_exit_velocity": 88.49055555555556,
+            "max_exit_velocity": 115.02,
+            "launch_angle": 11.29486607142857,
+            "sweet_spot_pct": 28.276328740157478,
+            "iso": 0.19729936676677007,
+            "bb_pct": 6.974274195912045,
+            "k_pct": 12.051722547763184,
+            "hr_rate": 0.031156696581153796
+          },
+          "sample_sizes": {
+            "season_pa": 2208,
+            "month_pa": 264,
+            "week_pa": 24
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Eugenio Su\u00e1rez",
+          "position": "3B",
+          "batting_order": 6,
+          "blended_metrics": {},
+          "sample_sizes": {
+            "season_pa": 0,
+            "month_pa": 0,
+            "week_pa": 0
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Dominic Canzone",
+          "position": "DH",
+          "batting_order": 7,
+          "blended_metrics": {
+            "barrel_pct": 1.238220804225763,
+            "hard_hit_pct": 43.56529211105618,
+            "avg_exit_velocity": 91.98868857008668,
+            "max_exit_velocity": 112.85,
+            "launch_angle": 14.293774817471501,
+            "sweet_spot_pct": 34.716092239028015,
+            "iso": 0.28340100111004346,
+            "bb_pct": 5.7389369285904195,
+            "k_pct": 20.805106017999968,
+            "hr_rate": 0.044997112958887635
+          },
+          "sample_sizes": {
+            "season_pa": 1157,
+            "month_pa": 204,
+            "week_pa": 9
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Victor Robles",
+          "position": "RF",
+          "batting_order": 8,
+          "blended_metrics": {
+            "barrel_pct": 0.012126717189557178,
+            "hard_hit_pct": 21.545122202680254,
+            "avg_exit_velocity": 82.1484652194211,
+            "max_exit_velocity": 108.32,
+            "launch_angle": 13.61624649859944,
+            "sweet_spot_pct": 23.86363636363636,
+            "iso": 0.17291939752252256,
+            "bb_pct": 3.7652041888952192,
+            "k_pct": 20.472286403015374,
+            "hr_rate": 0.021281924881457866
+          },
+          "sample_sizes": {
+            "season_pa": 561,
+            "month_pa": 185,
+            "week_pa": 22
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "J.P. Crawford",
+          "position": "SS",
+          "batting_order": 9,
+          "blended_metrics": {
+            "barrel_pct": 3.340988751201125,
+            "hard_hit_pct": 33.04245575024247,
+            "avg_exit_velocity": 86.43341911764706,
+            "max_exit_velocity": 109.27,
+            "launch_angle": 8.735020215633423,
+            "sweet_spot_pct": 34.25931677018633,
+            "iso": 0.16855218963661775,
+            "bb_pct": 9.31318194906418,
+            "k_pct": 18.842059323588245,
+            "hr_rate": 0.023518811901051838
+          },
+          "sample_sizes": {
+            "season_pa": 2940,
+            "month_pa": 317,
             "week_pa": 22
           },
           "metrics_source": "advanced_statcast"
         }
       ],
+      "home_lineup": [
+        {
+          "name": "Kerry Carpenter",
+          "position": "RF",
+          "batting_order": 1,
+          "blended_metrics": {
+            "barrel_pct": 4.169598244045705,
+            "hard_hit_pct": 41.72753707764732,
+            "avg_exit_velocity": 91.36639514896866,
+            "max_exit_velocity": 112.5,
+            "launch_angle": 20.18775048480931,
+            "sweet_spot_pct": 43.200427807486626,
+            "iso": 0.31330637494909824,
+            "bb_pct": 5.880687851139032,
+            "k_pct": 23.782817187698576,
+            "hr_rate": 0.04939019759149841
+          },
+          "sample_sizes": {
+            "season_pa": 2032,
+            "month_pa": 322,
+            "week_pa": 107
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Gleyber Torres",
+          "position": "2B",
+          "batting_order": 2,
+          "blended_metrics": {
+            "barrel_pct": 1.4777165844666145,
+            "hard_hit_pct": 36.56254921145482,
+            "avg_exit_velocity": 90.1661707179385,
+            "max_exit_velocity": 110.38,
+            "launch_angle": 13.081857043443682,
+            "sweet_spot_pct": 40.40372670807453,
+            "iso": 0.16048666607030712,
+            "bb_pct": 12.168625680137513,
+            "k_pct": 19.125204693112025,
+            "hr_rate": 0.02057656609528617
+          },
+          "sample_sizes": {
+            "season_pa": 2962,
+            "month_pa": 468,
+            "week_pa": 105
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Colt Keith",
+          "position": "DH",
+          "batting_order": 3,
+          "blended_metrics": {
+            "barrel_pct": 0.9983658872093321,
+            "hard_hit_pct": 38.70158951234689,
+            "avg_exit_velocity": 90.76191143774705,
+            "max_exit_velocity": 109.25,
+            "launch_angle": 13.588908102766798,
+            "sweet_spot_pct": 45.0859876468451,
+            "iso": 0.1920898032390908,
+            "bb_pct": 9.163091377428756,
+            "k_pct": 18.73565184657736,
+            "hr_rate": 0.02511266132241742
+          },
+          "sample_sizes": {
+            "season_pa": 2040,
+            "month_pa": 115,
+            "week_pa": 16
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Riley Greene",
+          "position": "LF",
+          "batting_order": 4,
+          "blended_metrics": {
+            "barrel_pct": 3.631528536136375,
+            "hard_hit_pct": 41.46945943250353,
+            "avg_exit_velocity": 89.54968574389014,
+            "max_exit_velocity": 114.41,
+            "launch_angle": 16.102248877939957,
+            "sweet_spot_pct": 41.28802989237692,
+            "iso": 0.3235903831529243,
+            "bb_pct": 6.460945712935604,
+            "k_pct": 29.671757762080603,
+            "hr_rate": 0.04465591946632931
+          },
+          "sample_sizes": {
+            "season_pa": 2966,
+            "month_pa": 416,
+            "week_pa": 75
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Spencer Torkelson",
+          "position": "1B",
+          "batting_order": 5,
+          "blended_metrics": {
+            "barrel_pct": 2.279918976515341,
+            "hard_hit_pct": 42.96369893456495,
+            "avg_exit_velocity": 90.46158534890185,
+            "max_exit_velocity": 109.33999999999999,
+            "launch_angle": 25.090852098971364,
+            "sweet_spot_pct": 37.517443053560434,
+            "iso": 0.2821047523889549,
+            "bb_pct": 10.533481210856428,
+            "k_pct": 26.194652889280682,
+            "hr_rate": 0.03972759540450306
+          },
+          "sample_sizes": {
+            "season_pa": 2912,
+            "month_pa": 420,
+            "week_pa": 96
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Zach McKinstry",
+          "position": "3B",
+          "batting_order": 6,
+          "blended_metrics": {
+            "barrel_pct": 2.4796327763006016,
+            "hard_hit_pct": 25.49247045057923,
+            "avg_exit_velocity": 84.29764888572784,
+            "max_exit_velocity": 106.23,
+            "launch_angle": 12.282478267741425,
+            "sweet_spot_pct": 35.44660940009778,
+            "iso": 0.20433497521075808,
+            "bb_pct": 8.838121083558601,
+            "k_pct": 23.242647689012188,
+            "hr_rate": 0.01941063838542579
+          },
+          "sample_sizes": {
+            "season_pa": 2273,
+            "month_pa": 226,
+            "week_pa": 82
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Dillon Dingler",
+          "position": "C",
+          "batting_order": 7,
+          "blended_metrics": {
+            "barrel_pct": 2.3167564965399086,
+            "hard_hit_pct": 40.447666668241936,
+            "avg_exit_velocity": 88.76754827968924,
+            "max_exit_velocity": 109.69999999999999,
+            "launch_angle": 15.366768669732043,
+            "sweet_spot_pct": 43.51288349971254,
+            "iso": 0.2219294353936246,
+            "bb_pct": 6.533327821354736,
+            "k_pct": 24.588503592156382,
+            "hr_rate": 0.028903772459506497
+          },
+          "sample_sizes": {
+            "season_pa": 2020,
+            "month_pa": 347,
+            "week_pa": 93
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Parker Meadows",
+          "position": "CF",
+          "batting_order": 8,
+          "blended_metrics": {
+            "barrel_pct": 1.2072567512014067,
+            "hard_hit_pct": 25.974933190767278,
+            "avg_exit_velocity": 85.03917568012943,
+            "max_exit_velocity": 107.74,
+            "launch_angle": 10.30664998801534,
+            "sweet_spot_pct": 32.24910714285714,
+            "iso": 0.1379110955390491,
+            "bb_pct": 8.892898508500888,
+            "k_pct": 24.626629400537187,
+            "hr_rate": 0.014307169925455476
+          },
+          "sample_sizes": {
+            "season_pa": 946,
+            "month_pa": 383,
+            "week_pa": 88
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Javier B\u00e1ez",
+          "position": "SS",
+          "batting_order": 9,
+          "blended_metrics": {},
+          "sample_sizes": {
+            "season_pa": 0,
+            "month_pa": 0,
+            "week_pa": 0
+          },
+          "metrics_source": "advanced_statcast"
+        }
+      ],
       "away_pitcher": {
-        "name": "Luis Gil",
-        "wins": "4",
-        "losses": "1",
-        "era": "3.32",
+        "name": "Logan Gilbert",
+        "wins": "6",
+        "losses": "6",
+        "era": "3.44",
         "blended_metrics": {
-          "barrel_pct_allowed": 1.4099163436033462,
-          "hard_hit_pct_allowed": 45.72304971774468,
-          "avg_exit_velocity_allowed": 90.04599027409373,
-          "launch_angle_allowed": 21.421244643950217,
-          "bb_pct": 12.59659585017168,
-          "k_pct": 14.318248808536195,
-          "hr_rate": 0.029656134528995563,
-          "fb_pct": 32.230769230769226,
-          "gb_pct": 34.91865605658709,
-          "gb_fb_ratio": 1.0864827586206898,
-          "ld_pct": 21.815411820716864,
-          "hr_rate_vs_lhb": 0.035813782991202345,
-          "hr_rate_vs_rhb": 0.034253744043567055,
-          "hard_hit_pct_vs_lhb": 46.413043478260875,
-          "hard_hit_pct_vs_rhb": 46.06271777003484
+          "barrel_pct_allowed": 1.8336369156041288,
+          "hard_hit_pct_allowed": 39.96660595021251,
+          "avg_exit_velocity_allowed": 90.5710183949676,
+          "launch_angle_allowed": 17.35328504257212,
+          "bb_pct": 5.551846362365064,
+          "k_pct": 29.291070279633463,
+          "hr_rate": 0.04271823741318921,
+          "fb_pct": 31.53840315725562,
+          "gb_pct": 36.28314106456183,
+          "gb_fb_ratio": 1.180354267310789,
+          "ld_pct": 23.214936247723138,
+          "hr_rate_vs_lhb": 0.05274446929481825,
+          "hr_rate_vs_rhb": 0.037160356805195874,
+          "hard_hit_pct_vs_lhb": 40.88558500323206,
+          "hard_hit_pct_vs_rhb": 39.2824095930507
         },
         "sample_sizes": {
-          "season_bf": 970,
-          "month_bf": 436,
-          "week_bf": 79
-        },
-        "metrics_source": "advanced_statcast"
-      },
-      "home_pitcher": {
-        "name": "Kevin Gausman",
-        "wins": "10",
-        "losses": "11",
-        "era": "3.59",
-        "blended_metrics": {
-          "barrel_pct_allowed": 1.7452783151512734,
-          "hard_hit_pct_allowed": 41.97144053768373,
-          "avg_exit_velocity_allowed": 88.42669980654554,
-          "launch_angle_allowed": 13.323340180690453,
-          "bb_pct": 6.10044660166901,
-          "k_pct": 23.882043243356463,
-          "hr_rate": 0.02094012963058979,
-          "fb_pct": 25.469775233840572,
-          "gb_pct": 43.178137651821864,
-          "gb_fb_ratio": 2.2901197604790418,
-          "ld_pct": 25.13212740072994,
-          "hr_rate_vs_lhb": 0.015592783505154641,
-          "hr_rate_vs_rhb": 0.020201238390092878,
-          "hard_hit_pct_vs_lhb": 29.77106227106227,
-          "hard_hit_pct_vs_rhb": 60.225993118548644
-        },
-        "sample_sizes": {
-          "season_bf": 3188,
-          "month_bf": 477,
-          "week_bf": 85
-        },
-        "metrics_source": "advanced_statcast"
-      },
-      "game_time": "2025-10-04T20:08:00Z"
-    },
-    "813051": {
-      "away_team": "Los Angeles Dodgers",
-      "home_team": "Philadelphia Phillies",
-      "away_lineup": [],
-      "home_lineup": [],
-      "away_pitcher": {
-        "name": "Shohei Ohtani",
-        "wins": "1",
-        "losses": "1",
-        "era": "2.87",
-        "blended_metrics": {
-          "barrel_pct_allowed": 2.14970214970215,
-          "hard_hit_pct_allowed": 29.603729603729604,
-          "avg_exit_velocity_allowed": 85.86768692673867,
-          "launch_angle_allowed": 10.119296412399862,
-          "bb_pct": 3.9710757344840943,
-          "k_pct": 31.58808497638845,
-          "hr_rate": 0.012048594480799885,
-          "fb_pct": 27.553310886644223,
-          "gb_pct": 44.55667789001122,
-          "gb_fb_ratio": 1.6137992831541217,
-          "ld_pct": 23.154623154623156,
-          "hr_rate_vs_lhb": 0.0,
-          "hr_rate_vs_rhb": 0.018487394957983194,
-          "hard_hit_pct_vs_lhb": 34.86500983372073,
-          "hard_hit_pct_vs_rhb": 25.462184873949575
-        },
-        "sample_sizes": {
-          "season_bf": 753,
-          "month_bf": 229,
+          "season_bf": 2399,
+          "month_bf": 350,
           "week_bf": 0
         },
         "metrics_source": "advanced_statcast"
       },
       "home_pitcher": {
-        "name": "Cristopher S\u00e1nchez",
-        "wins": "13",
-        "losses": "5",
-        "era": "2.50",
+        "name": "Jack Flaherty",
+        "wins": "8",
+        "losses": "15",
+        "era": "4.64",
+        "blended_metrics": {
+          "barrel_pct_allowed": 3.5455033077060607,
+          "hard_hit_pct_allowed": 43.66399557888919,
+          "avg_exit_velocity_allowed": 88.52610439501399,
+          "launch_angle_allowed": 12.829211922828945,
+          "bb_pct": 8.302845818399312,
+          "k_pct": 26.53346384445783,
+          "hr_rate": 0.024632210714111487,
+          "fb_pct": 27.69986427839995,
+          "gb_pct": 40.2954992441851,
+          "gb_fb_ratio": 1.4916666666666667,
+          "ld_pct": 25.50485184402581,
+          "hr_rate_vs_lhb": 0.023804226918798663,
+          "hr_rate_vs_rhb": 0.015895953757225436,
+          "hard_hit_pct_vs_lhb": 47.17305684729999,
+          "hard_hit_pct_vs_rhb": 26.84931506849315
+        },
+        "sample_sizes": {
+          "season_bf": 3127,
+          "month_bf": 351,
+          "week_bf": 74
+        },
+        "metrics_source": "advanced_statcast"
+      },
+      "game_time": "2025-10-07T20:08:00Z"
+    },
+    "813061": {
+      "away_team": "Toronto Blue Jays",
+      "home_team": "New York Yankees",
+      "away_lineup": [
+        {
+          "name": "George Springer",
+          "position": "DH",
+          "batting_order": 1,
+          "blended_metrics": {
+            "barrel_pct": 3.9994592773853994,
+            "hard_hit_pct": 45.834660841356246,
+            "avg_exit_velocity": 90.8470865935448,
+            "max_exit_velocity": 113.41,
+            "launch_angle": 15.260584043593685,
+            "sweet_spot_pct": 43.214483906770255,
+            "iso": 0.3403690498688045,
+            "bb_pct": 11.411335256976217,
+            "k_pct": 17.766115782952024,
+            "hr_rate": 0.05784515377628942
+          },
+          "sample_sizes": {
+            "season_pa": 2511,
+            "month_pa": 391,
+            "week_pa": 32
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Davis Schneider",
+          "position": "LF",
+          "batting_order": 2,
+          "blended_metrics": {
+            "barrel_pct": 2.018948620785202,
+            "hard_hit_pct": 39.25181590274551,
+            "avg_exit_velocity": 91.96485011990409,
+            "max_exit_velocity": 107.25999999999999,
+            "launch_angle": 21.442805755395682,
+            "sweet_spot_pct": 36.20689655172414,
+            "iso": 0.262256043050995,
+            "bb_pct": 17.082440782317757,
+            "k_pct": 24.80677836267695,
+            "hr_rate": 0.037987533911264575
+          },
+          "sample_sizes": {
+            "season_pa": 1168,
+            "month_pa": 235,
+            "week_pa": 19
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "position": "1B",
+          "batting_order": 3,
+          "blended_metrics": {
+            "barrel_pct": 1.5428832974844124,
+            "hard_hit_pct": 45.43405913293967,
+            "avg_exit_velocity": 91.64037002487564,
+            "max_exit_velocity": 118.39000000000001,
+            "launch_angle": 8.638874458874458,
+            "sweet_spot_pct": 32.515151515151516,
+            "iso": 0.20883092275522225,
+            "bb_pct": 8.41707552300675,
+            "k_pct": 12.460761292122143,
+            "hr_rate": 0.044375815263917005
+          },
+          "sample_sizes": {
+            "season_pa": 2707,
+            "month_pa": 324,
+            "week_pa": 37
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Alejandro Kirk",
+          "position": "C",
+          "batting_order": 4,
+          "blended_metrics": {
+            "barrel_pct": 3.1731183191265515,
+            "hard_hit_pct": 46.60482374896645,
+            "avg_exit_velocity": 91.30446356183046,
+            "max_exit_velocity": 111.4,
+            "launch_angle": 9.66551242750025,
+            "sweet_spot_pct": 33.73208597775581,
+            "iso": 0.23032945145864647,
+            "bb_pct": 7.642356496752334,
+            "k_pct": 11.315561666222916,
+            "hr_rate": 0.05814682259429349
+          },
+          "sample_sizes": {
+            "season_pa": 2133,
+            "month_pa": 300,
+            "week_pa": 32
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Daulton Varsho",
+          "position": "CF",
+          "batting_order": 5,
+          "blended_metrics": {
+            "barrel_pct": 5.503270872633166,
+            "hard_hit_pct": 38.43410576923186,
+            "avg_exit_velocity": 89.1517710060807,
+            "max_exit_velocity": 112.14,
+            "launch_angle": 21.66231343283582,
+            "sweet_spot_pct": 39.830917874396135,
+            "iso": 0.4830196792424527,
+            "bb_pct": 5.361832723931681,
+            "k_pct": 24.122436977658175,
+            "hr_rate": 0.0825229954354813
+          },
+          "sample_sizes": {
+            "season_pa": 1152,
+            "month_pa": 238,
+            "week_pa": 31
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Ernie Clement",
+          "position": "3B",
+          "batting_order": 6,
+          "blended_metrics": {
+            "barrel_pct": 0.7157244259320179,
+            "hard_hit_pct": 21.654061509521238,
+            "avg_exit_velocity": 84.49142191581612,
+            "max_exit_velocity": 106.35000000000001,
+            "launch_angle": 19.35556929362434,
+            "sweet_spot_pct": 38.22249534945522,
+            "iso": 0.16828876309532623,
+            "bb_pct": 4.298380105175818,
+            "k_pct": 8.994143138526187,
+            "hr_rate": 0.025089738226898882
+          },
+          "sample_sizes": {
+            "season_pa": 2008,
+            "month_pa": 262,
+            "week_pa": 20
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Anthony Santander",
+          "position": "RF",
+          "batting_order": 7,
+          "blended_metrics": {
+            "barrel_pct": 1.0550380156536379,
+            "hard_hit_pct": 41.341498734522546,
+            "avg_exit_velocity": 88.96706300813008,
+            "max_exit_velocity": 108.84,
+            "launch_angle": 20.46341463414634,
+            "sweet_spot_pct": 30.357142857142858,
+            "iso": 0.13165638491412265,
+            "bb_pct": 9.213846556725901,
+            "k_pct": 27.566033157818026,
+            "hr_rate": 0.018855342288013166
+          },
+          "sample_sizes": {
+            "season_pa": 1172,
+            "month_pa": 80,
+            "week_pa": 18
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Isiah Kiner-Falefa",
+          "position": "2B",
+          "batting_order": 8,
+          "blended_metrics": {
+            "barrel_pct": 0.31417679928993725,
+            "hard_hit_pct": 22.434574524580526,
+            "avg_exit_velocity": 83.41698484848486,
+            "max_exit_velocity": 104.16,
+            "launch_angle": 1.6925324675324669,
+            "sweet_spot_pct": 26.168249908659117,
+            "iso": 0.10570288594797059,
+            "bb_pct": 2.6214976406222767,
+            "k_pct": 17.35153995235516,
+            "hr_rate": 0.012629828604072673
+          },
+          "sample_sizes": {
+            "season_pa": 1795,
+            "month_pa": 96,
+            "week_pa": 19
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Andr\u00e9s Gim\u00e9nez",
+          "position": "SS",
+          "batting_order": 9,
+          "blended_metrics": {},
+          "sample_sizes": {
+            "season_pa": 0,
+            "month_pa": 0,
+            "week_pa": 0
+          },
+          "metrics_source": "advanced_statcast"
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trent Grisham",
+          "position": "CF",
+          "batting_order": 1,
+          "blended_metrics": {
+            "barrel_pct": 4.445772042636808,
+            "hard_hit_pct": 44.74246691981919,
+            "avg_exit_velocity": 91.2994276421909,
+            "max_exit_velocity": 109.2,
+            "launch_angle": 17.168148187109896,
+            "sweet_spot_pct": 31.35090118521635,
+            "iso": 0.3133960563046141,
+            "bb_pct": 14.288470543456901,
+            "k_pct": 26.120922272904718,
+            "hr_rate": 0.04879522831747431
+          },
+          "sample_sizes": {
+            "season_pa": 2644,
+            "month_pa": 414,
+            "week_pa": 85
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Aaron Judge",
+          "position": "RF",
+          "batting_order": 2,
+          "blended_metrics": {
+            "barrel_pct": 5.892719385179597,
+            "hard_hit_pct": 54.65172897612042,
+            "avg_exit_velocity": 95.06883350462488,
+            "max_exit_velocity": 117.49999999999999,
+            "launch_angle": 17.460311750599523,
+            "sweet_spot_pct": 40.63795853269537,
+            "iso": 0.48945235902736195,
+            "bb_pct": 14.130273995224483,
+            "k_pct": 22.807289631817635,
+            "hr_rate": 0.07330285864144757
+          },
+          "sample_sizes": {
+            "season_pa": 2891,
+            "month_pa": 426,
+            "week_pa": 78
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Cody Bellinger",
+          "position": "LF",
+          "batting_order": 3,
+          "blended_metrics": {
+            "barrel_pct": 2.4814445133790737,
+            "hard_hit_pct": 31.755272961655727,
+            "avg_exit_velocity": 86.72644779985573,
+            "max_exit_velocity": 108.76,
+            "launch_angle": 18.423981900452485,
+            "sweet_spot_pct": 36.431653162159314,
+            "iso": 0.23714817644768893,
+            "bb_pct": 8.651407520078893,
+            "k_pct": 14.203711828199825,
+            "hr_rate": 0.041015116937507624
+          },
+          "sample_sizes": {
+            "season_pa": 2852,
+            "month_pa": 428,
+            "week_pa": 73
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Ben Rice",
+          "position": "1B",
+          "batting_order": 4,
+          "blended_metrics": {
+            "barrel_pct": 4.2379021370009795,
+            "hard_hit_pct": 53.70578876920999,
+            "avg_exit_velocity": 92.79752291627292,
+            "max_exit_velocity": 112.66,
+            "launch_angle": 15.704140271493213,
+            "sweet_spot_pct": 45.182623132263416,
+            "iso": 0.3488198880960888,
+            "bb_pct": 8.25340548414488,
+            "k_pct": 18.810576400642148,
+            "hr_rate": 0.05460103290736989
+          },
+          "sample_sizes": {
+            "season_pa": 2358,
+            "month_pa": 337,
+            "week_pa": 61
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Giancarlo Stanton",
+          "position": "DH",
+          "batting_order": 5,
+          "blended_metrics": {
+            "barrel_pct": 7.369390808310513,
+            "hard_hit_pct": 54.2933793287865,
+            "avg_exit_velocity": 95.63065217391303,
+            "max_exit_velocity": 116.95,
+            "launch_angle": 14.934789469170738,
+            "sweet_spot_pct": 35.127776348512135,
+            "iso": 0.4599592660663981,
+            "bb_pct": 8.250908589351274,
+            "k_pct": 33.483890415200385,
+            "hr_rate": 0.06581867189293457
+          },
+          "sample_sizes": {
+            "season_pa": 1300,
+            "month_pa": 393,
+            "week_pa": 86
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Jazz Chisholm Jr.",
+          "position": "2B",
+          "batting_order": 6,
+          "blended_metrics": {
+            "barrel_pct": 3.6949678757071416,
+            "hard_hit_pct": 37.966531264911666,
+            "avg_exit_velocity": 88.49078169014085,
+            "max_exit_velocity": 111.02999999999999,
+            "launch_angle": 15.745223383310616,
+            "sweet_spot_pct": 31.968222502553008,
+            "iso": 0.3024555999604812,
+            "bb_pct": 8.273852301431681,
+            "k_pct": 26.335432170432565,
+            "hr_rate": 0.04567507419805004
+          },
+          "sample_sizes": {
+            "season_pa": 2382,
+            "month_pa": 357,
+            "week_pa": 72
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Ryan McMahon",
+          "position": "3B",
+          "batting_order": 7,
+          "blended_metrics": {
+            "barrel_pct": 2.9349486219274747,
+            "hard_hit_pct": 46.18250565155034,
+            "avg_exit_velocity": 90.72354317998385,
+            "max_exit_velocity": 114.6,
+            "launch_angle": 9.758434221146086,
+            "sweet_spot_pct": 37.559132573217084,
+            "iso": 0.21216051640826925,
+            "bb_pct": 10.452574270912526,
+            "k_pct": 31.158220239909713,
+            "hr_rate": 0.024513473180104134
+          },
+          "sample_sizes": {
+            "season_pa": 2766,
+            "month_pa": 269,
+            "week_pa": 56
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Anthony Volpe",
+          "position": "SS",
+          "batting_order": 8,
+          "blended_metrics": {
+            "barrel_pct": 3.3080642901803827,
+            "hard_hit_pct": 38.61764834820914,
+            "avg_exit_velocity": 89.47354199586727,
+            "max_exit_velocity": 109.21000000000001,
+            "launch_angle": 14.738044109503937,
+            "sweet_spot_pct": 36.3116599395223,
+            "iso": 0.25745137729058787,
+            "bb_pct": 5.649093671811623,
+            "k_pct": 28.878603456715574,
+            "hr_rate": 0.03155700622126216
+          },
+          "sample_sizes": {
+            "season_pa": 2675,
+            "month_pa": 299,
+            "week_pa": 80
+          },
+          "metrics_source": "advanced_statcast"
+        },
+        {
+          "name": "Austin Wells",
+          "position": "C",
+          "batting_order": 9,
+          "blended_metrics": {
+            "barrel_pct": 3.334168679231434,
+            "hard_hit_pct": 41.67723629929594,
+            "avg_exit_velocity": 89.88944199462621,
+            "max_exit_velocity": 111.24,
+            "launch_angle": 17.294291133238502,
+            "sweet_spot_pct": 33.543597800471325,
+            "iso": 0.27449484988486816,
+            "bb_pct": 6.162990903777306,
+            "k_pct": 27.03467404219434,
+            "hr_rate": 0.0375555678391052
+          },
+          "sample_sizes": {
+            "season_pa": 2031,
+            "month_pa": 258,
+            "week_pa": 57
+          },
+          "metrics_source": "advanced_statcast"
+        }
+      ],
+      "away_pitcher": {
+        "name": "Shane Bieber",
+        "wins": "4",
+        "losses": "2",
+        "era": "3.57",
+        "blended_metrics": {
+          "barrel_pct_allowed": 4.750460626451975,
+          "hard_hit_pct_allowed": 47.68885684530963,
+          "avg_exit_velocity_allowed": 93.17220219498516,
+          "launch_angle_allowed": 10.203877273091404,
+          "bb_pct": 4.4770555785102575,
+          "k_pct": 20.71104608488522,
+          "hr_rate": 0.05363287583900757,
+          "fb_pct": 26.743704771823012,
+          "gb_pct": 48.034660471574675,
+          "gb_fb_ratio": 1.8113026819923372,
+          "ld_pct": 23.095409757269888,
+          "hr_rate_vs_lhb": 0.030294117647058826,
+          "hr_rate_vs_rhb": 0.08122926961348406,
+          "hard_hit_pct_vs_lhb": 51.94570135746606,
+          "hard_hit_pct_vs_rhb": 43.105976189079826
+        },
+        "sample_sizes": {
+          "season_bf": 645,
+          "month_bf": 368,
+          "week_bf": 0
+        },
+        "metrics_source": "advanced_statcast"
+      },
+      "home_pitcher": {
+        "name": "Carlos Rod\u00f3n",
+        "wins": "18",
+        "losses": "9",
+        "era": "3.09",
         "blended_metrics": {},
         "sample_sizes": {
           "season_bf": 0,
@@ -1000,190 +902,172 @@
         },
         "metrics_source": "advanced_statcast"
       },
-      "game_time": "2025-10-04T22:38:00Z"
-    },
-    "813058": {
-      "away_team": "Detroit Tigers",
-      "home_team": "Seattle Mariners",
-      "away_lineup": [],
-      "home_lineup": [],
-      "away_pitcher": {
-        "name": "Troy Melton",
-        "wins": "3",
-        "losses": "2",
-        "era": "2.76",
-        "blended_metrics": {
-          "barrel_pct_allowed": 3.6363636363636367,
-          "hard_hit_pct_allowed": 46.81818181818181,
-          "avg_exit_velocity_allowed": 90.71905303030303,
-          "launch_angle_allowed": 13.829545454545455,
-          "bb_pct": 8.520342169724124,
-          "k_pct": 16.091508263246652,
-          "hr_rate": 0.05994261177129015,
-          "fb_pct": 29.734848484848484,
-          "gb_pct": 43.21969696969697,
-          "gb_fb_ratio": 1.4754385964912282,
-          "ld_pct": 20.0,
-          "hr_rate_vs_lhb": 0.09399601545520406,
-          "hr_rate_vs_rhb": 0.023109243697478993,
-          "hard_hit_pct_vs_lhb": 45.276315789473685,
-          "hard_hit_pct_vs_rhb": 50.0
-        },
-        "sample_sizes": {
-          "season_bf": 670,
-          "month_bf": 218,
-          "week_bf": 14
-        },
-        "metrics_source": "advanced_statcast"
-      },
-      "home_pitcher": {
-        "name": "George Kirby",
-        "wins": "10",
-        "losses": "8",
-        "era": "4.21",
-        "blended_metrics": {
-          "barrel_pct_allowed": 2.228688044290881,
-          "hard_hit_pct_allowed": 44.852599462528545,
-          "avg_exit_velocity_allowed": 90.76262387853691,
-          "launch_angle_allowed": 10.400952380952383,
-          "bb_pct": 4.91737224053695,
-          "k_pct": 28.655558280318182,
-          "hr_rate": 0.030501246771428896,
-          "fb_pct": 23.96462656509938,
-          "gb_pct": 45.69214604675598,
-          "gb_fb_ratio": 1.9063911472448056,
-          "ld_pct": 24.94594976864481,
-          "hr_rate_vs_lhb": 0.02036199095022625,
-          "hr_rate_vs_rhb": 0.03508403361344538,
-          "hard_hit_pct_vs_lhb": 43.57719877119126,
-          "hard_hit_pct_vs_rhb": 46.04234331769517
-        },
-        "sample_sizes": {
-          "season_bf": 2086,
-          "month_bf": 371,
-          "week_bf": 0
-        },
-        "metrics_source": "advanced_statcast"
-      },
-      "game_time": "2025-10-05T00:38:00Z"
+      "game_time": "2025-10-08T00:08:00Z"
     }
   },
   "mlb_stats": {
-    "813047": {
-      "away_team": "Chicago Cubs",
-      "home_team": "Milwaukee Brewers",
+    "813056": {
+      "away_team": "Seattle Mariners",
+      "home_team": "Detroit Tigers",
       "away_lineup": [
         {
-          "name": "Michael Busch",
-          "position": "1B",
+          "name": "Randy Arozarena",
+          "position": "LF",
           "batting_order": 1
         },
         {
-          "name": "Nico Hoerner",
-          "position": "2B",
+          "name": "Cal Raleigh",
+          "position": "C",
           "batting_order": 2
         },
         {
-          "name": "Kyle Tucker",
-          "position": "DH",
+          "name": "Julio Rodr\u00edguez",
+          "position": "CF",
           "batting_order": 3
         },
         {
-          "name": "Seiya Suzuki",
-          "position": "RF",
+          "name": "Jorge Polanco",
+          "position": "2B",
           "batting_order": 4
         },
         {
-          "name": "Ian Happ",
-          "position": "LF",
+          "name": "Josh Naylor",
+          "position": "1B",
           "batting_order": 5
         },
         {
-          "name": "Carson Kelly",
-          "position": "C",
+          "name": "Eugenio Su\u00e1rez",
+          "position": "3B",
           "batting_order": 6
         },
         {
-          "name": "Pete Crow-Armstrong",
-          "position": "CF",
+          "name": "Dominic Canzone",
+          "position": "DH",
           "batting_order": 7
         },
         {
-          "name": "Dansby Swanson",
-          "position": "SS",
+          "name": "Victor Robles",
+          "position": "RF",
           "batting_order": 8
         },
         {
-          "name": "Matt Shaw",
-          "position": "3B",
+          "name": "J.P. Crawford",
+          "position": "SS",
           "batting_order": 9
         }
       ],
       "home_lineup": [
         {
-          "name": "Jackson Chourio",
-          "position": "LF",
+          "name": "Kerry Carpenter",
+          "position": "RF",
           "batting_order": 1
         },
         {
-          "name": "Brice Turang",
+          "name": "Gleyber Torres",
           "position": "2B",
           "batting_order": 2
         },
         {
-          "name": "William Contreras",
-          "position": "C",
+          "name": "Colt Keith",
+          "position": "DH",
           "batting_order": 3
         },
         {
-          "name": "Christian Yelich",
-          "position": "DH",
+          "name": "Riley Greene",
+          "position": "LF",
           "batting_order": 4
         },
         {
-          "name": "Andrew Vaughn",
+          "name": "Spencer Torkelson",
           "position": "1B",
           "batting_order": 5
         },
         {
-          "name": "Sal Frelick",
-          "position": "RF",
+          "name": "Zach McKinstry",
+          "position": "3B",
           "batting_order": 6
         },
         {
-          "name": "Caleb Durbin",
-          "position": "3B",
+          "name": "Dillon Dingler",
+          "position": "C",
           "batting_order": 7
         },
         {
-          "name": "Blake Perkins",
+          "name": "Parker Meadows",
           "position": "CF",
           "batting_order": 8
         },
         {
-          "name": "Joey Ortiz",
+          "name": "Javier B\u00e1ez",
           "position": "SS",
           "batting_order": 9
         }
       ],
       "away_pitcher": {
-        "name": "Matthew Boyd",
-        "wins": "14",
-        "losses": "8",
-        "era": "3.21"
+        "name": "Logan Gilbert",
+        "wins": "6",
+        "losses": "6",
+        "era": "3.44"
       },
       "home_pitcher": {
-        "name": "Freddy Peralta",
-        "wins": "17",
-        "losses": "6",
-        "era": "2.70"
+        "name": "Jack Flaherty",
+        "wins": "8",
+        "losses": "15",
+        "era": "4.64"
       },
-      "game_time": "2025-10-04T18:08:00Z"
+      "game_time": "2025-10-07T20:08:00Z"
     },
-    "813063": {
-      "away_team": "New York Yankees",
-      "home_team": "Toronto Blue Jays",
+    "813061": {
+      "away_team": "Toronto Blue Jays",
+      "home_team": "New York Yankees",
       "away_lineup": [
+        {
+          "name": "George Springer",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Davis Schneider",
+          "position": "LF",
+          "batting_order": 2
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Alejandro Kirk",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Daulton Varsho",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Ernie Clement",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "Anthony Santander",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Isiah Kiner-Falefa",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Andr\u00e9s Gim\u00e9nez",
+          "position": "SS",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
         {
           "name": "Trent Grisham",
           "position": "CF",
@@ -1230,111 +1114,26 @@
           "batting_order": 9
         }
       ],
-      "home_lineup": [
-        {
-          "name": "George Springer",
-          "position": "DH",
-          "batting_order": 1
-        },
-        {
-          "name": "Nathan Lukes",
-          "position": "RF",
-          "batting_order": 2
-        },
-        {
-          "name": "Vladimir Guerrero Jr.",
-          "position": "1B",
-          "batting_order": 3
-        },
-        {
-          "name": "Addison Barger",
-          "position": "3B",
-          "batting_order": 4
-        },
-        {
-          "name": "Alejandro Kirk",
-          "position": "C",
-          "batting_order": 5
-        },
-        {
-          "name": "Daulton Varsho",
-          "position": "CF",
-          "batting_order": 6
-        },
-        {
-          "name": "Anthony Santander",
-          "position": "LF",
-          "batting_order": 7
-        },
-        {
-          "name": "Andr\u00e9s Gim\u00e9nez",
-          "position": "SS",
-          "batting_order": 8
-        },
-        {
-          "name": "Ernie Clement",
-          "position": "2B",
-          "batting_order": 9
-        }
-      ],
       "away_pitcher": {
-        "name": "Luis Gil",
+        "name": "Shane Bieber",
         "wins": "4",
-        "losses": "1",
-        "era": "3.32"
-      },
-      "home_pitcher": {
-        "name": "Kevin Gausman",
-        "wins": "10",
-        "losses": "11",
-        "era": "3.59"
-      },
-      "game_time": "2025-10-04T20:08:00Z"
-    },
-    "813051": {
-      "away_team": "Los Angeles Dodgers",
-      "home_team": "Philadelphia Phillies",
-      "away_lineup": [],
-      "home_lineup": [],
-      "away_pitcher": {
-        "name": "Shohei Ohtani",
-        "wins": "1",
-        "losses": "1",
-        "era": "2.87"
-      },
-      "home_pitcher": {
-        "name": "Cristopher S\u00e1nchez",
-        "wins": "13",
-        "losses": "5",
-        "era": "2.50"
-      },
-      "game_time": "2025-10-04T22:38:00Z"
-    },
-    "813058": {
-      "away_team": "Detroit Tigers",
-      "home_team": "Seattle Mariners",
-      "away_lineup": [],
-      "home_lineup": [],
-      "away_pitcher": {
-        "name": "Troy Melton",
-        "wins": "3",
         "losses": "2",
-        "era": "2.76"
+        "era": "3.57"
       },
       "home_pitcher": {
-        "name": "George Kirby",
-        "wins": "10",
-        "losses": "8",
-        "era": "4.21"
+        "name": "Carlos Rod\u00f3n",
+        "wins": "18",
+        "losses": "9",
+        "era": "3.09"
       },
-      "game_time": "2025-10-05T00:38:00Z"
+      "game_time": "2025-10-08T00:08:00Z"
     }
   },
   "espn": {},
   "enrichment_info": {
-    "date_enriched": "2025-10-04T11:35:54.467770",
+    "date_enriched": "2025-10-07T15:54:48.738650",
     "metrics_added": "blended_statcast_metrics",
-    "players_processed": 44,
-    "processing_time": "646.40 seconds"
+    "players_processed": 40,
+    "processing_time": "992.02 seconds"
   }
 }

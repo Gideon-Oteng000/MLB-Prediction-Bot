@@ -1,0 +1,294 @@
+{
+  "date": "2025-10-07T16:00:30.399375",
+  "total_predictions": 32,
+  "predictions": [
+    {
+      "player_name": "Randy Arozarena",
+      "team": "Seattle Mariners",
+      "batting_order": 1,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 17.1,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Cal Raleigh",
+      "team": "Seattle Mariners",
+      "batting_order": 2,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 21.7,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Julio Rodr\u00edguez",
+      "team": "Seattle Mariners",
+      "batting_order": 3,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 19.7,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Jorge Polanco",
+      "team": "Seattle Mariners",
+      "batting_order": 4,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 17.9,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Josh Naylor",
+      "team": "Seattle Mariners",
+      "batting_order": 5,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 14.4,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Eugenio Su\u00e1rez",
+      "team": "Seattle Mariners",
+      "batting_order": 6,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 13.3,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Dominic Canzone",
+      "team": "Seattle Mariners",
+      "batting_order": 7,
+      "opposing_pitcher": "Jack Flaherty",
+      "opposing_team": "Detroit Tigers",
+      "run_probability": 17.1,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Kerry Carpenter",
+      "team": "Detroit Tigers",
+      "batting_order": 1,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 18.7,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Gleyber Torres",
+      "team": "Detroit Tigers",
+      "batting_order": 2,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 16.8,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Colt Keith",
+      "team": "Detroit Tigers",
+      "batting_order": 3,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 16.8,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Riley Greene",
+      "team": "Detroit Tigers",
+      "batting_order": 4,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 14.8,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Spencer Torkelson",
+      "team": "Detroit Tigers",
+      "batting_order": 5,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 14.7,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Zach McKinstry",
+      "team": "Detroit Tigers",
+      "batting_order": 6,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 12.7,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Dillon Dingler",
+      "team": "Detroit Tigers",
+      "batting_order": 7,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 14.6,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Parker Meadows",
+      "team": "Detroit Tigers",
+      "batting_order": 8,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 13.6,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "Javier B\u00e1ez",
+      "team": "Detroit Tigers",
+      "batting_order": 9,
+      "opposing_pitcher": "Logan Gilbert",
+      "opposing_team": "Seattle Mariners",
+      "run_probability": 13.7,
+      "game_key": "813056"
+    },
+    {
+      "player_name": "George Springer",
+      "team": "Toronto Blue Jays",
+      "batting_order": 1,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 26.4,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Davis Schneider",
+      "team": "Toronto Blue Jays",
+      "batting_order": 2,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 19.9,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Alejandro Kirk",
+      "team": "Toronto Blue Jays",
+      "batting_order": 4,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 18.1,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Daulton Varsho",
+      "team": "Toronto Blue Jays",
+      "batting_order": 5,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 20.4,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Ernie Clement",
+      "team": "Toronto Blue Jays",
+      "batting_order": 6,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 16.4,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Anthony Santander",
+      "team": "Toronto Blue Jays",
+      "batting_order": 7,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 12.9,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Isiah Kiner-Falefa",
+      "team": "Toronto Blue Jays",
+      "batting_order": 8,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 14.7,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Andr\u00e9s Gim\u00e9nez",
+      "team": "Toronto Blue Jays",
+      "batting_order": 9,
+      "opposing_pitcher": "Carlos Rod\u00f3n",
+      "opposing_team": "New York Yankees",
+      "run_probability": 17.5,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Trent Grisham",
+      "team": "New York Yankees",
+      "batting_order": 1,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 21.4,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Aaron Judge",
+      "team": "New York Yankees",
+      "batting_order": 2,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 27.6,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Cody Bellinger",
+      "team": "New York Yankees",
+      "batting_order": 3,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 18.1,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Ben Rice",
+      "team": "New York Yankees",
+      "batting_order": 4,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 18.8,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Giancarlo Stanton",
+      "team": "New York Yankees",
+      "batting_order": 5,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 16.2,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Ryan McMahon",
+      "team": "New York Yankees",
+      "batting_order": 7,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 14.0,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Anthony Volpe",
+      "team": "New York Yankees",
+      "batting_order": 8,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 16.0,
+      "game_key": "813061"
+    },
+    {
+      "player_name": "Austin Wells",
+      "team": "New York Yankees",
+      "batting_order": 9,
+      "opposing_pitcher": "Shane Bieber",
+      "opposing_team": "Toronto Blue Jays",
+      "run_probability": 19.3,
+      "game_key": "813061"
+    }
+  ]
+}

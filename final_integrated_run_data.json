@@ -1,0 +1,1632 @@
+{
+  "date": "2025-10-07",
+  "source": "mlb_stats",
+  "games": {
+    "813056": {
+      "away_team": "Seattle Mariners",
+      "home_team": "Detroit Tigers",
+      "away_lineup": [
+        {
+          "name": "Randy Arozarena",
+          "position": "LF",
+          "batting_order": 1,
+          "blended_metrics": {
+            "avg": 0.353,
+            "obp": 0.286,
+            "slg": 0.562,
+            "iso": 0.209,
+            "woba": 0.308,
+            "babip": 0.323,
+            "bb_pct": 8.843,
+            "k_pct": 28.517,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 52.882,
+            "contact_pct": 74.082,
+            "ld_pct": 21.962,
+            "gb_pct": 43.304,
+            "fb_pct": 27.51,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.667,
+            "run_opportunity_index": 0.447,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.053
+          },
+          "sample_sizes": {
+            "season_pa": 3102,
+            "last_30_pa": 434,
+            "last_7_pa": 44
+          }
+        },
+        {
+          "name": "Cal Raleigh",
+          "position": "C",
+          "batting_order": 2,
+          "blended_metrics": {
+            "avg": 0.407,
+            "obp": 0.347,
+            "slg": 0.881,
+            "iso": 0.474,
+            "woba": 0.408,
+            "babip": 0.313,
+            "bb_pct": 9.947,
+            "k_pct": 25.973,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 47.351,
+            "contact_pct": 70.365,
+            "ld_pct": 26.548,
+            "gb_pct": 26.002,
+            "fb_pct": 35.139,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.336,
+            "run_opportunity_index": 0.653,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.028
+          },
+          "sample_sizes": {
+            "season_pa": 3059,
+            "last_30_pa": 373,
+            "last_7_pa": 24
+          }
+        },
+        {
+          "name": "Julio Rodr\u00edguez",
+          "position": "CF",
+          "batting_order": 3,
+          "blended_metrics": {
+            "avg": 0.41,
+            "obp": 0.327,
+            "slg": 0.748,
+            "iso": 0.337,
+            "woba": 0.391,
+            "babip": 0.364,
+            "bb_pct": 5.057,
+            "k_pct": 20.066,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 49.022,
+            "contact_pct": 78.504,
+            "ld_pct": 25.66,
+            "gb_pct": 45.663,
+            "fb_pct": 23.211,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.014,
+            "run_opportunity_index": 0.572,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.034
+          },
+          "sample_sizes": {
+            "season_pa": 2699,
+            "last_30_pa": 299,
+            "last_7_pa": 31
+          }
+        },
+        {
+          "name": "Jorge Polanco",
+          "position": "2B",
+          "batting_order": 4,
+          "blended_metrics": {
+            "avg": 0.355,
+            "obp": 0.331,
+            "slg": 0.742,
+            "iso": 0.387,
+            "woba": 0.402,
+            "babip": 0.286,
+            "bb_pct": 5.869,
+            "k_pct": 13.516,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 46.152,
+            "contact_pct": 83.318,
+            "ld_pct": 25.35,
+            "gb_pct": 35.369,
+            "fb_pct": 26.72,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.937,
+            "run_opportunity_index": 0.577,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.873
+          },
+          "sample_sizes": {
+            "season_pa": 2216,
+            "last_30_pa": 329,
+            "last_7_pa": 30
+          }
+        },
+        {
+          "name": "Josh Naylor",
+          "position": "1B",
+          "batting_order": 5,
+          "blended_metrics": {
+            "avg": 0.338,
+            "obp": 0.331,
+            "slg": 0.524,
+            "iso": 0.186,
+            "woba": 0.354,
+            "babip": 0.312,
+            "bb_pct": 7.379,
+            "k_pct": 12.474,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 39.36,
+            "contact_pct": 80.829,
+            "ld_pct": 20.85,
+            "gb_pct": 47.529,
+            "fb_pct": 22.526,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.296,
+            "run_opportunity_index": 0.504,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.834
+          },
+          "sample_sizes": {
+            "season_pa": 2208,
+            "last_30_pa": 264,
+            "last_7_pa": 24
+          }
+        },
+        {
+          "name": "Eugenio Su\u00e1rez",
+          "position": "3B",
+          "batting_order": 6,
+          "blended_metrics": {
+            "avg": 0.296,
+            "obp": 0.228,
+            "slg": 0.696,
+            "iso": 0.4,
+            "woba": 0.29,
+            "babip": 0.212,
+            "bb_pct": 6.24,
+            "k_pct": 34.001,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 44.176,
+            "contact_pct": 68.524,
+            "ld_pct": 19.77,
+            "gb_pct": 34.346,
+            "fb_pct": 39.742,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 2.955,
+            "run_opportunity_index": 0.387,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.97
+          },
+          "sample_sizes": {
+            "season_pa": 2860,
+            "last_30_pa": 412,
+            "last_7_pa": 37
+          }
+        },
+        {
+          "name": "Dominic Canzone",
+          "position": "DH",
+          "batting_order": 7,
+          "blended_metrics": {
+            "avg": 0.392,
+            "obp": 0.306,
+            "slg": 0.672,
+            "iso": 0.28,
+            "woba": 0.341,
+            "babip": 0.35,
+            "bb_pct": 5.563,
+            "k_pct": 23.135,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 48.984,
+            "contact_pct": 74.739,
+            "ld_pct": 27.33,
+            "gb_pct": 39.47,
+            "fb_pct": 29.912,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.361,
+            "run_opportunity_index": 0.512,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.984
+          },
+          "sample_sizes": {
+            "season_pa": 1157,
+            "last_30_pa": 204,
+            "last_7_pa": 9
+          }
+        },
+        {
+          "name": "Victor Robles",
+          "position": "RF",
+          "batting_order": 8
+        },
+        {
+          "name": "J.P. Crawford",
+          "position": "SS",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Kerry Carpenter",
+          "position": "RF",
+          "batting_order": 1,
+          "blended_metrics": {
+            "avg": 0.366,
+            "obp": 0.299,
+            "slg": 0.687,
+            "iso": 0.321,
+            "woba": 0.348,
+            "babip": 0.312,
+            "bb_pct": 6.956,
+            "k_pct": 25.495,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 44.046,
+            "contact_pct": 75.067,
+            "ld_pct": 25.791,
+            "gb_pct": 34.757,
+            "fb_pct": 31.178,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.594,
+            "run_opportunity_index": 0.504,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.044
+          },
+          "sample_sizes": {
+            "season_pa": 2032,
+            "last_30_pa": 322,
+            "last_7_pa": 107
+          }
+        },
+        {
+          "name": "Gleyber Torres",
+          "position": "2B",
+          "batting_order": 2,
+          "blended_metrics": {
+            "avg": 0.321,
+            "obp": 0.321,
+            "slg": 0.472,
+            "iso": 0.151,
+            "woba": 0.317,
+            "babip": 0.301,
+            "bb_pct": 11.861,
+            "k_pct": 20.994,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 38.364,
+            "contact_pct": 80.611,
+            "ld_pct": 27.681,
+            "gb_pct": 41.553,
+            "fb_pct": 26.48,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.491,
+            "run_opportunity_index": 0.473,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.997
+          },
+          "sample_sizes": {
+            "season_pa": 2962,
+            "last_30_pa": 468,
+            "last_7_pa": 105
+          }
+        },
+        {
+          "name": "Colt Keith",
+          "position": "DH",
+          "batting_order": 3,
+          "blended_metrics": {
+            "avg": 0.375,
+            "obp": 0.347,
+            "slg": 0.553,
+            "iso": 0.177,
+            "woba": 0.352,
+            "babip": 0.351,
+            "bb_pct": 10.997,
+            "k_pct": 20.531,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 47.979,
+            "contact_pct": 76.285,
+            "ld_pct": 31.512,
+            "gb_pct": 35.639,
+            "fb_pct": 29.038,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.003,
+            "run_opportunity_index": 0.539,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.947
+          },
+          "sample_sizes": {
+            "season_pa": 2040,
+            "last_30_pa": 115,
+            "last_7_pa": 16
+          }
+        },
+        {
+          "name": "Riley Greene",
+          "position": "LF",
+          "batting_order": 4,
+          "blended_metrics": {
+            "avg": 0.382,
+            "obp": 0.291,
+            "slg": 0.692,
+            "iso": 0.311,
+            "woba": 0.33,
+            "babip": 0.331,
+            "bb_pct": 6.47,
+            "k_pct": 30.447,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 43.459,
+            "contact_pct": 76.464,
+            "ld_pct": 23.536,
+            "gb_pct": 36.431,
+            "fb_pct": 35.727,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 3.768,
+            "run_opportunity_index": 0.492,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.914
+          },
+          "sample_sizes": {
+            "season_pa": 2966,
+            "last_30_pa": 416,
+            "last_7_pa": 75
+          }
+        },
+        {
+          "name": "Spencer Torkelson",
+          "position": "1B",
+          "batting_order": 5,
+          "blended_metrics": {
+            "avg": 0.36,
+            "obp": 0.315,
+            "slg": 0.624,
+            "iso": 0.265,
+            "woba": 0.336,
+            "babip": 0.314,
+            "bb_pct": 11.056,
+            "k_pct": 27.33,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 44.864,
+            "contact_pct": 74.516,
+            "ld_pct": 28.185,
+            "gb_pct": 23.509,
+            "fb_pct": 39.077,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 2.302,
+            "run_opportunity_index": 0.512,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.878
+          },
+          "sample_sizes": {
+            "season_pa": 2912,
+            "last_30_pa": 420,
+            "last_7_pa": 96
+          }
+        },
+        {
+          "name": "Zach McKinstry",
+          "position": "3B",
+          "batting_order": 6,
+          "blended_metrics": {
+            "avg": 0.287,
+            "obp": 0.27,
+            "slg": 0.474,
+            "iso": 0.187,
+            "woba": 0.278,
+            "babip": 0.265,
+            "bb_pct": 9.713,
+            "k_pct": 25.774,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 26.858,
+            "contact_pct": 76.617,
+            "ld_pct": 21.719,
+            "gb_pct": 45.457,
+            "fb_pct": 28.102,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 2.707,
+            "run_opportunity_index": 0.398,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.9
+          },
+          "sample_sizes": {
+            "season_pa": 2273,
+            "last_30_pa": 226,
+            "last_7_pa": 82
+          }
+        },
+        {
+          "name": "Dillon Dingler",
+          "position": "C",
+          "batting_order": 7,
+          "blended_metrics": {
+            "avg": 0.364,
+            "obp": 0.292,
+            "slg": 0.593,
+            "iso": 0.23,
+            "woba": 0.306,
+            "babip": 0.331,
+            "bb_pct": 7.722,
+            "k_pct": 26.48,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 42.544,
+            "contact_pct": 75.363,
+            "ld_pct": 29.24,
+            "gb_pct": 39.023,
+            "fb_pct": 23.884,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 2.394,
+            "run_opportunity_index": 0.465,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.883
+          },
+          "sample_sizes": {
+            "season_pa": 2020,
+            "last_30_pa": 347,
+            "last_7_pa": 93
+          }
+        },
+        {
+          "name": "Parker Meadows",
+          "position": "CF",
+          "batting_order": 8,
+          "blended_metrics": {
+            "avg": 0.312,
+            "obp": 0.284,
+            "slg": 0.438,
+            "iso": 0.126,
+            "woba": 0.27,
+            "babip": 0.296,
+            "bb_pct": 8.959,
+            "k_pct": 25.702,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 27.466,
+            "contact_pct": 76.746,
+            "ld_pct": 25.191,
+            "gb_pct": 44.279,
+            "fb_pct": 21.803,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.269,
+            "run_opportunity_index": 0.408,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.906
+          },
+          "sample_sizes": {
+            "season_pa": 946,
+            "last_30_pa": 383,
+            "last_7_pa": 88
+          }
+        },
+        {
+          "name": "Javier B\u00e1ez",
+          "position": "SS",
+          "batting_order": 9,
+          "blended_metrics": {
+            "avg": 0.345,
+            "obp": 0.281,
+            "slg": 0.509,
+            "iso": 0.164,
+            "woba": 0.303,
+            "babip": 0.326,
+            "bb_pct": 2.716,
+            "k_pct": 19.482,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 38.505,
+            "contact_pct": 72.419,
+            "ld_pct": 21.084,
+            "gb_pct": 46.763,
+            "fb_pct": 22.371,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.493,
+            "run_opportunity_index": 0.424,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.969
+          },
+          "sample_sizes": {
+            "season_pa": 1743,
+            "last_30_pa": 198,
+            "last_7_pa": 64
+          }
+        }
+      ],
+      "away_pitcher": {
+        "name": "Logan Gilbert",
+        "wins": "6",
+        "losses": "6",
+        "era": "3.44",
+        "blended_metrics": {
+          "k_pct": 29.432,
+          "bb_pct": 5.536,
+          "whip": 0.766,
+          "xfip": 3.003,
+          "era": 3.153,
+          "lob_pct": 50.0,
+          "gb_pct": 35.762,
+          "fb_pct": 32.013,
+          "hr_fb": 21.67,
+          "babip_allowed": 0.277,
+          "hard_pct_allowed": 39.967,
+          "woba_vs_lhh": 0.281,
+          "woba_vs_rhh": 0.319,
+          "pitcher_opponent_factor": 0.893
+        },
+        "sample_sizes": {
+          "season_bf": 2399,
+          "last_30_bf": 350,
+          "last_7_bf": 0
+        }
+      },
+      "home_pitcher": {
+        "name": "Jack Flaherty",
+        "wins": "8",
+        "losses": "15",
+        "era": "4.64",
+        "blended_metrics": {
+          "k_pct": 27.303,
+          "bb_pct": 8.715,
+          "whip": 0.855,
+          "xfip": 3.274,
+          "era": 3.438,
+          "lob_pct": 50.0,
+          "gb_pct": 40.639,
+          "fb_pct": 27.771,
+          "hr_fb": 12.81,
+          "babip_allowed": 0.3,
+          "hard_pct_allowed": 43.664,
+          "woba_vs_lhh": 0.33,
+          "woba_vs_rhh": 0.173,
+          "pitcher_opponent_factor": 0.911
+        },
+        "sample_sizes": {
+          "season_bf": 3127,
+          "last_30_bf": 351,
+          "last_7_bf": 74
+        }
+      },
+      "game_time": "2025-10-07T20:08:00Z",
+      "weather_ballpark": {
+        "stadium": {
+          "name": "Comerica Park",
+          "city": "Detroit",
+          "run_factor": 96,
+          "elevation": 585,
+          "surface": "grass",
+          "orientation": 150
+        },
+        "weather": {
+          "temperature": 59.27,
+          "feels_like": 58.8,
+          "humidity": 83,
+          "pressure": 1017,
+          "wind_speed": 8.79,
+          "wind_direction": 10,
+          "conditions": "Rain",
+          "description": "light rain",
+          "visibility": 10.0,
+          "timestamp": "2025-10-07T16:00:14.816687",
+          "source": "openweathermap_api"
+        },
+        "temperature": 59.27,
+        "wind_speed": 8.79,
+        "wind_direction": 10,
+        "humidity": 83,
+        "pressure": 1017,
+        "park_run_factor": 0.96,
+        "total_run_multiplier": 0.959
+      }
+    },
+    "813061": {
+      "away_team": "Toronto Blue Jays",
+      "home_team": "New York Yankees",
+      "away_lineup": [
+        {
+          "name": "George Springer",
+          "position": "DH",
+          "batting_order": 1,
+          "blended_metrics": {
+            "avg": 0.391,
+            "obp": 0.382,
+            "slg": 0.751,
+            "iso": 0.36,
+            "woba": 0.426,
+            "babip": 0.331,
+            "bb_pct": 12.364,
+            "k_pct": 17.303,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 50.293,
+            "contact_pct": 79.714,
+            "ld_pct": 26.607,
+            "gb_pct": 38.812,
+            "fb_pct": 27.58,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.17,
+            "run_opportunity_index": 0.669,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.094
+          },
+          "sample_sizes": {
+            "season_pa": 2511,
+            "last_30_pa": 391,
+            "last_7_pa": 32
+          }
+        },
+        {
+          "name": "Davis Schneider",
+          "position": "LF",
+          "batting_order": 2,
+          "blended_metrics": {
+            "avg": 0.419,
+            "obp": 0.385,
+            "slg": 0.65,
+            "iso": 0.231,
+            "woba": 0.367,
+            "babip": 0.373,
+            "bb_pct": 19.102,
+            "k_pct": 27.88,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 47.414,
+            "contact_pct": 68.071,
+            "ld_pct": 24.931,
+            "gb_pct": 32.034,
+            "fb_pct": 31.759,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 2.069,
+            "run_opportunity_index": 0.635,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.98
+          },
+          "sample_sizes": {
+            "season_pa": 1168,
+            "last_30_pa": 235,
+            "last_7_pa": 19
+          }
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Alejandro Kirk",
+          "position": "C",
+          "batting_order": 4,
+          "blended_metrics": {
+            "avg": 0.305,
+            "obp": 0.312,
+            "slg": 0.576,
+            "iso": 0.271,
+            "woba": 0.349,
+            "babip": 0.242,
+            "bb_pct": 7.324,
+            "k_pct": 11.272,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 51.024,
+            "contact_pct": 86.054,
+            "ld_pct": 24.184,
+            "gb_pct": 45.52,
+            "fb_pct": 25.044,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 3.319,
+            "run_opportunity_index": 0.492,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.048
+          },
+          "sample_sizes": {
+            "season_pa": 2133,
+            "last_30_pa": 300,
+            "last_7_pa": 32
+          }
+        },
+        {
+          "name": "Daulton Varsho",
+          "position": "CF",
+          "batting_order": 5,
+          "blended_metrics": {
+            "avg": 0.417,
+            "obp": 0.347,
+            "slg": 0.945,
+            "iso": 0.529,
+            "woba": 0.441,
+            "babip": 0.338,
+            "bb_pct": 5.756,
+            "k_pct": 23.591,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 44.07,
+            "contact_pct": 77.731,
+            "ld_pct": 21.099,
+            "gb_pct": 29.07,
+            "fb_pct": 41.208,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 6.419,
+            "run_opportunity_index": 0.675,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.925
+          },
+          "sample_sizes": {
+            "season_pa": 1152,
+            "last_30_pa": 238,
+            "last_7_pa": 31
+          }
+        },
+        {
+          "name": "Ernie Clement",
+          "position": "3B",
+          "batting_order": 6,
+          "blended_metrics": {
+            "avg": 0.357,
+            "obp": 0.324,
+            "slg": 0.55,
+            "iso": 0.193,
+            "woba": 0.35,
+            "babip": 0.335,
+            "bb_pct": 4.328,
+            "k_pct": 8.423,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 22.579,
+            "contact_pct": 86.421,
+            "ld_pct": 27.819,
+            "gb_pct": 31.537,
+            "fb_pct": 30.676,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 0.762,
+            "run_opportunity_index": 0.502,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.787
+          },
+          "sample_sizes": {
+            "season_pa": 2008,
+            "last_30_pa": 262,
+            "last_7_pa": 20
+          }
+        },
+        {
+          "name": "Anthony Santander",
+          "position": "RF",
+          "batting_order": 7,
+          "blended_metrics": {
+            "avg": 0.327,
+            "obp": 0.268,
+            "slg": 0.43,
+            "iso": 0.103,
+            "woba": 0.263,
+            "babip": 0.309,
+            "bb_pct": 8.863,
+            "k_pct": 33.053,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 53.571,
+            "contact_pct": 77.667,
+            "ld_pct": 30.357,
+            "gb_pct": 31.071,
+            "fb_pct": 25.714,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.071,
+            "run_opportunity_index": 0.383,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.805
+          },
+          "sample_sizes": {
+            "season_pa": 1172,
+            "last_30_pa": 80,
+            "last_7_pa": 18
+          }
+        },
+        {
+          "name": "Isiah Kiner-Falefa",
+          "position": "2B",
+          "batting_order": 8,
+          "blended_metrics": {
+            "avg": 0.299,
+            "obp": 0.236,
+            "slg": 0.398,
+            "iso": 0.099,
+            "woba": 0.246,
+            "babip": 0.287,
+            "bb_pct": 2.266,
+            "k_pct": 19.878,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 24.684,
+            "contact_pct": 86.811,
+            "ld_pct": 21.978,
+            "gb_pct": 59.373,
+            "fb_pct": 12.263,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 0.307,
+            "run_opportunity_index": 0.33,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.033
+          },
+          "sample_sizes": {
+            "season_pa": 1795,
+            "last_30_pa": 96,
+            "last_7_pa": 19
+          }
+        },
+        {
+          "name": "Andr\u00e9s Gim\u00e9nez",
+          "position": "SS",
+          "batting_order": 9,
+          "blended_metrics": {
+            "avg": 0.299,
+            "obp": 0.279,
+            "slg": 0.454,
+            "iso": 0.156,
+            "woba": 0.291,
+            "babip": 0.285,
+            "bb_pct": 6.715,
+            "k_pct": 17.367,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 29.229,
+            "contact_pct": 78.247,
+            "ld_pct": 25.262,
+            "gb_pct": 44.818,
+            "fb_pct": 24.576,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 1.574,
+            "run_opportunity_index": 0.406,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.198
+          },
+          "sample_sizes": {
+            "season_pa": 1642,
+            "last_30_pa": 238,
+            "last_7_pa": 22
+          }
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trent Grisham",
+          "position": "CF",
+          "batting_order": 1,
+          "blended_metrics": {
+            "avg": 0.315,
+            "obp": 0.314,
+            "slg": 0.614,
+            "iso": 0.299,
+            "woba": 0.33,
+            "babip": 0.25,
+            "bb_pct": 14.449,
+            "k_pct": 28.216,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 47.153,
+            "contact_pct": 76.122,
+            "ld_pct": 17.793,
+            "gb_pct": 39.895,
+            "fb_pct": 31.869,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.62,
+            "run_opportunity_index": 0.507,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.188
+          },
+          "sample_sizes": {
+            "season_pa": 2644,
+            "last_30_pa": 414,
+            "last_7_pa": 85
+          }
+        },
+        {
+          "name": "Aaron Judge",
+          "position": "RF",
+          "batting_order": 2,
+          "blended_metrics": {
+            "avg": 0.513,
+            "obp": 0.44,
+            "slg": 0.987,
+            "iso": 0.474,
+            "woba": 0.482,
+            "babip": 0.437,
+            "bb_pct": 14.534,
+            "k_pct": 22.744,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 57.258,
+            "contact_pct": 70.227,
+            "ld_pct": 22.348,
+            "gb_pct": 37.242,
+            "fb_pct": 36.3,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 6.113,
+            "run_opportunity_index": 0.874,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.016
+          },
+          "sample_sizes": {
+            "season_pa": 2891,
+            "last_30_pa": 426,
+            "last_7_pa": 78
+          }
+        },
+        {
+          "name": "Cody Bellinger",
+          "position": "LF",
+          "batting_order": 3,
+          "blended_metrics": {
+            "avg": 0.325,
+            "obp": 0.32,
+            "slg": 0.557,
+            "iso": 0.232,
+            "woba": 0.336,
+            "babip": 0.285,
+            "bb_pct": 8.804,
+            "k_pct": 14.898,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 33.185,
+            "contact_pct": 83.106,
+            "ld_pct": 23.422,
+            "gb_pct": 35.066,
+            "fb_pct": 33.458,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 2.531,
+            "run_opportunity_index": 0.498,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.977
+          },
+          "sample_sizes": {
+            "season_pa": 2852,
+            "last_30_pa": 428,
+            "last_7_pa": 73
+          }
+        },
+        {
+          "name": "Ben Rice",
+          "position": "1B",
+          "batting_order": 4,
+          "blended_metrics": {
+            "avg": 0.368,
+            "obp": 0.33,
+            "slg": 0.734,
+            "iso": 0.366,
+            "woba": 0.383,
+            "babip": 0.311,
+            "bb_pct": 8.125,
+            "k_pct": 20.841,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 57.631,
+            "contact_pct": 77.953,
+            "ld_pct": 26.869,
+            "gb_pct": 33.79,
+            "fb_pct": 32.822,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 4.406,
+            "run_opportunity_index": 0.572,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.953
+          },
+          "sample_sizes": {
+            "season_pa": 2358,
+            "last_30_pa": 337,
+            "last_7_pa": 61
+          }
+        },
+        {
+          "name": "Giancarlo Stanton",
+          "position": "DH",
+          "batting_order": 5,
+          "blended_metrics": {
+            "avg": 0.395,
+            "obp": 0.295,
+            "slg": 0.837,
+            "iso": 0.442,
+            "woba": 0.343,
+            "babip": 0.314,
+            "bb_pct": 8.218,
+            "k_pct": 34.649,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 58.003,
+            "contact_pct": 67.072,
+            "ld_pct": 21.078,
+            "gb_pct": 41.693,
+            "fb_pct": 28.215,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 7.891,
+            "run_opportunity_index": 0.542,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.941
+          },
+          "sample_sizes": {
+            "season_pa": 1300,
+            "last_30_pa": 393,
+            "last_7_pa": 86
+          }
+        },
+        {
+          "name": "Jazz Chisholm Jr.",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Ryan McMahon",
+          "position": "3B",
+          "batting_order": 7,
+          "blended_metrics": {
+            "avg": 0.346,
+            "obp": 0.287,
+            "slg": 0.537,
+            "iso": 0.191,
+            "woba": 0.286,
+            "babip": 0.316,
+            "bb_pct": 10.352,
+            "k_pct": 31.881,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 49.873,
+            "contact_pct": 70.735,
+            "ld_pct": 25.668,
+            "gb_pct": 48.98,
+            "fb_pct": 21.356,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 3.054,
+            "run_opportunity_index": 0.441,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.853
+          },
+          "sample_sizes": {
+            "season_pa": 2766,
+            "last_30_pa": 269,
+            "last_7_pa": 56
+          }
+        },
+        {
+          "name": "Anthony Volpe",
+          "position": "SS",
+          "batting_order": 8,
+          "blended_metrics": {
+            "avg": 0.375,
+            "obp": 0.269,
+            "slg": 0.639,
+            "iso": 0.264,
+            "woba": 0.293,
+            "babip": 0.342,
+            "bb_pct": 5.176,
+            "k_pct": 32.367,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 41.161,
+            "contact_pct": 75.601,
+            "ld_pct": 20.089,
+            "gb_pct": 40.693,
+            "fb_pct": 31.17,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 3.492,
+            "run_opportunity_index": 0.441,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 0.923
+          },
+          "sample_sizes": {
+            "season_pa": 2675,
+            "last_30_pa": 299,
+            "last_7_pa": 80
+          }
+        },
+        {
+          "name": "Austin Wells",
+          "position": "C",
+          "batting_order": 9,
+          "blended_metrics": {
+            "avg": 0.367,
+            "obp": 0.277,
+            "slg": 0.616,
+            "iso": 0.249,
+            "woba": 0.313,
+            "babip": 0.327,
+            "bb_pct": 6.395,
+            "k_pct": 28.929,
+            "sb": 3.0,
+            "cs": 1.0,
+            "wrc_plus": 100.0,
+            "bsr": 0.0,
+            "hard_pct": 44.824,
+            "contact_pct": 77.202,
+            "ld_pct": 23.148,
+            "gb_pct": 39.229,
+            "fb_pct": 25.586,
+            "hr_fb": 12.5,
+            "pull_pct": 38.0,
+            "cent_pct": 35.0,
+            "oppo_pct": 27.0,
+            "barrel_pct": 3.549,
+            "run_opportunity_index": 0.448,
+            "speed_advancement_score": 0.4,
+            "lineup_support_factor": 1.178
+          },
+          "sample_sizes": {
+            "season_pa": 2031,
+            "last_30_pa": 258,
+            "last_7_pa": 57
+          }
+        }
+      ],
+      "away_pitcher": {
+        "name": "Shane Bieber",
+        "wins": "4",
+        "losses": "2",
+        "era": "3.57",
+        "blended_metrics": {
+          "k_pct": 21.187,
+          "bb_pct": 4.708,
+          "whip": 0.803,
+          "xfip": 3.403,
+          "era": 3.574,
+          "lob_pct": 50.0,
+          "gb_pct": 47.817,
+          "fb_pct": 27.005,
+          "hr_fb": 27.482,
+          "babip_allowed": 0.25,
+          "hard_pct_allowed": 47.689,
+          "woba_vs_lhh": 0.209,
+          "woba_vs_rhh": 0.41,
+          "pitcher_opponent_factor": 0.901
+        },
+        "sample_sizes": {
+          "season_bf": 645,
+          "last_30_bf": 368,
+          "last_7_bf": 0
+        }
+      },
+      "home_pitcher": {
+        "name": "Carlos Rod\u00f3n",
+        "wins": "18",
+        "losses": "9",
+        "era": "3.09",
+        "blended_metrics": {
+          "k_pct": 24.832,
+          "bb_pct": 8.577,
+          "whip": 0.766,
+          "xfip": 3.4,
+          "era": 3.57,
+          "lob_pct": 50.0,
+          "gb_pct": 41.87,
+          "fb_pct": 27.086,
+          "hr_fb": 15.888,
+          "babip_allowed": 0.249,
+          "hard_pct_allowed": 39.711,
+          "woba_vs_lhh": 0.312,
+          "woba_vs_rhh": 0.274,
+          "pitcher_opponent_factor": 0.893
+        },
+        "sample_sizes": {
+          "season_bf": 3380,
+          "last_30_bf": 466,
+          "last_7_bf": 91
+        }
+      },
+      "game_time": "2025-10-08T00:08:00Z",
+      "weather_ballpark": {
+        "stadium": {
+          "name": "Yankee Stadium",
+          "city": "Bronx",
+          "run_factor": 105,
+          "elevation": 55,
+          "surface": "grass",
+          "orientation": 75
+        },
+        "weather": {
+          "temperature": 75.02,
+          "feels_like": 75.27,
+          "humidity": 65,
+          "pressure": 1017,
+          "wind_speed": 13.38,
+          "wind_direction": 176,
+          "conditions": "Clouds",
+          "description": "overcast clouds",
+          "visibility": 10.0,
+          "timestamp": "2025-10-07T16:00:18.187842",
+          "source": "openweathermap_api"
+        },
+        "temperature": 75.02,
+        "wind_speed": 13.38,
+        "wind_direction": 176,
+        "humidity": 65,
+        "pressure": 1017,
+        "park_run_factor": 1.05,
+        "total_run_multiplier": 1.004
+      }
+    }
+  },
+  "mlb_stats": {
+    "813056": {
+      "away_team": "Seattle Mariners",
+      "home_team": "Detroit Tigers",
+      "away_lineup": [
+        {
+          "name": "Randy Arozarena",
+          "position": "LF",
+          "batting_order": 1
+        },
+        {
+          "name": "Cal Raleigh",
+          "position": "C",
+          "batting_order": 2
+        },
+        {
+          "name": "Julio Rodr\u00edguez",
+          "position": "CF",
+          "batting_order": 3
+        },
+        {
+          "name": "Jorge Polanco",
+          "position": "2B",
+          "batting_order": 4
+        },
+        {
+          "name": "Josh Naylor",
+          "position": "1B",
+          "batting_order": 5
+        },
+        {
+          "name": "Eugenio Su\u00e1rez",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "Dominic Canzone",
+          "position": "DH",
+          "batting_order": 7
+        },
+        {
+          "name": "Victor Robles",
+          "position": "RF",
+          "batting_order": 8
+        },
+        {
+          "name": "J.P. Crawford",
+          "position": "SS",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Kerry Carpenter",
+          "position": "RF",
+          "batting_order": 1
+        },
+        {
+          "name": "Gleyber Torres",
+          "position": "2B",
+          "batting_order": 2
+        },
+        {
+          "name": "Colt Keith",
+          "position": "DH",
+          "batting_order": 3
+        },
+        {
+          "name": "Riley Greene",
+          "position": "LF",
+          "batting_order": 4
+        },
+        {
+          "name": "Spencer Torkelson",
+          "position": "1B",
+          "batting_order": 5
+        },
+        {
+          "name": "Zach McKinstry",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "Dillon Dingler",
+          "position": "C",
+          "batting_order": 7
+        },
+        {
+          "name": "Parker Meadows",
+          "position": "CF",
+          "batting_order": 8
+        },
+        {
+          "name": "Javier B\u00e1ez",
+          "position": "SS",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Logan Gilbert",
+        "wins": "6",
+        "losses": "6",
+        "era": "3.44"
+      },
+      "home_pitcher": {
+        "name": "Jack Flaherty",
+        "wins": "8",
+        "losses": "15",
+        "era": "4.64"
+      },
+      "game_time": "2025-10-07T20:08:00Z"
+    },
+    "813061": {
+      "away_team": "Toronto Blue Jays",
+      "home_team": "New York Yankees",
+      "away_lineup": [
+        {
+          "name": "George Springer",
+          "position": "DH",
+          "batting_order": 1
+        },
+        {
+          "name": "Davis Schneider",
+          "position": "LF",
+          "batting_order": 2
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "position": "1B",
+          "batting_order": 3
+        },
+        {
+          "name": "Alejandro Kirk",
+          "position": "C",
+          "batting_order": 4
+        },
+        {
+          "name": "Daulton Varsho",
+          "position": "CF",
+          "batting_order": 5
+        },
+        {
+          "name": "Ernie Clement",
+          "position": "3B",
+          "batting_order": 6
+        },
+        {
+          "name": "Anthony Santander",
+          "position": "RF",
+          "batting_order": 7
+        },
+        {
+          "name": "Isiah Kiner-Falefa",
+          "position": "2B",
+          "batting_order": 8
+        },
+        {
+          "name": "Andr\u00e9s Gim\u00e9nez",
+          "position": "SS",
+          "batting_order": 9
+        }
+      ],
+      "home_lineup": [
+        {
+          "name": "Trent Grisham",
+          "position": "CF",
+          "batting_order": 1
+        },
+        {
+          "name": "Aaron Judge",
+          "position": "RF",
+          "batting_order": 2
+        },
+        {
+          "name": "Cody Bellinger",
+          "position": "LF",
+          "batting_order": 3
+        },
+        {
+          "name": "Ben Rice",
+          "position": "1B",
+          "batting_order": 4
+        },
+        {
+          "name": "Giancarlo Stanton",
+          "position": "DH",
+          "batting_order": 5
+        },
+        {
+          "name": "Jazz Chisholm Jr.",
+          "position": "2B",
+          "batting_order": 6
+        },
+        {
+          "name": "Ryan McMahon",
+          "position": "3B",
+          "batting_order": 7
+        },
+        {
+          "name": "Anthony Volpe",
+          "position": "SS",
+          "batting_order": 8
+        },
+        {
+          "name": "Austin Wells",
+          "position": "C",
+          "batting_order": 9
+        }
+      ],
+      "away_pitcher": {
+        "name": "Shane Bieber",
+        "wins": "4",
+        "losses": "2",
+        "era": "3.57"
+      },
+      "home_pitcher": {
+        "name": "Carlos Rod\u00f3n",
+        "wins": "18",
+        "losses": "9",
+        "era": "3.09"
+      },
+      "game_time": "2025-10-08T00:08:00Z"
+    }
+  },
+  "espn": {},
+  "total_players": 36,
+  "final_integration_info": {
+    "date_final_enrichment": "2025-10-07T16:00:18.292141",
+    "data_sources": [
+      "lineups",
+      "run_metrics",
+      "weather_ballpark"
+    ],
+    "ready_for_run_prediction": true,
+    "total_games": 2
+  }
+}

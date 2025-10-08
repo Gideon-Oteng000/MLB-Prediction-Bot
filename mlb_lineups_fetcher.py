@@ -37,10 +37,19 @@ class MLBLineupFetcher:
             games = data.get('events', [])
             
             for game in games:
-                game_id = game.get('id')
+                # Check game status - skip if completed
                 competition = game.get('competitions', [{}])[0]
+                status = competition.get('status', {})
+                game_state = status.get('type', {}).get('state', '')
+
+                # Skip completed games (state = 'post')
+                if game_state == 'post':
+                    print(f"Skipping completed game: {game.get('shortName', 'Unknown')}")
+                    continue
+
+                game_id = game.get('id')
                 competitors = competition.get('competitors', [])
-                
+
                 if len(competitors) >= 2:
                     away_team_data = competitors[1]
                     home_team_data = competitors[0]
@@ -155,6 +164,16 @@ class MLBLineupFetcher:
             games = data.get('dates', [{}])[0].get('games', []) if data.get('dates') else []
             
             for game in games:
+                # Check game status - skip if completed
+                game_status = game.get('status', {}).get('abstractGameState', '')
+
+                # Skip completed games (Final, Game Over, etc.)
+                if game_status in ['Final', 'Game Over']:
+                    away_team_name = game.get('teams', {}).get('away', {}).get('team', {}).get('name', 'Unknown')
+                    home_team_name = game.get('teams', {}).get('home', {}).get('team', {}).get('name', 'Unknown')
+                    print(f"Skipping completed game: {away_team_name} @ {home_team_name}")
+                    continue
+
                 game_pk = game.get('gamePk')
                 away_team = game.get('teams', {}).get('away', {}).get('team', {}).get('name')
                 home_team = game.get('teams', {}).get('home', {}).get('team', {}).get('name')
